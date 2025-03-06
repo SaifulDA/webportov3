@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { Home, Briefcase, Image, Sun, Moon, Menu, MessageSquare } from "lucide-react";
 import { useTheme } from "../../components/common/ThemeContext"; // Import useTheme
+import profileImage from "/src/assets/images/profile.svg";
+
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme(); // Ambil tema dari Context
@@ -20,7 +22,7 @@ const Navbar = () => {
             {/* Foto Profil */}
             <div className="h-12 w-12 rounded-full overflow-hidden">
               <img
-                src="/assets/images/profile.svg"
+                src={profileImage}
                 alt="Profile"
                 className="h-full w-full object-cover"
                 onError={(e) => {
@@ -31,7 +33,7 @@ const Navbar = () => {
 
             {/* Nama */}
             <h1 className="text-xl font-bold text-gray-800 dark:text-white flex items-center space-x-2">
-              <img src="src/assets/images/profile.svg" alt="Logo" className="w-8 h-8" />
+              <img src={profileImage} alt="Logo" className="w-8 h-8" />
               <span>SAIFUDDAULAH ALFARABI</span>
             </h1>
           </div>
