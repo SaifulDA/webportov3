@@ -1,37 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { Menu, MessageSquare, Sun, Moon, Image } from "lucide-react";
+import { useTheme } from "../../components/common/ThemeContext"; // Import useTheme
 
 const Navbar = () => {
+  const { theme, toggleTheme } = useTheme(); // Ambil tema dari Context
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   // Toggle menu mobile
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Toggle tema (Light / Dark) menggunakan Tailwind
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
-
-  // Efek untuk memastikan tema tersimpan di localStorage
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
-
   return (
-    <nav className="w-full py-4 px-6 backdrop-blur-md bg-white/30 dark:bg-gray-900/70 border-b border-white/20 dark:border-gray-700 shadow-sm fixed top-0 left-0 z-50">
+    <nav className="w-full py-4 px-6 backdrop-blur-md bg-white/30 dark:bg-black border-b border-white/20 dark:border-gray-700 shadow-sm fixed top-0 left-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo & Nama */}
         <div className="flex items-center space-x-3">
@@ -116,4 +96,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-  
