@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "Cabin Sketch";
+  src: url("../src/assets/font/CabinSketch-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: bold;
+}
+
+.font-cabin-sketch {
+    font-family: "Cabin Sketch", cursive;
+    font-size: 30px;
+  }
