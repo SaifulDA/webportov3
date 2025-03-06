@@ -2,6 +2,7 @@
 import React from "react";
 import DownloadButton from "../../components/common/Button";
 import { useTheme } from "../../components/common/ThemeContext"; // Import useTheme
+import profileImage from "/src/assets/images/profile.svg";
 
 const Hero = () => {
   const { theme } = useTheme(); // Destructure theme dari useTheme
@@ -29,7 +30,7 @@ const Hero = () => {
         {/* Gambar Profile */}
         <div className="relative flex justify-center">
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-black overflow-hidden shadow-lg">
-            <img src="src/assets/images/profile.svg" alt="Profile" className="w-full h-full object-cover" />
+            <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
           </div>
         </div>
       </div>

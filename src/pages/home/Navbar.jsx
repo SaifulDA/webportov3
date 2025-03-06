@@ -33,7 +33,6 @@ const Navbar = () => {
 
             {/* Nama */}
             <h1 className="text-xl font-bold text-gray-800 dark:text-white flex items-center space-x-2">
-              <img src={profileImage} alt="Logo" className="w-8 h-8" />
               <span>SAIFUDDAULAH ALFARABI</span>
             </h1>
           </div>
