@@ -9,7 +9,7 @@ const Hero = () => {
     <div
       className="flex flex-col items-center justify-center min-h-screen 
         bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 
-        dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 
+        dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 
         px-6 md:px-16 transition-colors duration-300 text-gray-900 dark:text-white"
     >
       {/* Hero Content */}
