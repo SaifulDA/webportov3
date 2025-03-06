@@ -78,7 +78,7 @@ const Navbar = () => {
       </nav>
 
       {/* Navbar Bawah (Mobile Only) */}
-      <footer className="fixed bottom-0 left-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-t border-gray-300 dark:border-gray-700 shadow-lg md:hidden flex justify-around py-3">
+      <footer className="fixed bottom-0 left-0 w-full bg-white/30 dark:bg-gray-900/90 backdrop-blur-md border-t border-gray-300 dark:border-gray-700/50 dark:backdrop-blur-md shadow-lg md:hidden flex justify-around py-3">
         {/* Home */}
         <a href="/" className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
           <Home className="w-6 h-6" />
