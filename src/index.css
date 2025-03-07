@@ -10,6 +10,28 @@
 }
 
 .font-cabin-sketch {
-    font-family: "Cabin Sketch", cursive;
-    font-size: 30px;
-  }
+  font-family: "Cabin Sketch", cursive;
+  font-size: 30px;
+}
+
+@font-face {
+  font-family: "Kreon";
+  src: url("../src/assets/font/Kreon-Regular.ttf") format("truetype");
+  font-weight: bold;
+  font-style: bold;
+}
+
+.font-kreon {
+  font-family: "Kreon", sans-serif;
+}
+
+@font-face {
+  font-family: "Kreon";
+  src: url("../src/assets/font/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+}

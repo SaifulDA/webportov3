@@ -32,7 +32,7 @@ const Navbar = () => {
             </div>
 
             {/* Nama */}
-            <h1 className="text-xl font-bold text-gray-800 dark:text-white flex items-center space-x-2">
+            <h1 className="text-xl font-bold font-kreon text-gray-800 dark:text-white flex items-center space-x-2">
               <span>SAIFUDDAULAH ALFARABI</span>
             </h1>
           </div>
