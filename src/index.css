@@ -23,6 +23,8 @@
 
 .font-kreon {
   font-family: "Kreon", sans-serif;
+  font-weight: bold;
+  font-style: bold;
 }
 
 @font-face {
