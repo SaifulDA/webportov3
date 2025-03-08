@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="text-center max-w-lg justify-center items-center">
           <p className="text-xl italic mb-3 font-italianno">Hello, I&apos;m</p>
           <h2 className="text-4xl font-kreon mb-2 border-b-2 border-gray-800 dark:border-white inline-block">Saiful Daulah Alfarabi</h2>
-           
+          
            {/* Efek Mengetik */}
            <div className="text-2xl my-6 font-kreon h-10">
            
