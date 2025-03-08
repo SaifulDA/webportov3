@@ -1,11 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import cv from "/src/assets/cv.pdf";
 
 const DownloadButton = () => {
   const handleDownload = () => {
-    const cvUrl = { cv }; // Sesuaikan dengan nama file CV
-    window.open(cvUrl, "_blank"); // Membuka file di tab baru
+    window.open("/cv.pdf", "_blank"); // Sesuaikan dengan nama file
   };
   return (
     <button
