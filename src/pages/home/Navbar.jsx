@@ -11,6 +11,20 @@ const Navbar = () => {
   // Toggle menu mobile
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Function untuk smooth scroll ke section tertentu
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const navbarHeight = document.querySelector("nav").offsetHeight; // Ambil tinggi navbar
+      const offsetTop = section.offsetTop - navbarHeight - 10; // Beri tambahan jarak 10px
+  
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <>
       {/* Navbar Atas (Desktop) */}
@@ -38,15 +52,15 @@ const Navbar = () => {
 
           {/* Menu Navigasi */}
           <div className="hidden md:flex space-x-8">
-            <a href="/profile" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+            <button onClick={() => scrollToSection("hero")} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               Profile
-            </a>
-            <a href="/about" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+            </button>
+            <button onClick={() => scrollToSection("about")} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               About
-            </a>
-            <a href="/skill" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-              Skill
-            </a>
+            </button>
+            <button onClick={() => scrollToSection("skills")} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+              Skills
+            </button>
             <a href="/project" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               Project
             </a>
