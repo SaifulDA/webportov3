@@ -4,7 +4,6 @@ import { Home, Briefcase, Image, Sun, Moon, Menu, MessageSquare } from "lucide-r
 import { useTheme } from "../../components/common/ThemeContext"; // Import useTheme
 import profileImage from "/src/assets/images/profile.svg";
 
-
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme(); // Ambil tema dari Context
   const [isOpen, setIsOpen] = useState(false);
