@@ -34,6 +34,13 @@
   font-style: normal;
 }
 
-body {
+html, body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: "poppins", sans-serif;
+}
+
+main {
+  flex: 1; /* Agar konten mendorong footer ke bawah */
 }

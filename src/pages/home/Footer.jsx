@@ -6,7 +6,7 @@ import { useTheme } from "../../components/common/ThemeContext";
 const Footer = () => {
   const { theme } = useTheme();
   return (
-    <footer className="bg-white py-6 text-center border-t-2 border-black dark:bg-black dark:border-white/20 dark:text-white dark:border-opacity-20">
+    <footer className="bg-white py-6 text-center border-t-2 border-black dark:bg-black dark:border-white/20 dark:text-white dark:border-opacity-20 pb-15">
       {/* Ikon Sosial Media */}
       <div className="flex justify-center space-x-6 mb-2">
         <Mail className="w-8 h-8" />
