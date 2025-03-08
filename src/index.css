@@ -1,12 +1,11 @@
 @import "tailwindcss";
 
+/* Custom CSS Font */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {
   font-family: "Cabin Sketch";
   src: url("../src/assets/font/CabinSketch-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: bold;
 }
 
 .font-cabin-sketch {
@@ -17,22 +16,23 @@
 @font-face {
   font-family: "Kreon";
   src: url("../src/assets/font/Kreon-Regular.ttf") format("truetype");
-  font-weight: bold;
-  font-style: bold;
 }
 
 .font-kreon {
   font-family: "Kreon", sans-serif;
-  font-weight: bold;
-  font-style: bold;
 }
 
 @font-face {
-  font-family: "Kreon";
-  src: url("../src/assets/font/Poppins-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+  font-family: "Italianno";
+  src: url("../src/assets/font/Italianno-Regular.ttf") format("truetype");
 }
+
+.font-italianno {
+  font-family: "Italianno", cursive;
+  font-size: 40px;
+}
+
+/* Custom CSS body */
 
 html, body {
   min-height: 100vh;
