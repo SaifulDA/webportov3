@@ -22,21 +22,28 @@ const ProjectsSection = () => {
   // Create unique class names for the navigation buttons
   const navigationPrevClass = "swiper-button-prev-custom";
   const navigationNextClass = "swiper-button-next-custom";
-  
+
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
+    <section id="project" className="py-12 px-6 md:px-16 bg-gray-200 dark:bg-gray-900">
       {/* Title with border line above and below */}
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white border-t border-b border-gray-300 py-4 text-center mb-8">
-          PROJECTS
-        </h2>
-        
-        {/* Category title */}
-        <div className="mb-8">
-          <h3 className="text-2xl font-medium text-gray-900 dark:text-white">Web Development</h3>
+      <div className="mx-auto px-4">
+        {/* Garis Atas */}
+        <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
+
+        {/* Teks SKILLS */}
+        <div className="text-center">
+          <h2 className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">Project</h2>
         </div>
-        
-        <div className="relative">
+
+        {/* Garis Bawah */}
+        <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
+
+        {/* Category title */}
+        <div className="mb-8 max-w-5xl mx-auto">
+          <h3 className="text-2xl font-medium text-gray-900 dark:text-white">All Project</h3>
+        </div>
+
+        <div className="max-w-5xl mx-auto">
           {/* Project cards */}
           <Swiper
             modules={[Navigation]}
@@ -50,29 +57,22 @@ const ProjectsSection = () => {
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="w-full"
+            className="w-full overflow-visible h-90"
           >
             {projects.map((project) => (
               <SwiperSlide key={project.id}>
-                <ProjectCard 
-                  title={project.title} 
-                  desc={project.desc} 
-                  image={project.image} 
-                />
+                <ProjectCard title={project.title} desc={project.desc} image={project.image} />
               </SwiperSlide>
             ))}
           </Swiper>
-          
+
           {/* Navigation buttons */}
           <div className="flex justify-center mt-8 gap-4">
-            <button 
-              className={`${navigationPrevClass} w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center focus:outline-none`}
-            >
+            <button className={`${navigationPrevClass} w-12 h-12 drop-shadow-lg shadow-lg rounded-full border border-gray-900 dark:border-white flex items-center justify-center focus:outline-none transition-transform duration-300 hover:scale-110`}>
               <NavigationButton direction="left" />
             </button>
-            <button 
-              className={`${navigationNextClass} w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center focus:outline-none`}
-            >
+
+            <button className={`${navigationNextClass} w-12 h-12 drop-shadow-lg shadow-lg rounded-full border border-gray-900 dark:border-white flex items-center justify-center focus:outline-none transition-transform duration-300 hover:scale-110`}>
               <NavigationButton direction="right" />
             </button>
           </div>
