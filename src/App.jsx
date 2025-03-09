@@ -1,22 +1,35 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import Navbar from "./pages/home/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
 import Hero from "./pages/home/Hero";
-import Footer from "./pages/home/Footer";
 import About from "./pages/home/About";
 import Skills from "./pages/home/Skills";
 import Project from "./pages/home/Project";
+import NotFound from "./pages/NotFound"; // Import halaman 404
+import Chat from "./pages/contact/Chat";
 
 const App = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Project/>  
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        {/* Layout untuk halaman utama */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={
+            <>
+              <Hero />
+              <About />
+              <Skills />
+              <Project />
+            </>
+          } />
+        </Route>
+
+        {/* Halaman 404 */}
+        <Route path="*" element={<NotFound />} />
+        <Route path="/chat" element={<Chat />} />
+      </Routes>
+    </Router>
   );
 };
 
