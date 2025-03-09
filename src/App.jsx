@@ -5,6 +5,7 @@ import Hero from "./pages/home/Hero";
 import Footer from "./pages/home/Footer";
 import About from "./pages/home/About";
 import Skills from "./pages/home/Skills";
+import Project from "./pages/home/Project";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Hero />
       <About />
       <Skills />
+      <Project/>  
       <Footer />
     </div>
   );
