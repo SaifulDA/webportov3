@@ -24,7 +24,7 @@ const Hero = () => {
 
           {/* Efek Mengetik */}
           <div className="text-2xl my-6 font-kreon h-10">
-            <Typewriter words={["IT Development", "Web Developer", "UI/UX Designer", "Cloud Engineer"]} loop={true} cursor cursorStyle="_" typeSpeed={80} deleteSpeed={50} delaySpeed={1500} />
+            <Typewriter words={["IT Development", "Web Developer", "UI/UX Designer", "Cloud Engineer"]} loop={true} cursor cursorStyle="|" typeSpeed={80} deleteSpeed={50} delaySpeed={1500} />
           </div>
 
           {/* Tombol di Tengah */}
