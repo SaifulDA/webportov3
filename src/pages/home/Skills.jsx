@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import closeButton from "../../components/common/closeButton"; // Import Komponen CloseButton
 import cloudComputing from "/src/assets/images/cc.png";
 import webDeveloper from "/src/assets/images/wd.png";
 import uiUx from "/src/assets/images/design.png";
+import CloseButton from "../../components/common/xButton";
 
 const skills = [
   {
@@ -78,7 +78,7 @@ const Skills = () => {
             <p className="mt-4 text-stone-950 dark:text-gray-300 text-sm">{selectedSkill.description}</p>
 
             {/* Gunakan CloseButton Component */}
-            <closeButton onClick={() => setSelectedSkill(null)} />
+            <CloseButton onClick={() => setSelectedSkill(null)} />
           </div>
         </div>
       )}
