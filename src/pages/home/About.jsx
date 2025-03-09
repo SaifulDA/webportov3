@@ -9,7 +9,7 @@ const About = () => {
         <hr className="border-t-2 border-gray-800 dark:border-white mb-4" />
 
         {/* Judul */}
-        <h2 className="text-3xl font-bold text-center mb-4">ABOUT ME</h2>
+        <h2 className="font-kreon text-3xl tracking-wider font-bold text-center mb-4">ABOUT ME</h2>
 
         {/* Garis Bawah */}
         <hr className="border-t-2 border-gray-800 dark:border-white mb-8" />
