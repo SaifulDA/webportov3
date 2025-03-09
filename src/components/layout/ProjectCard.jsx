@@ -3,7 +3,7 @@
 import React from "react";
 
 // eslint-disable-next-line react/prop-types
-const ProjectCard = ({ title, desc, image }) => {
+const Card = ({ title, desc, image }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
       {/* Image container without padding */}
@@ -23,4 +23,4 @@ const ProjectCard = ({ title, desc, image }) => {
   );
 };
 
-export default ProjectCard;
+export default Card;
