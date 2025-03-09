@@ -5,7 +5,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import ProjectCard from "../../components/layout/projectCard";
-import NavigationButton from "../../components/common/NavigationButton";
+import NavigationButton from "../../components/common/navigationButton";
 import cloudImage from "../../assets/images/cc.png"; // Ganti dengan path gambar proyek
 
 // Data Projects
