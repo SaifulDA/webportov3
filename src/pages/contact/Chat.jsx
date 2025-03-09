@@ -12,6 +12,8 @@ const ChatPage = () => {
     message: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false); // State untuk animasi loading
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -30,10 +32,12 @@ const ChatPage = () => {
       return;
     }
 
+    setIsLoading(true); // Aktifkan loading saat mulai mengirim
+
     const chatToken = import.meta.env.VITE_CHAT_TOKEN;
     const chatId = import.meta.env.VITE_CHAT_ID;
 
-    console.log(chatToken, chatId); // Pastikan sudah terbaca
+    console.log(chatToken, chatId); // Debug token dan ID chat
     const text = `📩 *Pesan Baru dari Website:*\n\n👤 Nama: ${name}\n📌 Subjek: ${subject}\n💬 Pesan: ${message}`;
 
     try {
@@ -47,13 +51,12 @@ const ChatPage = () => {
       if (result.ok) {
         Swal.fire({
           title: "Berhasil!",
-          text: "Pesan telah dikirim ke Telegram!",
+          text: "Pesan telah dikirim, terima kasih.",
           icon: "success",
           confirmButtonText: "OK",
         });
 
-        // Reset form setelah sukses kirim
-        setFormData({ name: "", subject: "", message: "" });
+        setFormData({ name: "", subject: "", message: "" }); // Reset form
       } else {
         Swal.fire({
           title: "Gagal!",
@@ -70,6 +73,8 @@ const ChatPage = () => {
         icon: "error",
         confirmButtonText: "OK",
       });
+    } finally {
+      setIsLoading(false); // Matikan loading setelah selesai
     }
   };
 
@@ -99,8 +104,24 @@ const ChatPage = () => {
               <input type="text" name="name" placeholder="Input Name" className="w-full p-2 border rounded" onChange={handleChange} value={formData.name} required />
               <input type="text" name="subject" placeholder="Input Subject" className="w-full p-2 border rounded" onChange={handleChange} value={formData.subject} required />
               <textarea name="message" placeholder="Input Message" className="w-full p-2 border rounded h-24" onChange={handleChange} value={formData.message} required />
-              <button type="submit" className="w-full bg-black text-white px-6 py-2 rounded-lg hover:scale-105 transition-transform">
-                Send Message
+
+              {/* Tombol dengan animasi loading */}
+              <button 
+                type="submit" 
+                className="w-full bg-black text-white px-6 py-2 rounded-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 0116 0H4z"></path>
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  "Send Message"
+                )}
               </button>
             </form>
           </div>
