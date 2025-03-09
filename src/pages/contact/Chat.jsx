@@ -30,12 +30,14 @@ const ChatPage = () => {
       return;
     }
 
-    const botToken = "7903020140:AAE0CPfIDPeyL4Ke-GyF3ULatKLiv-yLizs";
-    const chatId = "1553255732";
+    const chatToken = import.meta.env.VITE_CHAT_TOKEN;
+    const chatId = import.meta.env.VITE_CHAT_ID;
+
+    console.log(chatToken, chatId); // Pastikan sudah terbaca
     const text = `📩 *Pesan Baru dari Website:*\n\n👤 Nama: ${name}\n📌 Subjek: ${subject}\n💬 Pesan: ${message}`;
 
     try {
-      const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      const response = await fetch(`https://api.telegram.org/bot${chatToken}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chat_id: chatId, text }),
@@ -79,7 +81,12 @@ const ChatPage = () => {
           {/* Contact Information */}
           <div className="bg-blue-100 p-6 rounded-lg text-center md:text-left">
             <h2 className="text-lg font-bold mb-4">Contact Information</h2>
-            <p className="mb-2">📧 <a href="mailto:saifuddaulah24@gmail.com" className="text-blue-500">saifuddaulah24@gmail.com</a></p>
+            <p className="mb-2">
+              📧{" "}
+              <a href="mailto:saifuddaulah24@gmail.com" className="text-blue-500">
+                saifuldaulah24@gmail.com
+              </a>
+            </p>
             <p className="mb-2">📞 +62851 6361 4521</p>
             <p className="mb-2">📍 Jakarta, Indonesia</p>
             <p className="mt-4 font-semibold">Thank You :)</p>
@@ -89,36 +96,10 @@ const ChatPage = () => {
           <div className="p-6">
             <h2 className="text-lg font-bold mb-4 text-center md:text-left">Form Message</h2>
             <form onSubmit={sendMessage} className="space-y-3">
-              <input 
-                type="text" 
-                name="name" 
-                placeholder="Input Name" 
-                className="w-full p-2 border rounded" 
-                onChange={handleChange} 
-                value={formData.name} 
-                required 
-              />
-              <input 
-                type="text" 
-                name="subject" 
-                placeholder="Input Subject" 
-                className="w-full p-2 border rounded" 
-                onChange={handleChange} 
-                value={formData.subject} 
-                required 
-              />
-              <textarea 
-                name="message" 
-                placeholder="Input Message" 
-                className="w-full p-2 border rounded h-24" 
-                onChange={handleChange} 
-                value={formData.message} 
-                required 
-              />
-              <button 
-                type="submit" 
-                className="w-full bg-black text-white px-6 py-2 rounded-lg hover:scale-105 transition-transform"
-              >
+              <input type="text" name="name" placeholder="Input Name" className="w-full p-2 border rounded" onChange={handleChange} value={formData.name} required />
+              <input type="text" name="subject" placeholder="Input Subject" className="w-full p-2 border rounded" onChange={handleChange} value={formData.subject} required />
+              <textarea name="message" placeholder="Input Message" className="w-full p-2 border rounded h-24" onChange={handleChange} value={formData.message} required />
+              <button type="submit" className="w-full bg-black text-white px-6 py-2 rounded-lg hover:scale-105 transition-transform">
                 Send Message
               </button>
             </form>
