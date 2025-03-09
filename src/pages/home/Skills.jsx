@@ -31,7 +31,7 @@ const Skills = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
 
   return (
-    <section id="skills" className="py-12 px-6 md:px-16 bg-white dark:bg-gray-900">
+    <section id="skills" className="py-12 px-6 md:px-16 bg-white dark:bg-gray-900 ">
       {/* Garis Atas */}
       <hr className="border-t-2 border-stone-950 w-3/4 mx-auto mb-4 dark:border-white" />
 
@@ -53,7 +53,7 @@ const Skills = () => {
             </div>
 
             {/* Nama & Level */}
-            <h3 className="text-lg font-bold mt-4 text-gray-800 dark:text-white">{skill.title}</h3>
+            <h3 className="font-kreon tracking-wider text-lg font-bold mt-4 text-gray-800 dark:text-white">{skill.title}</h3>
             <p className="text-gray-600 italic dark:text-gray-300">{skill.level}</p>
           </div>
         ))}
@@ -63,7 +63,7 @@ const Skills = () => {
       {selectedSkill && (
         <div className="fixed inset-0 bg-white/20 flex justify-center items-center z-50 backdrop-blur-md" onClick={() => setSelectedSkill(null)}>
           <div
-            className="bg-white/20 dark:bg-black/80 dark:backdrop-blur-lg shadow-lg rounded-lg p-6 w-[90%] max-w-md relative backdrop-blur-lg bg-opacity-80 border border-gray-300"
+            className="bg-white/20 dark:bg-black/80 dark:backdrop-blur-lg shadow-lg rounded-lg p-6 w-[90%] max-w-md relative backdrop-blur-lg bg-opacity-80 border border-gray-300 overflow-hidden"
             onClick={(e) => e.stopPropagation()} // Cegah modal tertutup saat diklik
           >
             {/* Judul */}
@@ -75,7 +75,7 @@ const Skills = () => {
             </div>
 
             {/* Deskripsi */}
-            <p className="mt-4 text-gray-700 dark:text-gray-300 text-sm">{selectedSkill.description}</p>
+            <p className="mt-4 text-stone-950 dark:text-gray-300 text-sm">{selectedSkill.description}</p>
 
             {/* Gunakan CloseButton Component */}
             <CloseButton onClick={() => setSelectedSkill(null)} />
