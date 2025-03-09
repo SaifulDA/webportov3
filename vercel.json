@@ -1,23 +1,17 @@
 {
     "version": 2,
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "dist" }
+      }
+    ],
     "routes": [
       { "src": "/(.*)", "dest": "/index.html" }
     ],
     "rewrites": [
       { "source": "/(.*)", "destination": "/index.html" }
-    ],
-    "headers": [
-      {
-        "source": "/(.*)",
-        "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
-          { "key": "Access-Control-Allow-Origin", "value": "*" }
-        ]
-      }
-    ],
-    "env": {
-      "VITE_CHAT_TOKEN": "@vite_chat_token",
-      "VITE_CHAT_ID": "@vite_chat_id"
-    }
+    ]
   }
   
