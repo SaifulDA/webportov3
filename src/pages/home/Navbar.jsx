@@ -1,12 +1,22 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Home, Briefcase, Image, Sun, Moon, Menu, MessageSquare } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Home, Image, Sun, Moon, Menu, MessageSquare } from "lucide-react";
 import { useTheme } from "../../components/common/ThemeContext"; // Import useTheme
 import profileImage from "/src/assets/images/profile.svg";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme(); // Ambil tema dari Context
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const goToSection = (sectionId) => {
+    navigate("/");
+    setTimeout(() => {
+      scrollToSection(sectionId);
+    }, 300); // Tambahkan delay untuk memastikan halaman sudah load
+  };
 
   // Toggle menu mobile
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -15,9 +25,7 @@ const Navbar = () => {
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      const navbarHeight = document.querySelector("nav").offsetHeight; // Ambil tinggi navbar
-      const offsetTop = section.offsetTop - navbarHeight - 10; // Beri tambahan jarak 10px
-  
+      const offsetTop = section.getBoundingClientRect().top + window.scrollY - 70; // 70px untuk margin
       window.scrollTo({
         top: offsetTop,
         behavior: "smooth",
@@ -52,31 +60,31 @@ const Navbar = () => {
 
           {/* Menu Navigasi */}
           <div className="hidden md:flex space-x-8">
-            <button onClick={() => scrollToSection("hero")} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+            <button onClick={() => goToSection("hero")} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               Profile
             </button>
-            <button onClick={() => scrollToSection("about")} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+            <button onClick={() => goToSection("about")} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               About
             </button>
-            <button onClick={() => scrollToSection("skills")} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+            <button onClick={() => goToSection("skills")} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               Skills
             </button>
-            <a href="/project" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-              Project
-            </a>
+            <button onClick={() => goToSection("project")} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+              Projects
+            </button>
           </div>
 
           {/* Icon Chat, Galeri & Toggle Theme */}
           <div className="flex items-center space-x-4">
             {/* Icon Galeri */}
-            <button aria-label="View Photos" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
+            <Link to="/gallery" aria-label="View Photos" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
               <Image className="w-6 h-6 text-gray-700 dark:text-white" />
-            </button>
+            </Link>
 
             {/* Icon Chat */}
-            <button aria-label="Messages" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
+            <Link to="/chat" aria-label="Messages" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
               <MessageSquare className="w-6 h-6 text-gray-700 dark:text-white" />
-            </button>
+            </Link>
 
             {/* Tombol Toggle Tema */}
             <button onClick={toggleTheme} aria-label="Toggle Theme" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
@@ -94,22 +102,22 @@ const Navbar = () => {
       {/* Navbar Bawah (Mobile Only) */}
       <footer className="fixed bottom-0 z-50 left-0 w-full bg-white/30 backdrop-blur-md border-t border-gray-300 dark:bg-blue-900/40 dark:border-gray-400/50 dark:backdrop-blur-lg shadow-lg md:hidden flex justify-around py-3">
         {/* Home */}
-        <a href="/" className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <Link to="/" className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
           <Home className="w-6 h-6" />
           <span className="text-xs">Home</span>
-        </a>
-
-        {/* Project */}
-        <a href="/project" className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-          <Briefcase className="w-6 h-6" />
-          <span className="text-xs">Project</span>
-        </a>
+        </Link>
 
         {/* Gallery */}
-        <a href="/gallery" className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <Link to="/gallery" className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
           <Image className="w-6 h-6" />
           <span className="text-xs">Gallery</span>
-        </a>
+        </Link>
+
+        {/* Project */}
+        <Link to="/chat" className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+          <MessageSquare className="w-6 h-6" />
+          <span className="text-xs">Chat</span>
+        </Link>
 
         {/* Theme Toggle */}
         <button onClick={toggleTheme} className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
