@@ -8,7 +8,7 @@ const Card = ({ title, desc, image, link }) => {
   return (
     <>
       {/* Card */}
-      <div className="relative dark:shadow-white/30 dark:shadow-lg bg-white rounded-2xl shadow-xl drop-shadow-xl pb-4 overflow-hidden hover:shadow-2xl border border-gray-200 max-h-[300px] flex flex-col">
+      <div className="relative dark:shadow-white/30 dark:shadow-lg bg-white rounded-2xl shadow-xl drop-shadow-xl pb-4 overflow-hidden hover:shadow-2xl border border-gray-900 max-h-[300px] flex flex-col">
         {/* Image container (Click to Open Modal) */}
         <div className="overflow-hidden rounded-t-2xl cursor-pointer" onClick={() => setIsOpen(true)}>
           <LazyImage src={image} alt={title} className="w-full h-40 object-cover" />
@@ -16,7 +16,7 @@ const Card = ({ title, desc, image, link }) => {
 
         {/* Content container */}
         <div className="p-4 text-center bg-white flex-grow flex flex-col">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 drop-shadow-md">{title}</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2 drop-shadow-md font-kreon tracking-wider">{title}</h3>
           <p className="text-sm text-gray-600 mb-4 flex-grow">{desc}</p>
 
           {/* Button */}
