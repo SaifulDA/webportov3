@@ -4,6 +4,7 @@ import DownloadButton from "../../components/common/Button";
 import { useTheme } from "../../components/common/ThemeContext"; // Import useTheme
 import profileImage from "/src/assets/images/profile.svg";
 import { Typewriter } from "react-simple-typewriter";
+import LazyImage from "../../components/common/LazyImage";
 
 const Hero = () => {
   const { theme } = useTheme(); // Destructure theme dari useTheme
@@ -34,9 +35,9 @@ const Hero = () => {
         </div>
 
         {/* Gambar Profile */}
-        <div className="relative flex justify-center drop-shadow-lg">
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-black overflow-hidden shadow-lg ">
-            <img src={profileImage} alt="Profile" className="w-full h-full object-cover transition-transform duration-300 hover:scale-130" />
+        <div className="relative flex justify-center drop-shadow-lg ">
+          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-black overflow-hidden shadow-lg dark:shadow-white/50 dark:shadow-lg ">
+            <LazyImage src={profileImage} alt="Profile" className="w-full h-full object-cover transition-transform duration-300 hover:scale-130" />
           </div>
         </div>
       </div>
