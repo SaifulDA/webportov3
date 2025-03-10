@@ -4,6 +4,7 @@ import cloudComputing from "/src/assets/images/cc.png";
 import webDeveloper from "/src/assets/images/wd.png";
 import uiUx from "/src/assets/images/design.png";
 import CloseButton from "../../components/common/xButton";
+import LazyImage from "../../components/common/LazyImage";
 
 const skills = [
   {
@@ -48,8 +49,8 @@ const Skills = () => {
         {skills.map((skill, index) => (
           <div key={index} className="flex flex-col items-center">
             {/* Gambar Lingkaran */}
-            <div className="w-60 h-60 rounded-full overflow-hidden shadow-lg cursor-pointer hover:scale-105 transition-transform drop-shadow-lg" onClick={() => setSelectedSkill(skill)}>
-              <img src={skill.image} alt={skill.title} className="w-full h-full object-cover" />
+            <div className="w-60 h-60 dark:shadow-white/30 dark:shadow-lg rounded-full overflow-hidden shadow-lg cursor-pointer hover:scale-105 transition-transform drop-shadow-lg" onClick={() => setSelectedSkill(skill)}>
+              <LazyImage src={skill.image} alt={skill.title} className="w-full h-full object-cover" />
             </div>
 
             {/* Nama & Level */}
@@ -71,7 +72,7 @@ const Skills = () => {
 
             {/* Gambar */}
             <div className="w-full h-48 rounded-lg overflow-hidden mt-4">
-              <img src={selectedSkill.image} alt={selectedSkill.title} className="w-full h-full object-cover" />
+              <LazyImage src={selectedSkill.image} alt={selectedSkill.title} className="w-full h-full object-cover" />
             </div>
 
             {/* Deskripsi */}
