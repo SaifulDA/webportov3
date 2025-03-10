@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar Atas (Desktop) */}
-      <nav className="hidden md:flex w-full py-4 px-6 backdrop-blur-md bg-white/30 dark:bg-gray-900/60 border-b border-white/20 dark:border-gray-700/50 shadow-sm fixed top-0 left-0 z-50">
+      <nav className="hidden md:flex w-full py-4 px-6 backdrop-blur-md bg-white/30 dark:bg-gray-900/60 border-b border-white/20 dark:border-gray-700/50 shadow-sm fixed top-0 left-0 z-50 transition-colors duration-300">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo & Nama */}
           <div className="flex items-center space-x-3">

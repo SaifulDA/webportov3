@@ -6,7 +6,7 @@ import { useTheme } from "../../components/common/ThemeContext";
 const Footer = () => {
   const { theme } = useTheme();
   return (
-    <footer className="bg-white py-6 text-center border-t-2 border-black dark:bg-black dark:border-white/20 dark:text-white dark:border-opacity-20 pb-15">
+    <footer className="bg-white py-6 text-center border-t-2 border-black dark:bg-black dark:border-white/20 dark:text-white dark:border-opacity-20 pb-15 transition-colors duration-300">
       {/* Ikon Sosial Media */}
       <div className="flex justify-center space-x-6 mb-2">
         <a href="mailto:saifuldaulah24@gmail.com" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white text-4xl hover:scale-110 transition-transform">

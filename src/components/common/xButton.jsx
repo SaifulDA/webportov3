@@ -5,7 +5,7 @@ import React from "react";
 const CloseButton = ({ onClick }) => {
   return (
     <button
-      className="mt-4 w-full bg-black text-white py-2 rounded-lg hover:bg-blue-600 transition dark:bg-white dark:text-black dark:hover:bg-blue-600 dark:hover:text-white"
+      className="mt-4 w-full bg-black text-white py-2 rounded-lg hover:bg-blue-600 dark:bg-white dark:text-black dark:hover:bg-blue-600 dark:hover:text-white transition-colors duration-300"
       onClick={onClick}
     >
       CLOSE

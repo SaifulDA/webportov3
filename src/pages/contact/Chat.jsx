@@ -80,7 +80,7 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="relative pt-10 md:pt-20 min-h-screen flex flex-col bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 dark:text-white">
+    <div id="chat" className="relative pt-10 md:pt-20 min-h-screen flex flex-col bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 dark:text-white">
       <Navbar />
       <div className="flex flex-col items-center justify-center flex-grow p-6">
         <div className="bg-white/30 dark:bg-black/30 backdrop-blur-md shadow-lg rounded-xl p-8 max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">

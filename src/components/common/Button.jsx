@@ -7,7 +7,7 @@ const DownloadButton = () => {
   };
   return (
     <button
-      className="dark:shadow-white/30 dark:shadow-md bg-black font-poppins drop-shadow-lg text-white px-4 py-2 rounded-full font-medium hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center dark:bg-white dark:text-black dark:hover:bg-blue-600 dark:hover:text-white transition-transform duration-300 hover:scale-110"
+      className="dark:shadow-white/30 dark:shadow-md bg-black font-poppins drop-shadow-lg text-white px-4 py-2 rounded-full font-medium hover:bg-blue-600 flex items-center justify-center dark:bg-white dark:text-black dark:hover:bg-blue-600 dark:hover:text-white transition-transform duration-300 hover:scale-110"
       onClick={handleDownload}
     >
       Download CV

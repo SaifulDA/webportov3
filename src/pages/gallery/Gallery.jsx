@@ -5,7 +5,7 @@ import Footer from "../home/Footer";
 
 const Gallery = () => {
   return (
-    <div className="bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen flex flex-col">
+    <div id="gallery" className="bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen flex flex-col">
       <Navbar />
 
       {/* Video Section */}

@@ -3,7 +3,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <section id="about" className="bg-white text-gray-900 dark:bg-gray-900 dark:text-white py-12 px-6 md:px-16">
+    <section id="about" className="bg-white text-gray-900 dark:bg-gray-900 dark:text-white py-12 px-6 md:px-16 transition-colors duration-300">
       <div className="max-w-5xl mx-auto">
         {/* Garis Atas */}
         <hr className="border-t-2 border-gray-800 dark:border-white mb-4" />
