@@ -11,7 +11,7 @@ const Card = ({ title, desc, image, link }) => {
       <div className="relative dark:shadow-white/30 dark:shadow-lg bg-white rounded-2xl shadow-xl drop-shadow-xl pb-4 overflow-hidden hover:shadow-2xl border border-gray-900 max-h-[300px] flex flex-col transition-colors duration-300">
         {/* Image container (Click to Open Modal) */}
         <div className="overflow-hidden rounded-t-2xl cursor-pointer" onClick={() => setIsOpen(true)}>
-          <LazyImage src={image} alt={title} className="w-full h-40 object-cover" />
+          <LazyImage src={image} alt={title} className="w-full h-40 object-contain" />
         </div>
 
         {/* Content container */}
