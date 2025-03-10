@@ -1,58 +1,63 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/autoplay";
 import ProjectCard from "../../components/layout/CardProject";
 import NavigationButton from "../../components/common/ButtonNavigation";
 import cloudImage from "../../assets/images/cc.png"; // Ganti dengan path gambar proyek
 import webV2 from "../../assets/images/webv2.png"; // Ganti dengan path gambar proyek
 import notesBsi from "../../assets/images/notesbsi.jpeg"; // Ganti dengan path gambar proyek
+import badgesgcp from "../../assets/images/badgesgcp.png"; // Ganti dengan path gambar proyek
+import fitfans from "../../assets/images/fitfans.png"; // Ganti dengan path gambar proyek
+import pustakabooking from "../../assets/images/pustakabooking.jpg"; // Ganti dengan path gambar proyek
+import dt from "../../assets/images/dt.jpg"; // Ganti dengan path gambar proyek
 
 // Data Projects (Tambahkan link unik untuk setiap proyek)
 const projects = [
   {
     id: 1,
+    title: "Badges Google Cloud Platform",
+    desc: "This is a project to get badges from Google Cloud Platform",
+    image: badgesgcp,
+    link: "https://www.cloudskillsboost.google/public_profiles/b1edb3f1-66c6-4f16-8d80-90f6ddffe809",
+  },
+  {
+    id: 2,
     title: "Web Portfolio version 2",
     desc: "This is version 2 of the portfolio website using bootstrap",
     image: webV2,
     link: "https://github.com/SaifulDA/saifulda.github.io",
   },
   {
-    id: 2,
+    id: 3,
     title: "Notes App UBSI",
     desc: "This is a mobile application that is my campus Notes App that I made using java",
     image: notesBsi,
-    link: "https://example.com/project2-demo",
-  },
-  {
-    id: 3,
-    title: "Project Server 3",
-    desc: "Deskripsi untuk project 3",
-    image: cloudImage,
-    link: "https://github.com/user/project3",
+    link: "https://github.com/SaifulDA/Aplikasi-Mobile-Catatan-Tugas-Kuliah-UBSI",
   },
   {
     id: 4,
-    title: "Project Server 4",
-    desc: "Deskripsi untuk project 4",
-    image: cloudImage,
-    link: "https://myportfolio.com/project4",
+    title: "FitFans",
+    desc: "Fitfans is a project of the Bangkit Academy by Google GoTo Traveloka program.",
+    image: fitfans,
+    link: "https://github.com/Capstone-CH2-PS196/FitFans",
   },
   {
     id: 5,
-    title: "Project Server 5",
-    desc: "Deskripsi untuk project 5",
-    image: cloudImage,
-    link: "https://github.com/user/project5",
+    title: "Pustaka Booking",
+    desc: "This is a project to make a library booking website",
+    image: pustakabooking,
+    link: "https://github.com/SaifulDA/pustaka-booking",
   },
   {
     id: 6,
-    title: "Project Server 6",
-    desc: "Deskripsi untuk project 6",
-    image: cloudImage,
-    link: "https://example.com/project6-demo",
+    title: "Domination Tech",
+    desc: "This is a comunity that I made to share knowledge about technology",
+    image: dt,
+    link: "https://www.instagram.com/dominationtech/",
   },
 ];
 
@@ -69,17 +74,21 @@ const ProjectsSection = () => {
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
         <div className="mb-8 max-w-5xl mx-auto">
-          <h3 className="text-2xl font-medium text-gray-900 dark:text-white font-italianno">All Project</h3>
+          <h3 className="text-2xl font-medium text-gray-900 dark:text-white font-italianno tracking-wider">All Project</h3>
         </div>
 
         <div className="max-w-5xl mx-auto">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             spaceBetween={20}
             slidesPerView={1}
             navigation={{
               prevEl: `.${navigationPrevClass}`,
               nextEl: `.${navigationNextClass}`,
+            }}
+            autoplay={{
+              delay: 3000, // Durasi tiap slide (ms)
+              disableOnInteraction: false, // Jangan berhenti jika user berinteraksi
             }}
             breakpoints={{
               640: { slidesPerView: 2 },
