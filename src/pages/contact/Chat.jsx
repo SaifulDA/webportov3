@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
 import Swal from "sweetalert2";
-import patternBg from "../../assets/images/patternbg.png";
+
 
 const ChatPage = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +12,7 @@ const ChatPage = () => {
     message: "",
   });
 
-  const [isLoading, setIsLoading] = useState(false); // State untuk animasi loading
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -33,13 +32,15 @@ const ChatPage = () => {
       return;
     }
 
-    setIsLoading(true); // Aktifkan loading saat mulai mengirim
+    setIsLoading(true);
 
     const chatToken = import.meta.env.VITE_CHAT_TOKEN;
     const chatId = import.meta.env.VITE_CHAT_ID;
 
-    console.log(chatToken, chatId); // Debug token dan ID chat
-    const text = `📩 *Pesan Baru dari Website:*\n\n👤 Nama: ${name}\n📌 Subjek: ${subject}\n💬 Pesan: ${message}`;
+    const text = `📩 *Pesan Baru dari Website:*
+👤 Nama: ${name}
+📌 Subjek: ${subject}
+💬 Pesan: ${message}`;
 
     try {
       const response = await fetch(`https://api.telegram.org/bot${chatToken}/sendMessage`, {
@@ -56,12 +57,11 @@ const ChatPage = () => {
           icon: "success",
           confirmButtonText: "OK",
         });
-
-        setFormData({ name: "", subject: "", message: "" }); // Reset form
+        setFormData({ name: "", subject: "", message: "" });
       } else {
         Swal.fire({
           title: "Failed!",
-          text: "the message could not be sent. Try again later.",
+          text: "The message could not be sent. Try again later.",
           icon: "error",
           confirmButtonText: "OK",
         });
@@ -75,49 +75,56 @@ const ChatPage = () => {
         confirmButtonText: "OK",
       });
     } finally {
-      setIsLoading(false); // Matikan loading setelah selesai
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="relative pt-15 min-h-screen flex flex-col">
+    <div className="relative pt-10 md:pt-20 min-h-screen flex flex-col bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 dark:text-white">
       <Navbar />
-      <div className="flex flex-col items-center justify-center flex-grow p-4 sm:p-6 dark:bg-gray-900">
-        <div className="bg-white dark:drop-shadow-2xl dark:shadow-2xl dark:shadow-white/30 shadow-lg rounded-lg p-6 max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="flex flex-col items-center justify-center flex-grow p-6">
+        <div className="bg-white/30 dark:bg-black/30 backdrop-blur-md shadow-lg rounded-xl p-8 max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Information */}
-          <div
-            className="bg-blue-100 p-6 rounded-lg text-center items-center justify-center"
-            style={{
-              backgroundImage: `url(${patternBg})`,
-              backgroundSize: "300px", // Menutupi seluruh area
-              backgroundPosition: "left",
-            }}
-          >
-            <h2 className="text-lg font-bold mt-20">Contact Information</h2>
-            <p className="mb-2 md:text-center">
+          <div className="bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 p-6 rounded-xl text-center flex flex-col items-center">
+            <h2 className="font-bold text-gray-900 mt-10 dark:text-white font-kreon tracking-wider text-3xl">Contact Information</h2>
+            <p className="mb-2 text-gray-700 mt-3">
               📧{" "}
-              <a href="mailto:saifuddaulah24@gmail.com" className="text-blue-500 ">
+              <a href="mailto:saifuddaulah24@gmail.com" className="text-blue-600 hover:underline dark:text-white">
                 saifuldaulah24@gmail.com
               </a>
             </p>
-            <p className="mb-2 ">📞 +62851 6361 4521</p>
-            <p className="mb-2 ">📍 Jakarta, Indonesia</p>
-            <p className="mt-4 font-semibold">Thank You :)</p>
+            <p className="mb-2 text-gray-700 dark:text-white mt-3">📞 +62851 6361 4521</p>
+            <p className="mb-2 text-gray-700 mt-3 dark:text-white">📍 Jakarta, Indonesia</p>
+            <p className="font-bold text-gray-900 mt-5 dark:text-white font-kreon tracking-wider text-2xl">Thank You 🙂</p>
           </div>
 
           {/* Form Message */}
-          <div className="p-6">
-            <h2 className="text-lg font-bold mb-4 text-center">Form Message</h2>
-            <form onSubmit={sendMessage} className="space-y-3">
-              <p className="text-black">Name</p>
-              <input type="text" name="name" placeholder="Input Name" className="w-full p-2 border rounded" onChange={handleChange} value={formData.name} required />
-              <p className="text-black">Subject</p>
-              <input type="text" name="subject" placeholder="Input Subject" className="w-full p-2 border rounded" onChange={handleChange} value={formData.subject} required />
-              <p className="text-black">Message</p>
-              <textarea name="message" placeholder="Input Message" className="w-full p-2 border rounded h-24" onChange={handleChange} value={formData.message} required />
+          <div className="p-3">
+            <h2 className="text-3xl font-bold mb-4 text-center text-gray-900 dark:text-white font-kreon tracking-wider">Form Message</h2>
+            <form onSubmit={sendMessage} className="space-y-4">
+              <p>Name</p>
+              <input type="text" name="name" placeholder="Input Name" className="w-full p-3 border border-gray-900 dark:border-white rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" onChange={handleChange} value={formData.name} required />
+              <p>Subject</p>
+              <input
+                type="text"
+                name="subject"
+                placeholder="Input Subject"
+                className="w-full p-3 border border-gray-900 dark:border-white rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                onChange={handleChange}
+                value={formData.subject}
+                required
+              />
+              <p>Message</p>
+              <textarea
+                name="message"
+                placeholder="Input Message"
+                className="w-full p-3 border border-gray-900 dark:border-white rounded-lg h-24 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                onChange={handleChange}
+                value={formData.message}
+                required
+              />
 
-              {/* Tombol dengan animasi loading */}
-              <button type="submit" className="w-full bg-black text-white px-6 py-2 rounded-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform" disabled={isLoading}>
+              <button type="submit" className="w-full bg-stone-950 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:text-white transition" disabled={isLoading}>
                 {isLoading ? (
                   <>
                     <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
