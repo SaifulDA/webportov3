@@ -69,7 +69,7 @@ const ProjectsSection = () => {
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
         <div className="mb-8 max-w-5xl mx-auto">
-          <h3 className="text-2xl font-medium text-gray-900 dark:text-white">All Project</h3>
+          <h3 className="text-2xl font-medium text-gray-900 dark:text-white font-italianno">All Project</h3>
         </div>
 
         <div className="max-w-5xl mx-auto">
