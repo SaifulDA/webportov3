@@ -7,7 +7,6 @@ import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import ProjectCard from "../../components/layout/CardProject";
 import NavigationButton from "../../components/common/ButtonNavigation";
-import cloudImage from "../../assets/images/cc.png"; // Ganti dengan path gambar proyek
 import webV2 from "../../assets/images/webv2.png"; // Ganti dengan path gambar proyek
 import notesBsi from "../../assets/images/notesbsi.jpeg"; // Ganti dengan path gambar proyek
 import badgesgcp from "../../assets/images/badgesgcp.png"; // Ganti dengan path gambar proyek
