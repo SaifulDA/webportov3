@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const NotFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center p-6">
+    <div id="notfound" className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center p-6">
       {/* Animasi teks 404 */}
       <motion.h1 className="text-8xl font-extrabold text-gray-900 mb-4" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease: "easeOut" }}>
         404

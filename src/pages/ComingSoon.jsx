@@ -8,7 +8,7 @@ import Footer from "./home/Footer";
 
 const ComingSoon = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
+    <div id="comingsoon" className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
       {/* Navbar */}
       <Navbar />
       
