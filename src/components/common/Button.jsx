@@ -3,7 +3,7 @@ import React from "react";
 
 const DownloadButton = () => {
   const handleDownload = () => {
-    window.open("/cv.pdf", "_blank"); // Sesuaikan dengan nama file
+    window.open("/CV_Saifuddaulah_Alfarabi.pdf", "_blank"); // Sesuaikan dengan nama file
   };
   return (
     <button
