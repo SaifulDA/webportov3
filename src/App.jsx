@@ -9,6 +9,7 @@ import Project from "./pages/home/Project";
 import NotFound from "./pages/NotFound"; // Import halaman 404
 import Chat from "./pages/contact/Chat";
 import Gallery from "./pages/gallery/Gallery";
+import ComingSoon from "./pages/ComingSoon";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/comingsoon" element={<ComingSoon />} />
       </Routes>
     </Router>
   );
