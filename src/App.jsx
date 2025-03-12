@@ -10,6 +10,8 @@ import NotFound from "./pages/NotFound"; // Import halaman 404
 import Chat from "./pages/contact/Chat";
 import Gallery from "./pages/gallery/Gallery";
 import ComingSoon from "./pages/ComingSoon";
+import PhotoBooth from "./pages/app/PhotoBooth"
+import CustomizePhoto from "./pages/app/CustomizePhoto"
 
 const App = () => {
   return (
@@ -32,6 +34,8 @@ const App = () => {
         <Route path="/chat" element={<Chat />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/comingsoon" element={<ComingSoon />} />
+        <Route path="/photobooth" element={<PhotoBooth />} />
+        <Route path="/customize" element={<CustomizePhoto />} />
       </Routes>
     </Router>
   );
