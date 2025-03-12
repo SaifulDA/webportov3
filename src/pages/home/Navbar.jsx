@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Home, Image, Sun, Moon, Menu, MessageSquare } from "lucide-react";
+import { Home, Image, Sun, Moon, Menu, MessageSquare, AppWindow } from "lucide-react";
 import { useTheme } from "../../components/common/ThemeContext"; // Import useTheme
 import profileImage from "/src/assets/images/profile.svg";
 import { useNavigate } from "react-router-dom";
@@ -76,6 +76,11 @@ const Navbar = () => {
 
           {/* Icon Chat, Galeri & Toggle Theme */}
           <div className="flex items-center space-x-4">
+            {/* Icon Aplikasi */}
+            <Link to="/comingsoon" aria-label="View Application" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
+              <AppWindow className="w-6 h-6 text-gray-700 dark:text-white" />
+            </Link>
+
             {/* Icon Galeri */}
             <Link to="/gallery" aria-label="View Photos" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
               <Image className="w-6 h-6 text-gray-700 dark:text-white" />
@@ -113,8 +118,14 @@ const Navbar = () => {
           <span className="text-xs">Gallery</span>
         </Link>
 
-        {/* Project */}
-        <Link to="/chat" className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        {/* chat */}
+        <Link to="/app" className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+          <AppWindow className="w-6 h-6" />
+          <span className="text-xs">App</span>
+        </Link>
+
+        {/* chat */}
+        <Link to="/comingsoon" className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
           <MessageSquare className="w-6 h-6" />
           <span className="text-xs">Chat</span>
         </Link>
