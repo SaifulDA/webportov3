@@ -9,9 +9,10 @@ import Project from "./pages/home/Project";
 import NotFound from "./pages/NotFound"; // Import halaman 404
 import Chat from "./pages/contact/Chat";
 import Gallery from "./pages/gallery/Gallery";
-import ComingSoon from "./pages/ComingSoon";
-import PhotoBooth from "./pages/app/PhotoBooth"
-import CustomizePhoto from "./pages/app/CustomizePhoto"
+import ComingSoon from "./pages/comingSoon";
+import PhotoBooth from "./pages/app/PhotoBooth";
+import CustomizePhoto from "./pages/app/CustomizePhoto";
+import Rembulan from "./pages/gallery/Rembulan";
 
 const App = () => {
   return (
@@ -19,16 +20,18 @@ const App = () => {
       <Routes>
         {/* Layout untuk halaman utama */}
         <Route path="/" element={<Layout />}>
-          <Route index element={
-            <>
-              <Hero />
-              <About />
-              <Skills />
-              <Project />
-            </>
-          } />
+          <Route
+            index
+            element={
+              <>
+                <Hero />
+                <About />
+                <Skills />
+                <Project />
+              </>
+            }
+          />
         </Route>
-
         {/* Halaman 404 */}
         <Route path="*" element={<NotFound />} />
         <Route path="/chat" element={<Chat />} />
@@ -36,6 +39,7 @@ const App = () => {
         <Route path="/comingsoon" element={<ComingSoon />} />
         <Route path="/photobooth" element={<PhotoBooth />} />
         <Route path="/customize" element={<CustomizePhoto />} />
+        <Route path="/rembulan" element={<Rembulan />} />
       </Routes>
     </Router>
   );
