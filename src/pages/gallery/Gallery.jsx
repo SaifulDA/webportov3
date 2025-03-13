@@ -4,37 +4,49 @@ import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
 import { Instagram } from "lucide-react";
 import testImage from "../../assets/images/cc.png";
+import fotoProfile from "../../assets/images/Foto_profile.jpg";
+import bungaPutih from "../../assets/images/bunga.jpg";
+import sunRise from "../../assets/images/sunrise.jpg";
+import gunung from "../../assets/images/gunung.jpg";
+import sertiReact from "../../assets/images/serti_react.jpg";
+import wisuda from "../../assets/images/wisuda.jpg";
 
 const galleryItems = [
   {
-    img: "/assets/images/gallery1.jpg",
-    author: "Jennifer Pastore",
-    title: "How galleries, intellectuals, and patrons have shaped contemporary Indian art",
-    link: "https://instagram.com/gallery1",
+    img: fotoProfile,
+    author: "Saiful Daulah",
+    title: "Foto Profile",
+    link: "https://www.instagram.com/p/DGkrlrvPXZF/",
   },
   {
-    img: "/assets/images/gallery2.jpg",
-    author: "Mia Yu",
-    title: "How artists are reimagining 'global' China",
-    link: "https://instagram.com/gallery2",
+    img: bungaPutih,
+    author: "Saiful Daulah",
+    title: "Scientist 🌻",
+    link: "https://www.instagram.com/p/DGAqH-bvPEl/",
   },
   {
-    img: "/assets/images/gallery3.jpg",
-    author: "Skye Sherwin",
-    title: "Why I Collect: Lu Kun",
-    link: "https://instagram.com/gallery3",
+    img: sunRise,
+    author: "Saiful Daulah",
+    title: "~Sunrise~",
+    link: "https://www.instagram.com/p/DEy36lFPZCP/",
   },
   {
-    img: "/assets/images/gallery4.jpg",
-    author: "Brian Boucher",
-    title: "How to build and sustain an Asian art scene beyond China",
-    link: "https://instagram.com/gallery4",
+    img: gunung,
+    author: "Saiful Daulah",
+    title: "❤❤❤",
+    link: "https://www.instagram.com/p/DEuXuSATptz/",
   },
   {
-    img: testImage,
-    author: "Frank Stella",
-    title: "From a rare Frank Stella to new Sarah Lucas sculptures in Miami Beach",
-    link: "https://instagram.com/gallery5",
+    img: sertiReact,
+    author: "Saiful Daulah",
+    title: "Saya baru saja menyelesaikan kursus Belajar Membuat Aplikasi Web dengan React dari @dicoding 🚀",
+    link: "https://www.instagram.com/p/DDa4Z_xBquM/",
+  },
+  {
+    img: wisuda,
+    author: "Saiful Daulah",
+    title: "Finally, after planning I got out of my comfort zone since 2018 and I had to do this by 2024",
+    link: "https://www.instagram.com/p/DDLixnBh-hB/",
   },
 ];
 
@@ -60,7 +72,7 @@ const Gallery = () => {
           <h2 className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">Gallery</h2>
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
-        <h2 className="text-4xl font-bold mb-6">
+        <h2 className="text-3xl font-bold mb-6 font-kreon tracking-wider">
           Latest
           <a href="https://www.instagram.com/s.d.a.2.4" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 cursor-pointer float-right">
             (see all)
@@ -71,13 +83,13 @@ const Gallery = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
           {galleryItems.map((item, index) => (
             <div key={index} className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img src={item.img} alt={item.title} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110" />
+              <img src={item.img} alt={item.title} className="w-full h-100 object-contain transition-transform duration-300 group-hover:scale-110" />
               <div className="absolute inset-0 flex items-center justify-center bg-black/50 dark:bg-white/50 bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-white p-3 bg-black bg-opacity-70 rounded-full">
                   <Instagram size={32} />
                 </a>
               </div>
-              <div className="mt-2">
+              <div className="mt-4 p-2 text-center">
                 <p className="text-sm text-gray-500">({item.author})</p>
                 <h3 className="text-md font-semibold">{item.title}</h3>
               </div>
