@@ -2,13 +2,14 @@
 import React from "react";
 import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
-import { Instagram } from "lucide-react";
+import { Instagram, BookOpen } from "lucide-react";
 import fotoProfile from "../../assets/images/Foto_Profile.jpg";
 import bungaPutih from "../../assets/images/bunga.jpg";
 import sunRise from "../../assets/images/sunrise.jpg";
 import gunung from "../../assets/images/gunung.jpg";
 import sertiReact from "../../assets/images/serti_react.jpg";
 import wisuda from "../../assets/images/wisuda.jpg";
+import comingSoon from "../comingSoon"
 
 const galleryItems = [
   {
@@ -49,6 +50,21 @@ const galleryItems = [
   },
 ];
 
+const ebookItems = [
+  { img: sunRise, 
+    title: "Rembulan", 
+    author: "Saiful Daulah", 
+    link: "comingSoon" },
+  { img: sunRise, 
+    title: "Rain: Ketika Semua Berubah", 
+    author: "Saiful Daulah", 
+    link: "comingSoon" },
+  { img: sunRise, 
+    title: "Melihat Membaca Menulis", 
+    author: "Saiful Daulah", 
+    link: "comingSoon" },
+];
+
 const Gallery = () => {
   return (
     <div id="gallery" className="bg-gray-100 text-black dark:bg-gray-900 dark:text-white min-h-screen flex flex-col">
@@ -71,13 +87,7 @@ const Gallery = () => {
           <h2 className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">Gallery</h2>
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
-        <h2 className="text-3xl font-bold mb-6 font-kreon tracking-wider">
-          Latest
-          <a href="https://www.instagram.com/s.d.a.2.4" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 cursor-pointer float-right">
-            (see all)
-          </a>
-        </h2>
-
+        
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
           {galleryItems.map((item, index) => (
@@ -92,6 +102,26 @@ const Gallery = () => {
                 <p className="text-sm text-gray-500">({item.author})</p>
                 <h3 className="text-md font-semibold">{item.title}</h3>
               </div>
+            </div>
+          ))}
+        </div>
+
+        {/* E-Book Section */}
+        <hr className="border-t-2 mt-5 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
+        <div className="text-center">
+          <h2 className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">E-Books</h2>
+        </div>
+        <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+          {ebookItems.map((item, index) => (
+            <div key={index} className="relative group overflow-hidden rounded-lg shadow-lg p-6 bg-white dark:bg-gray-800 text-center">
+              <img src={item.img} alt={item.title} className="w-full h-64 object-cover rounded-lg mb-4" />
+              <h3 className="text-md font-semibold mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-500">{item.author}</p>
+              <a href={item.link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block bg-black dark:bg-white dark:text-black text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 dark:hover:text-white">
+                Read Now
+              </a>
             </div>
           ))}
         </div>
