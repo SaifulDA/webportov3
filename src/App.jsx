@@ -9,7 +9,7 @@ import Project from "./pages/home/Project";
 import NotFound from "./pages/NotFound"; // Import halaman 404
 import Chat from "./pages/contact/Chat";
 import Gallery from "./pages/gallery/Gallery";
-import CoomingSoon from "./pages/comingSoon";
+import CoomingSoon from "./pages/ComSon";
 import PhotoBooth from "./pages/app/PhotoBooth";
 import CustomizePhoto from "./pages/app/CustomizePhoto";
 import Rembulan from "./pages/gallery/Rembulan";

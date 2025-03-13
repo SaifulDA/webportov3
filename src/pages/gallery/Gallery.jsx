@@ -9,7 +9,7 @@ import sunRise from "../../assets/images/sunrise.jpg";
 import gunung from "../../assets/images/gunung.jpg";
 import sertiReact from "../../assets/images/serti_react.jpg";
 import wisuda from "../../assets/images/wisuda.jpg";
-import comingSoon from "../comingSoon"
+import comingSoon from "../ComSon";
 
 const galleryItems = [
   {
@@ -51,18 +51,9 @@ const galleryItems = [
 ];
 
 const ebookItems = [
-  { img: sunRise, 
-    title: "Rembulan", 
-    author: "Saiful Daulah", 
-    link: "comingSoon" },
-  { img: sunRise, 
-    title: "Rain: Ketika Semua Berubah", 
-    author: "Saiful Daulah", 
-    link: "comingSoon" },
-  { img: sunRise, 
-    title: "Melihat Membaca Menulis", 
-    author: "Saiful Daulah", 
-    link: "comingSoon" },
+  { img: sunRise, title: "Rembulan", author: "Saiful Daulah", link: "comingSoon" },
+  { img: sunRise, title: "Rain: Ketika Semua Berubah", author: "Saiful Daulah", link: "comingSoon" },
+  { img: sunRise, title: "Melihat Membaca Menulis", author: "Saiful Daulah", link: "comingSoon" },
 ];
 
 const Gallery = () => {
@@ -87,7 +78,7 @@ const Gallery = () => {
           <h2 className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">Gallery</h2>
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
-        
+
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
           {galleryItems.map((item, index) => (
