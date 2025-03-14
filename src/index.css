@@ -47,6 +47,7 @@ main {
 
 #chatbase-bubble-button {
   bottom: 80px !important; /* Sesuaikan nilai ini */
+  right: 25px !important;
 }
 #chatbase-bubble-button svg path {
   fill: white; /* Warna default ikon */
