@@ -22,12 +22,14 @@ const CustomizePhoto = () => {
     canvas.width = frameWidth * scaleFactor;
     canvas.height = frameHeight * scaleFactor;
 
+    // Warna Frame
     ctx.fillStyle = frameColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.imageSmoothingEnabled = true;
+    // Ukuran foto dalam canvas (harus sama dengan preview)
+    const photoWidth = 120 * scaleFactor;
+    const photoHeight = 120 * scaleFactor;
 
-    const photoSize = 120 * scaleFactor;
     photos.slice(0, 3).forEach((photo, index) => {
       const x = ((frameWidth - 120) / 2) * scaleFactor;
       const y = (20 + index * (120 + 20)) * scaleFactor;
@@ -36,21 +38,24 @@ const CustomizePhoto = () => {
       img.onload = () => {
         ctx.save();
         ctx.beginPath();
-        ctx.roundRect(x, y, photoSize, photoSize, 15 * scaleFactor);
+        ctx.roundRect(x, y, photoWidth, photoHeight, 15 * scaleFactor);
         ctx.clip();
-        ctx.drawImage(img, x, y, photoSize, photoSize);
+        ctx.drawImage(img, x, y, photoWidth, photoHeight);
         ctx.restore();
       };
     });
 
+    // Warna teks
     ctx.fillStyle = textColor;
     ctx.font = `${14 * scaleFactor}px Arial`;
     ctx.textAlign = "center";
 
+    // Tambahkan tanggal jika dicentang
     if (addDate) {
       ctx.fillText(new Date().toLocaleDateString(), canvas.width / 2, canvas.height - 40 * scaleFactor);
     }
 
+    // Tambahkan teks "Created by"
     ctx.fillText(`Created by ${createdBy}`, canvas.width / 2, canvas.height - 20 * scaleFactor);
   };
 
@@ -73,11 +78,7 @@ const CustomizePhoto = () => {
         <canvas ref={canvasRef} className="hidden" />
         <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-gray-100 dark:bg-gray-600 rounded-lg p-4 shadow-md flex justify-center">
-            <div
-              ref={previewRef}
-              className="relative w-[220px] h-[500px] rounded-lg overflow-hidden flex flex-col items-center"
-              style={{ backgroundColor: frameColor }}
-            >
+            <div ref={previewRef} className="relative w-[220px] h-[500px] rounded-lg overflow-hidden flex flex-col items-center" style={{ backgroundColor: frameColor }}>
               {photos.slice(0, 3).map((photo, index) => (
                 <img key={index} src={photo} className="w-[120px] h-[120px] rounded-lg object-cover my-3" alt="Captured" />
               ))}
