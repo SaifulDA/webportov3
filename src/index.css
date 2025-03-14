@@ -48,7 +48,23 @@ main {
 #chatbase-bubble-button {
   bottom: 80px !important; /* Sesuaikan nilai ini */
   right: 25px !important;
+  z-index: 2147483647 !important;
 }
+
+#chatbase-bubble-window {
+/* Sesuaikan nilai ini */
+  right: 100px !important;
+}
+
+@media screen and (max-width: 768px) {
+  #chatbase-bubble-window {
+    width: 90% !important; /* Menyesuaikan lebar dengan layar */
+    max-width: 350px !important; /* Maksimum ukuran */
+    right: 100px !important; /* Posisikan lebih dekat ke tepi */
+    bottom: 80px !important; /* Sesuaikan posisi dari bawah */
+  }
+}
+
 #chatbase-bubble-button svg path {
   fill: white; /* Warna default ikon */
 }
