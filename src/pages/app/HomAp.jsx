@@ -6,14 +6,14 @@ import Footer from "../home/Footer";
 
 const hap = () => {
   return (
-    <div id="app" className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 transition-all">
+    <div id="app" className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
       {/* Navbar */}
       <Navbar />
 
       {/* Konten Utama */}
       <section data-aos="fade-up" className="flex-grow flex flex-col items-center justify-center text-center">
         {/* Judul dengan garis atas & bawah */}
-        <div className="w-full py-12 px-6 md:px-16">
+        <div className="w-3/4 py-12 px-6 md:px-16">
           <hr className="border-black dark:border-white" />
           <h1 className="text-3xl md:text-4xl font-semibold dark:text-white my-2 font-kreon tracking-wider">
             My App
