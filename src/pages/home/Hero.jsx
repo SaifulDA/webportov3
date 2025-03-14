@@ -19,7 +19,7 @@ const Hero = () => {
       {/* Hero Content */}
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl gap-10">
         {/* Teks Hero */}
-        <div className="text-center max-w-lg justify-center items-center">
+        <div data-aos="fade-up" className="text-center max-w-lg justify-center items-center">
           <p className="text-xl italic mb-3 font-italianno">Hello, I&apos;m</p>
           <h2 className="text-4xl font-kreon mb-2 border-b-2 border-gray-800 dark:border-white inline-block">Saiful Daulah Alfarabi</h2>
 
@@ -35,7 +35,7 @@ const Hero = () => {
         </div>
 
         {/* Gambar Profile */}
-        <div className="relative flex justify-center drop-shadow-lg ">
+        <div data-aos="fade-up" className="relative flex justify-center drop-shadow-lg ">
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-black overflow-hidden shadow-lg dark:shadow-white/50 dark:shadow-lg ">
             <LazyImage src={profileImage} alt="Profile" className="w-full h-full object-cover transition-transform duration-300 hover:scale-130" />
           </div>

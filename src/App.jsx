@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import CSS AOS
 import Layout from "./pages/Layout";
 import Hero from "./pages/home/Hero";
 import About from "./pages/home/About";
@@ -15,6 +18,14 @@ import CustomizePhoto from "./pages/app/CustomizePhoto";
 import Rembulan from "./pages/gallery/Rembulan";
 
 const App = () => {
+  // eslint-disable-next-line no-undef
+  useEffect(() => {
+    AOS.init({
+      duration: 500, // Durasi animasi dalam m
+
+    });
+  }, []);
+
   return (
     <Router>
       <Routes>

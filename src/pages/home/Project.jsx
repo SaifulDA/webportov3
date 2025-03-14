@@ -69,14 +69,14 @@ const ProjectsSection = () => {
       <div className="mx-auto px-4">
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
         <div className="text-center">
-          <h2 className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">Project</h2>
+          <h2 data-aos="fade-up" className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">Project</h2>
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
         <div className="mb-8 max-w-5xl mx-auto">
-          <h3 className="text-2xl font-medium text-gray-900 dark:text-white font-italianno tracking-wider">All Project</h3>
+          <h3 data-aos="fade-up" className="text-2xl font-medium text-gray-900 dark:text-white font-italianno tracking-wider">All Project</h3>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div data-aos="fade-up" className="max-w-5xl mx-auto">
           <Swiper
             modules={[Navigation, Autoplay]}
             spaceBetween={20}

@@ -38,14 +38,14 @@ const Skills = () => {
 
       {/* Teks SKILLS */}
       <div className="text-center">
-        <h2 className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">SKILLS</h2>
+        <h2 data-aos="fade-up" className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">SKILLS</h2>
       </div>
 
       {/* Garis Bawah */}
       <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
 
       {/* Grid Skill Cards */}
-      <div className="flex flex-wrap justify-center gap-8">
+      <div data-aos="fade-up" className="flex flex-wrap justify-center gap-8">
         {skills.map((skill, index) => (
           <div key={index} className="flex flex-col items-center">
             {/* Gambar Lingkaran */}
