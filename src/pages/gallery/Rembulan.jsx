@@ -134,7 +134,7 @@ const EbookViewer = () => {
               className={`p-3 rounded-full transition-all ${
                 currentPage === 0 || flipping 
                   ? "opacity-50 cursor-not-allowed bg-gray-400" 
-                  : "bg-blue-500 text-white hover:bg-blue-600 hover:scale-105 shadow-md"
+                  : "bg-black dark:bg-white text-white dark:text-black dark:hover:text-white text-white hover:bg-blue-600 hover:scale-105 shadow-md"
               }`}
             >
               <ChevronLeft size={28} />
@@ -146,7 +146,7 @@ const EbookViewer = () => {
               className={`p-3 rounded-full transition-all ${
                 currentPage >= pages.length - 2 || flipping 
                   ? "opacity-50 cursor-not-allowed bg-gray-400" 
-                  : "bg-blue-500 text-white hover:bg-blue-600 hover:scale-105 shadow-md"
+                  : "bg-black dark:bg-white text-white dark:text-black dark:hover:text-white hover:bg-blue-600 hover:scale-105 shadow-md"
               }`}
             >
               <ChevronRight size={28} />
