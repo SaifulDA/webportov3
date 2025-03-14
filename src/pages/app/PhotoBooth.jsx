@@ -53,7 +53,7 @@ const TakePhoto = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-all pt-20">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-all lg:pt-20 xl:pt-20">
       <Navbar /> {/* Tambahkan Navbar */}
       <div id="photobooth" className="flex-1 p-4 flex flex-col md:flex-row items-center justify-center gap-4">
         {/* Tutorial */}

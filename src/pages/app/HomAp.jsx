@@ -13,7 +13,7 @@ const hap = () => {
       {/* Konten Utama */}
       <section data-aos="fade-up" className="flex-grow flex flex-col items-center justify-center text-center">
         {/* Judul dengan garis atas & bawah */}
-        <div className="w-3/4 py-12 px-6 md:px-16 pt-25">
+        <div className="w-3/4 py-12 px-6 md:px-16 lg:pt-25 xl:pt-25">
           <hr className="border-black dark:border-white" />
           <h1 className="text-3xl md:text-4xl font-semibold dark:text-white my-2 font-kreon tracking-wider">My App</h1>
           <hr className="border-black dark:border-white" />

@@ -10,14 +10,14 @@ const Hero = () => {
   const { theme } = useTheme(); // Destructure theme dari useTheme
   return (
     <div
-    id="hero"
+      id="hero"
       className="flex flex-col items-center justify-center min-h-screen 
         bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 
         dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 
         px-6 md:px-16 transition-colors duration-300 text-gray-900 dark:text-white"
     >
       {/* Hero Content */}
-      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl gap-10">
+      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-4xl gap-10">
         {/* Teks Hero */}
         <div data-aos="fade-up" className="text-center max-w-lg justify-center items-center">
           <p className="text-xl italic mb-3 font-italianno">Hello, I&apos;m</p>

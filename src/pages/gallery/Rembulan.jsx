@@ -47,7 +47,7 @@ const EbookViewer = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 text-black dark:bg-gray-900 dark:text-white min-h-screen flex flex-col pt-16">
+    <div className="bg-gray-100 text-black dark:bg-gray-900 dark:text-white min-h-screen flex flex-col lg:pt-16 xl:pt-16">
       <Navbar />
       <div className="flex-grow flex flex-col items-center justify-center p-6 mt-10">
         <div className="relative w-full max-w-2xl">

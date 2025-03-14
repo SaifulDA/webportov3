@@ -73,7 +73,7 @@ const CustomizePhoto = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
       <Navbar />
-      <section className="flex-grow p-6 flex flex-col items-center pt-25">
+      <section className="flex-grow p-6 flex flex-col items-center lg:pt-25 xl:pt-25">
         <h1 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">Customize Your Photo</h1>
         <canvas ref={canvasRef} className="hidden" />
         <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
