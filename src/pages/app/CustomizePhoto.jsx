@@ -14,7 +14,7 @@ const CustomizePhoto = () => {
   const previewRef = useRef(null);
   const frameWidth = 180;
   const frameHeight = 500;
-  const scaleFactor = 3;
+  const scaleFactor = 5;
 
   const drawCanvas = () => {
     const canvas = canvasRef.current;
