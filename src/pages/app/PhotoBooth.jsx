@@ -60,10 +60,13 @@ const TakePhoto = () => {
         <div className="w-full md:w-1/3 bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md">
           <h2 className="text-2xl font-semibold mb-4 text-center text-gray-900 dark:text-white">Tutorial</h2>
           <ol className="list-decimal list-inside text-gray-700 dark:text-gray-300">
-            <li className="mb-2">Pilih filter di bawah kamera.</li>
-            <li className="mb-2">Klik tombol &quot;Take Photo&quot; untuk mengambil gambar.</li>
-            <li>Ambil 3 foto untuk melanjutkan.</li>
-            <li>Note: Foto tidak masuk dalam database.</li>
+            <li className="mb-2">Select a filter below the camera.</li>
+            <li className="mb-2">Click the &quot;Take Photo&quot; button to capture an image.</li>
+            <li>Take 3 photos to proceed.</li>
+            <li className="text-red-500 italic flex items-center">
+              <i className="bi bi-exclamation-triangle-fill mr-1"></i>
+              Note: Photos are not stored in the database.
+            </li>
           </ol>
         </div>
 
@@ -110,7 +113,7 @@ const TakePhoto = () => {
 
         {/* Captured Photos */}
         <div className="w-md md:w-1/7 bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md">
-          <h2 className="text-2xl font-semibold mb-4 text-center text-gray-900 dark:text-white">Hasil Foto</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-center text-gray-900 dark:text-white">Photo Result</h2>
           <div className="flex flex-row md:flex-col gap-4 overflow-x-auto md:overflow-x-hidden">
             {photos.map((photo, index) => (
               <div key={index} className="relative flex-shrink-0 w-24 md:w-full">
