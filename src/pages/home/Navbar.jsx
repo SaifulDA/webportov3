@@ -77,7 +77,7 @@ const Navbar = () => {
           {/* Icon Chat, Galeri & Toggle Theme */}
           <div className="flex items-center space-x-4">
             {/* Icon Aplikasi */}
-            <Link to="/comingsoon" onClick={() => goToSection("comingsoon")} aria-label="View Application" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
+            <Link to="/app" onClick={() => goToSection("app")} aria-label="View Application" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
               <AppWindow className="w-6 h-6 text-gray-700 dark:text-white" />
             </Link>
 
@@ -119,7 +119,7 @@ const Navbar = () => {
         </Link>
 
         {/* app */}
-        <Link to="/comingsoon" onClick={() => goToSection("comingsoon")} className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <Link to="/app" onClick={() => goToSection("app")} className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
           <AppWindow className="w-6 h-6" />
           <span className="text-xs">App</span>
         </Link>
