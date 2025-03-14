@@ -7,6 +7,7 @@ const CustomizePhoto = () => {
   const location = useLocation();
   const { photos } = location.state || { photos: [] };
   const [frameColor, setFrameColor] = useState("#FFD1DC"); // Default: Pastel Pink
+  const [textColor, setTextColor] = useState("white"); // Default: White
   const [addDate, setAddDate] = useState(false);
   const [createdBy, setCreatedBy] = useState("Saiful");
   const canvasRef = useRef(null);
@@ -42,20 +43,20 @@ const CustomizePhoto = () => {
       };
     });
 
+    ctx.fillStyle = textColor;
+    ctx.font = `${14 * scaleFactor}px Arial`;
+    ctx.textAlign = "center";
+
     if (addDate) {
-      ctx.fillStyle = "white";
-      ctx.font = `${14 * scaleFactor}px Arial`;
-      ctx.textAlign = "center";
       ctx.fillText(new Date().toLocaleDateString(), canvas.width / 2, canvas.height - 40 * scaleFactor);
     }
 
-    ctx.fillStyle = "white";
     ctx.fillText(`Created by ${createdBy}`, canvas.width / 2, canvas.height - 20 * scaleFactor);
   };
 
   useEffect(() => {
     drawCanvas();
-  }, [photos, frameColor, addDate, createdBy]);
+  }, [photos, frameColor, textColor, addDate, createdBy]);
 
   const handleDownload = () => {
     const link = document.createElement("a");
@@ -67,21 +68,33 @@ const CustomizePhoto = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
       <Navbar />
-      <section className="flex-grow p-6 flex flex-col items-center pt-25">
+      <section className="flex-grow p-6 flex flex-col items-center">
         <h1 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">Customize Your Photo</h1>
         <canvas ref={canvasRef} className="hidden" />
         <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-gray-100 dark:bg-gray-600 rounded-lg p-4 shadow-md flex justify-center">
-            <div ref={previewRef} className="relative w-[220px] h-[500px] rounded-lg overflow-hidden flex flex-col items-center" style={{ backgroundColor: frameColor }}>
+            <div
+              ref={previewRef}
+              className="relative w-[220px] h-[500px] rounded-lg overflow-hidden flex flex-col items-center"
+              style={{ backgroundColor: frameColor }}
+            >
               {photos.slice(0, 3).map((photo, index) => (
                 <img key={index} src={photo} className="w-[120px] h-[120px] rounded-lg object-cover my-3" alt="Captured" />
               ))}
-              {addDate && <p className="absolute bottom-10 text-white font-bold text-sm">{new Date().toLocaleDateString()}</p>}
-              <p className="absolute bottom-2 text-white font-bold text-sm">Created by {createdBy}</p>
+              {addDate && (
+                <p className={`absolute bottom-10 font-bold text-sm`} style={{ color: textColor }}>
+                  {new Date().toLocaleDateString()}
+                </p>
+              )}
+              <p className="absolute bottom-2 font-bold text-sm" style={{ color: textColor }}>
+                Created by {createdBy}
+              </p>
             </div>
           </div>
           <div className="bg-white dark:bg-gray-600 rounded-lg p-6 shadow-md text-gray-900 dark:text-white">
             <h2 className="text-lg font-semibold mb-4">Customize Your Photo</h2>
+
+            {/* Pilihan Warna Frame */}
             <div className="mb-4">
               <label className="block text-sm font-medium mb-2">Frame Color:</label>
               <div className="flex flex-wrap gap-2">
@@ -102,12 +115,31 @@ const CustomizePhoto = () => {
                 ))}
               </div>
             </div>
+
+            {/* Pilihan Warna Teks */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-2">Text Color:</label>
+              <div className="flex gap-2">
+                {["white", "black"].map((color) => (
+                  <button
+                    key={color}
+                    className={`w-8 h-8 rounded-full border shadow-sm transition-shadow hover:shadow-md ${textColor === color ? "ring-2 ring-gray-500" : ""}`}
+                    style={{ backgroundColor: color }}
+                    onClick={() => setTextColor(color)}
+                  ></button>
+                ))}
+              </div>
+            </div>
+
+            {/* Checkbox Add Date */}
             <div className="flex items-center mb-4">
               <input type="checkbox" id="addDate" checked={addDate} onChange={() => setAddDate(!addDate)} className="mr-2 rounded border-gray-300 focus:ring-blue-500" />
               <label htmlFor="addDate" className="text-sm">
                 Add Date
               </label>
             </div>
+
+            {/* Pilihan "Created By" */}
             <div className="mb-4">
               <label className="block text-sm font-medium mb-2">Created By:</label>
               <div className="flex flex-col gap-2">
@@ -119,6 +151,7 @@ const CustomizePhoto = () => {
                 ))}
               </div>
             </div>
+
             <button onClick={handleDownload} className="bg-black hover:bg-blue-600 text-white dark:bg-white dark:text-black dark:hover:text-white px-4 py-2 rounded-lg w-full transition-colors">
               Download Photo
             </button>
