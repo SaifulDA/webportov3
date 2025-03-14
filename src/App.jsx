@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound"; // Import halaman 404
 import Chat from "./pages/contact/Chat";
 import Gallery from "./pages/gallery/Gallery";
 import CoomingSoon from "./pages/ComSon";
+import HomAp from "./pages/app/HomAp";
 import PhotoBooth from "./pages/app/PhotoBooth";
 import CustomizePhoto from "./pages/app/CustomizePhoto";
 import Rembulan from "./pages/gallery/Rembulan";
@@ -22,7 +23,6 @@ const App = () => {
   useEffect(() => {
     AOS.init({
       duration: 500, // Durasi animasi dalam m
-
     });
   }, []);
 
@@ -48,6 +48,7 @@ const App = () => {
         <Route path="/chat" element={<Chat />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/comingsoon" element={<CoomingSoon />} />
+        <Route path="/app" element={<HomAp />} />
         <Route path="/photobooth" element={<PhotoBooth />} />
         <Route path="/customize" element={<CustomizePhoto />} />
         <Route path="/rembulan" element={<Rembulan />} />
