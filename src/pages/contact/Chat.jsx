@@ -4,7 +4,6 @@ import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
 import Swal from "sweetalert2";
 
-
 const ChatPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -85,7 +84,7 @@ const ChatPage = () => {
       <div className="flex flex-col items-center justify-center flex-grow p-6">
         <div className="bg-white/30 dark:bg-black/30 backdrop-blur-md shadow-lg rounded-xl p-8 max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Information */}
-          <div className="bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 p-6 rounded-xl text-center flex flex-col items-center">
+          <div data-aos="fade-up" className="bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 p-6 rounded-xl text-center flex flex-col items-center">
             <h2 className="font-bold text-gray-900 mt-10 dark:text-white font-kreon tracking-wider text-3xl">Contact Information</h2>
             <p className="mb-2 text-gray-700 mt-3">
               📧{" "}
@@ -99,11 +98,19 @@ const ChatPage = () => {
           </div>
 
           {/* Form Message */}
-          <div className="p-3">
+          <div data-aos="fade-up" className="p-3">
             <h2 className="text-3xl font-bold mb-4 text-center text-gray-900 dark:text-white font-kreon tracking-wider">Form Message</h2>
             <form onSubmit={sendMessage} className="space-y-4">
               <p>Name</p>
-              <input type="text" name="name" placeholder="Input Name" className="w-full p-3 border border-gray-900 dark:border-white rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" onChange={handleChange} value={formData.name} required />
+              <input
+                type="text"
+                name="name"
+                placeholder="Input Name"
+                className="w-full p-3 border border-gray-900 dark:border-white rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                onChange={handleChange}
+                value={formData.name}
+                required
+              />
               <p>Subject</p>
               <input
                 type="text"
@@ -124,7 +131,11 @@ const ChatPage = () => {
                 required
               />
 
-              <button type="submit" className="w-full bg-stone-950 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:text-white transition" disabled={isLoading}>
+              <button
+                type="submit"
+                className="w-full bg-stone-950 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:text-white transition"
+                disabled={isLoading}
+              >
                 {isLoading ? (
                   <>
                     <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
