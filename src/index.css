@@ -34,7 +34,8 @@
 
 /* Custom CSS body */
 
-html, body {
+html,
+body {
   display: flex;
   flex-direction: column;
   font-family: "poppins", sans-serif;
@@ -42,4 +43,23 @@ html, body {
 
 main {
   flex: 1; /* Agar konten mendorong footer ke bawah */
+}
+
+#chatbase-bubble-button {
+  bottom: 80px !important; /* Sesuaikan nilai ini */
+}
+#chatbase-bubble-button svg path {
+  fill: black; /* Warna default ikon */
+}
+
+.dark #chatbase-bubble-button svg path {
+  fill: white; /* Warna ikon saat mode gelap aktif */
+}
+
+#chatbase-bubble-button {
+  background-color: white  !important;
+}
+
+.dark #chatbase-bubble-button {
+  background-color: black !important;
 }
