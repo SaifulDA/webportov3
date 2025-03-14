@@ -2,7 +2,7 @@
 import React from "react";
 import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
-import { Instagram, BookOpen } from "lucide-react";
+import { Instagram } from "lucide-react";
 import fotoProfile from "../../assets/images/Foto_Profile.jpg";
 import bungaPutih from "../../assets/images/bunga.jpg";
 import sunRise from "../../assets/images/sunrise.jpg";
@@ -10,6 +10,7 @@ import gunung from "../../assets/images/gunung.jpg";
 import sertiReact from "../../assets/images/serti_react.jpg";
 import wisuda from "../../assets/images/wisuda.jpg";
 import comingSoon from "../ComSon";
+import LazyImage from "../../components/common/LazyImage";
 
 const galleryItems = [
   {
@@ -83,7 +84,7 @@ const Gallery = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
           {galleryItems.map((item, index) => (
             <div key={index} className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img src={item.img} alt={item.title} className="w-full h-100 object-contain transition-transform duration-300 group-hover:scale-110" />
+              <LazyImage src={item.img} alt={item.title} className="w-full h-100 object-contain transition-transform duration-300 group-hover:scale-110" />
               <div className="absolute inset-0 flex items-center justify-center bg-black/50 dark:bg-white/50 bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-white p-3 bg-black bg-opacity-70 rounded-full">
                   <Instagram size={32} />
@@ -107,7 +108,7 @@ const Gallery = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
           {ebookItems.map((item, index) => (
             <div key={index} className="relative group overflow-hidden rounded-lg shadow-lg p-6 bg-white dark:bg-gray-800 text-center">
-              <img src={item.img} alt={item.title} className="w-full h-64 object-cover rounded-lg mb-4" />
+              <LazyImage src={item.img} alt={item.title} className="w-full h-64 object-cover rounded-lg mb-4" />
               <h3 className="text-md font-semibold mb-2">{item.title}</h3>
               <p className="text-sm text-gray-500">{item.author}</p>
               <a href={item.link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block bg-black dark:bg-white dark:text-black text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 dark:hover:text-white">
