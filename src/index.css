@@ -49,17 +49,17 @@ main {
   bottom: 80px !important; /* Sesuaikan nilai ini */
 }
 #chatbase-bubble-button svg path {
-  fill: black; /* Warna default ikon */
+  fill: white; /* Warna default ikon */
 }
 
 .dark #chatbase-bubble-button svg path {
-  fill: white; /* Warna ikon saat mode gelap aktif */
+  fill: black; /* Warna ikon saat mode gelap aktif */
 }
 
 #chatbase-bubble-button {
-  background-color: white  !important;
+  background-color: black  !important;
 }
 
 .dark #chatbase-bubble-button {
-  background-color: black !important;
+  background-color: white !important;
 }
