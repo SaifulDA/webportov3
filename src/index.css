@@ -46,7 +46,7 @@ main {
 }
 
 #chatbase-bubble-button {
-  bottom: 80px !important; /* Sesuaikan nilai ini */
+  bottom: 110px !important; /* Sesuaikan nilai ini */
   right: 25px !important;
   z-index: 2147483647 !important;
 }
