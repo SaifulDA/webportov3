@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { getTokenFromUrl, fetchUserPlaylists, fetchPlaylistTracks, logout } from '../../services/SpotifyAPi';
-import { initializeSpotifyPlayer, playTrack } from '../../services/SpotifyPlayer';
-import Login from '../../components/common/Login';
-import Navbar from '../../components/common/NavbarSpotify';
-import PlaylistSidebar from '../../components/common/PlaylistSidebar';
-import PlaylistDetail from '../../components/common/PlaylistDetail';
+import { useState, useEffect } from "react";
+import { getTokenFromUrl, fetchUserPlaylists, fetchPlaylistTracks, logout } from "../../services/Spotifyin";
+import { initializeSpotifyPlayer, playTrack } from "../../services/SpotifyPlayer";
+import Login from "../../components/common/Login";
+import Navbar from "../../components/common/NavbarSpotify";
+import PlaylistSidebar from "../../components/common/PlaylistSidebar";
+import PlaylistDetail from "../../components/common/PlaylistDetail";
 
 function App() {
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
   const [deviceId, setDeviceId] = useState(null);
   const [playlists, setPlaylists] = useState([]);
   const [selectedPlaylist, setSelectedPlaylist] = useState(null);
@@ -45,7 +45,7 @@ function App() {
           setPlaylists(playlistsData.items);
         }
       } catch (error) {
-        console.error('Error fetching playlists:', error);
+        console.error("Error fetching playlists:", error);
       } finally {
         setLoadingPlaylists(false);
       }
@@ -65,7 +65,7 @@ function App() {
         setTracks(tracksData.items);
       }
     } catch (error) {
-      console.error('Error fetching tracks:', error);
+      console.error("Error fetching tracks:", error);
     } finally {
       setLoadingTracks(false);
     }
@@ -81,7 +81,7 @@ function App() {
   // Handle logout
   const handleLogout = () => {
     logout();
-    setToken('');
+    setToken("");
     setPlaylists([]);
     setSelectedPlaylist(null);
     setTracks([]);
@@ -101,12 +101,7 @@ function App() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Sidebar Playlist */}
           <div className="lg:col-span-1">
-            <PlaylistSidebar
-              playlists={playlists}
-              loading={loadingPlaylists}
-              onSelectPlaylist={handleSelectPlaylist}
-              selectedPlaylistId={selectedPlaylist?.id}
-            />
+            <PlaylistSidebar playlists={playlists} loading={loadingPlaylists} onSelectPlaylist={handleSelectPlaylist} selectedPlaylistId={selectedPlaylist?.id} />
           </div>
 
           {/* Detail Playlist & Track List */}
@@ -122,7 +117,6 @@ function App() {
       </div>
     </div>
   );
-  
 }
 
 export default App;
