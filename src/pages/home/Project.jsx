@@ -26,7 +26,7 @@ const projects = [
   {
     id: 2,
     title: "Web Portfolio version 2",
-    desc: "This is version 2 of the portfolio website using bootstrap",
+    desc: "This is version 2 of the portofolio website using bootstrap",
     image: webV2,
     link: "https://github.com/SaifulDA/saifulda.github.io",
   },
