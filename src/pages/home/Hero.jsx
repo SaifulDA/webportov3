@@ -1,23 +1,38 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import DownloadButton from "../../components/common/Button";
-import { useTheme } from "../../components/common/ThemeContext"; // Import useTheme
+import { useTheme } from "../../components/common/ThemeContext";
 import profileImage from "/src/assets/images/profile.svg";
 import { Typewriter } from "react-simple-typewriter";
 import LazyImage from "../../components/common/LazyImage";
 
 const Hero = () => {
-  const { theme } = useTheme(); // Destructure theme dari useTheme
+  const { theme } = useTheme();
   return (
-    <div
-      id="hero"
-      className="flex flex-col items-center justify-center min-h-screen 
-        bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 
-        dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 
-        px-6 md:px-16 transition-colors duration-300 text-gray-900 dark:text-white"
-    >
+    <div id="hero" className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 transition-colors duration-300 text-gray-900 dark:text-white overflow-hidden">
+      {/* Background Gradient */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: theme === "dark" ? "linear-gradient(135deg, #1e1e2e, #312e81)" : "linear-gradient(135deg, #fff1f5, #e0c3fc)",
+        }}
+      ></div>
+
+      {/* Floating 3D Elements */}
+      {[...Array(15)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute w-14 h-14 bg-opacity-40 rounded-full blur-xl animate-float"
+          style={{
+            backgroundColor: ["#3b82f6", "#8b5cf6", "#f43f5e", "#22c55e", "#eab308", "#f97316"][i % 6],
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            animationDuration: `${Math.random() * 5 + 3}s`,
+          }}
+        ></div>
+      ))}
       {/* Hero Content */}
-      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-4xl gap-10">
+      <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-4xl gap-10 z-10">
         {/* Teks Hero */}
         <div data-aos="fade-up" className="text-center max-w-lg justify-center items-center">
           <p className="text-xl italic mb-3 font-italianno">Hello, I&apos;m</p>
@@ -35,9 +50,9 @@ const Hero = () => {
         </div>
 
         {/* Gambar Profile */}
-        <div data-aos="fade-up" className="relative flex justify-center drop-shadow-lg ">
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-black overflow-hidden shadow-lg dark:shadow-white/50 dark:shadow-lg ">
-            <LazyImage src={profileImage} alt="Profile" className="w-full h-full object-cover transition-transform duration-300 hover:scale-130" />
+        <div data-aos="fade-up" className="relative flex justify-center drop-shadow-lg">
+          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-black overflow-hidden shadow-lg dark:shadow-white/50 dark:shadow-lg">
+            <LazyImage src={profileImage} alt="Profile" className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
           </div>
         </div>
       </div>
