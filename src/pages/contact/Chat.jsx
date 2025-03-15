@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
 import Swal from "sweetalert2";
-import { useTheme } from "../../components/common/ThemeContext";
 
 const ChatPage = () => {
   const [formData, setFormData] = useState({
@@ -78,16 +77,9 @@ const ChatPage = () => {
       setIsLoading(false);
     }
   };
-  const { theme } = useTheme();
+
   return (
     <div id="chat" className="lg:pt-20 xl:pt-20 md:pt-20 min-h-screen flex flex-col bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 dark:text-white">
-      {/* Background Gradient */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: theme === "dark" ? "linear-gradient(135deg, #1e1e2e, #312e81)" : "linear-gradient(135deg, #fff1f5, #e0c3fc)",
-        }}
-      ></div>
       {/* Wrapper utama agar footer tetap di bawah */}
       <div className="flex-grow flex flex-col items-center justify-center p-6">
         {/* Floating 3D Elements */}
