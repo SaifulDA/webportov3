@@ -9,12 +9,12 @@ import LazyImage from "../../components/common/LazyImage";
 const Hero = () => {
   const { theme } = useTheme();
   return (
-    <div id="hero" className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 transition-colors duration-300 text-gray-900 dark:text-white overflow-hidden">
+    <div id="hero" className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 transition-colors duration-300 text-gray-900 dark:text-white overflow-hidden ">
       {/* Background Gradient */}
       <div
         className="absolute inset-0"
         style={{
-          background: theme === "dark" ? "linear-gradient(135deg, #1e1e2e, #312e81)" : "linear-gradient(135deg, #fff1f5, #e0c3fc)",
+          background: theme === "dark" ? "linear-gradient(135deg, #1e1e2e, #312e81)" : "linear-gradient(135deg, #d0e1fd, #a8c0ff)", // Warna pastel biru
         }}
       ></div>
 
