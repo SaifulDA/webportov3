@@ -76,14 +76,14 @@ const Gallery = () => {
       <div className="max-w-6xl mx-auto mt-16 px-6 dark:text-white">
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
         <div className="text-center">
-          <h2 className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">Gallery</h2>
+          <h2 data-aos="fade-up" className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">Gallery</h2>
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
           {galleryItems.map((item, index) => (
-            <div key={index} className="relative group overflow-hidden rounded-lg shadow-lg">
+            <div key={index} data-aos="fade-up" className="relative group overflow-hidden rounded-lg shadow-lg dark:bg-gray-800 dark:shadow-white/20">
               <LazyImage src={item.img} alt={item.title} className="w-full h-100 object-contain transition-transform duration-300 group-hover:scale-110" />
               <div className="absolute inset-0 flex items-center justify-center bg-black/50 dark:bg-white/50 bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-white p-3 bg-black bg-opacity-70 rounded-full">
@@ -101,13 +101,13 @@ const Gallery = () => {
         {/* E-Book Section */}
         <hr className="border-t-2 mt-5 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
         <div className="text-center">
-          <h2 className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">E-Books</h2>
+          <h2 data-aos="fade-up" className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">E-Books</h2>
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
           {ebookItems.map((item, index) => (
-            <div key={index} className="relative group overflow-hidden rounded-lg shadow-lg p-6 bg-white dark:bg-gray-800 text-center">
+            <div key={index} data-aos="fade-up" className="relative group overflow-hidden rounded-lg shadow-lg p-6 bg-white dark:bg-gray-800 dark:shadow-white/20 text-center">
               <LazyImage src={item.img} alt={item.title} className="w-full h-64 object-cover rounded-lg mb-4" />
               <h3 className="text-md font-semibold mb-2">{item.title}</h3>
               <p className="text-sm text-gray-500">{item.author}</p>
