@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
 import Swal from "sweetalert2";
+import { useTheme } from "../../components/common/ThemeContext";
 
 const ChatPage = () => {
+  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: "",
     subject: "",
@@ -79,25 +81,32 @@ const ChatPage = () => {
   };
 
   return (
-    <div id="chat" className="lg:pt-20 xl:pt-20 md:pt-20 min-h-screen flex flex-col bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 dark:text-white">
-      {/* Wrapper utama agar footer tetap di bawah */}
-      <div className="flex-grow flex flex-col items-center justify-center p-6">
-        {/* Floating 3D Elements */}
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-14 h-14 bg-opacity-40 rounded-full blur-xl animate-float"
-            style={{
-              backgroundColor: ["#3b82f6", "#8b5cf6", "#f43f5e", "#22c55e", "#eab308", "#f97316"][i % 6],
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 5 + 3}s`,
-            }}
-          ></div>
-        ))}
-        <Navbar />
+    <div id="chat" className="min-h-screen overflow-hidden lg:pt-20 xl:pt-20 md:pt-20 flex flex-col bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 dark:text-white">
+      {/* Background Gradient */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: theme === "dark" ? "linear-gradient(135deg, #1e1e2e, #312e81)" : "linear-gradient(135deg, #fff1f5, #e0c3fc)",
+        }}  
+      ></div>
 
-        <div className="flex flex-col items-center justify-center flex-grow p-6 inset-0 bg-cover bg-center">
+      {/* Floating 3D Elements */}
+      {[...Array(15)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute w-14 h-14 bg-opacity-40 rounded-full blur-xl animate-float"
+          style={{
+            backgroundColor: ["#3b82f6", "#8b5cf6", "#f43f5e", "#22c55e", "#eab308", "#f97316"][i % 6],
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            animationDuration: `${Math.random() * 5 + 3}s`,
+          }}
+        ></div>
+      ))}
+
+      <div className="flex flex-col flex-grow items-center justify-center p-6">
+        <Navbar />
+        <div className="flex flex-col items-center justify-center p-6 inset-0 bg-cover bg-center">
           <div className="bg-white/30 dark:bg-black/30 backdrop-blur-md shadow-lg rounded-xl p-8 max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 dark:shadow-white">
             {/* Contact Information */}
             <div data-aos="fade-up" className="bg-white/20 dark:bg-black/20 p-6 rounded-xl text-center flex flex-col items-center border-gray-500 shadow-md dark:shadow-md dark:shadow-white">
@@ -169,6 +178,7 @@ const ChatPage = () => {
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );
