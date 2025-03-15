@@ -14,7 +14,7 @@
     <script>
       (function () {
         if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-          window.chatbase = (...arguments)  => {
+          window.chatbase = (...arguments) => {
             if (!window.chatbase.q) {
               window.chatbase.q = [];
             }
@@ -43,5 +43,6 @@
         }
       })();
     </script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
   </body>
 </html>
