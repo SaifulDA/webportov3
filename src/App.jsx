@@ -17,6 +17,7 @@ import HomAp from "./pages/app/HomAp";
 import PhotoBooth from "./pages/app/PhotoBooth";
 import CustomizePhoto from "./pages/app/CustomizePhoto";
 import Rembulan from "./pages/gallery/Rembulan";
+import SpotifyList from "./pages/app/SpotifyList";
 
 const App = () => {
   // eslint-disable-next-line no-undef
@@ -51,6 +52,7 @@ const App = () => {
         <Route path="/app" element={<HomAp />} />
         <Route path="/photobooth" element={<PhotoBooth />} />
         <Route path="/customize" element={<CustomizePhoto />} />
+        <Route path="/spotifylist" element={<SpotifyList />} />
         <Route path="/rembulan" element={<Rembulan />} />
       </Routes>
     </Router>
