@@ -6,7 +6,7 @@ import Footer from "../home/Footer";
 
 const hap = () => {
   return (
-    <div id="app" className="flex flex-col min-h-screen bg-gray-100 dark:bg-black">
+    <div id="app" className="flex flex-col min-h-screen bg-white dark:bg-black">
       {/* Navbar */}
       <Navbar />
 
