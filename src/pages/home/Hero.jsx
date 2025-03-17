@@ -9,12 +9,13 @@ import LazyImage from "../../components/common/LazyImage";
 const Hero = () => {
   const { theme } = useTheme();
   return (
-    <div id="hero" className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 transition-colors duration-300 text-gray-900 dark:text-white overflow-hidden ">
-      {/* Background Gradient */}
+    <div id="hero" className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 transition-colors duration-300 text-gray-900 dark:text-white dark:bg-black overflow-hidden ">
+      {/* Background subtle pattern */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-5"
         style={{
-          background: theme === "dark" ? "linear-gradient(135deg, #1e1e2e, #312e81)" : "linear-gradient(135deg, #d0e1fd, #a8c0ff)", // Warna pastel biru
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
         }}
       ></div>
 
