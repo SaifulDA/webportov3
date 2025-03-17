@@ -93,14 +93,15 @@ const ChatPage = () => {
         <Navbar />
         <div className="flex flex-col items-center justify-center max-w-6xl w-full mx-auto mt-4 md:mt-0">
           <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-xl rounded-2xl w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 border border-gray-200 dark:border-gray-700 drop-shadow-md dark:shadow-gray-500">
+           
             {/* Contact Information */}
-            <div data-aos="fade-up" className="bg-gray-50 dark:bg-gray-800 p-5 md:p-8 rounded-xl flex flex-col items-center shadow-lg">
+            <div data-aos="fade-up" className="bg-gray-50 dark:bg-gray-800 p-5 md:p-8 rounded-xl flex flex-col items-center">
               <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-black text-white dark:bg-white dark:text-black rounded-full mb-4 md:mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white font-kreon text-center">Contact Information</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white font-kreon text-center tracking-wider">Contact Information</h2>
 
               <div className="space-y-4 md:space-y-5 w-full">
                 <div className="flex items-center space-x-3">
@@ -146,7 +147,7 @@ const ChatPage = () => {
 
             {/* Form Message */}
             <div data-aos="fade-up" className="p-5 md:p-6">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white font-kreon">Form Message</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white text-center font-kreon tracking-wider">Form Message</h2>
               <form onSubmit={sendMessage} className="space-y-3 md:space-y-4">
                 <div>
                   <label className="block text-gray-700 dark:text-gray-300 mb-1 md:mb-2 font-medium text-sm md:text-base">Name</label>
