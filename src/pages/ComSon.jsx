@@ -28,7 +28,7 @@ const ComingSoon = () => {
           </motion.div>
           <h1 className="text-5xl font-bold mb-2">Coming Soon</h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            We&apos;re working hard to bring something amazing!
+            I working hard to bring something amazing!
           </p>
           
           <motion.div
@@ -38,7 +38,7 @@ const ComingSoon = () => {
           >
             <Link
               to="/"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+              className="inline-flex items-center px-6 py-3 bg-black dark:bg-white dark:text-black dark:hover:text-white text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
             >
               <Home className="w-5 h-5 mr-2" /> Kembali ke Home
             </Link>
