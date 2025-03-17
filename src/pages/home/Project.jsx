@@ -65,7 +65,7 @@ const ProjectsSection = () => {
   const navigationNextClass = "swiper-button-next-custom";
 
   return (
-    <section id="project" className="py-12 px-6 md:px-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section id="project" className="py-12 px-6 md:px-16 bg-white dark:bg-black transition-colors duration-300">
       <div className="mx-auto px-4">
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
         <div className="text-center">
