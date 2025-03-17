@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
@@ -89,34 +89,34 @@ const ChatPage = () => {
         }}
       ></div>
 
-      <div className="flex flex-col flex-grow items-center justify-center p-6 relative z-10">
+      <div className="flex flex-col flex-grow items-center justify-center px-4 py-6 md:p-6 relative z-10">
         <Navbar />
-        <div className="flex flex-col items-center justify-center p-6 max-w-6xl w-full mx-auto">
-          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-xl rounded-2xl p-8 w-full grid grid-cols-1 md:grid-cols-2 gap-8 border border-gray-200 dark:border-gray-700 drop-shadow-md dark:shadow-gray-500">
+        <div className="flex flex-col items-center justify-center max-w-6xl w-full mx-auto mt-4 md:mt-0">
+          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-xl rounded-2xl w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 border border-gray-200 dark:border-gray-700 drop-shadow-md dark:shadow-gray-500">
             {/* Contact Information */}
-            <div data-aos="fade-up" className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl flex flex-col items-center shadow-lg transform transition-all duration-300 hover:scale-[1.02]">
-              <div className="w-16 h-16 flex items-center justify-center bg-black text-white dark:bg-white dark:text-black rounded-full mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div data-aos="fade-up" className="bg-gray-50 dark:bg-gray-800 p-5 md:p-8 rounded-xl flex flex-col items-center shadow-lg">
+              <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-black text-white dark:bg-white dark:text-black rounded-full mb-4 md:mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white font-kreon">Contact Information</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white font-kreon text-center">Contact Information</h2>
 
-              <div className="space-y-5 w-full">
+              <div className="space-y-4 md:space-y-5 w-full">
                 <div className="flex items-center space-x-3">
-                  <div className="bg-black dark:bg-white p-2 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white dark:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-black dark:bg-white p-2 rounded-full flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-white dark:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <a href="mailto:saifuddaulah24@gmail.com" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-300 transition">
+                  <a href="mailto:saifuddaulah24@gmail.com" className="text-sm md:text-base text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-300 transition truncate">
                     saifuldaulah24@gmail.com
                   </a>
                 </div>
 
                 <div className="flex items-center space-x-3">
-                  <div className="bg-black dark:bg-white p-2 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white dark:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-black dark:bg-white p-2 rounded-full flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-white dark:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -125,36 +125,36 @@ const ChatPage = () => {
                       />
                     </svg>
                   </div>
-                  <span className="text-gray-700 dark:text-gray-300">+62851 6361 4521</span>
+                  <span className="text-sm md:text-base text-gray-700 dark:text-gray-300">+62851 6361 4521</span>
                 </div>
 
                 <div className="flex items-center space-x-3">
-                  <div className="bg-black dark:bg-white p-2 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white dark:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-black dark:bg-white p-2 rounded-full flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-white dark:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <span className="text-gray-700 dark:text-gray-300">Jakarta, Indonesia</span>
+                  <span className="text-sm md:text-base text-gray-700 dark:text-gray-300">Jakarta, Indonesia</span>
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 w-full text-center">
-                <p className="text-2xl font-bold text-gray-900 dark:text-white font-kreon">Thank You 🙂</p>
+              <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-200 dark:border-gray-700 w-full text-center">
+                <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white font-kreon">Thank You 🙂</p>
               </div>
             </div>
 
             {/* Form Message */}
-            <div data-aos="fade-up" className="p-6">
-              <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white font-kreon">Form Message</h2>
-              <form onSubmit={sendMessage} className="space-y-4">
+            <div data-aos="fade-up" className="p-5 md:p-6">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white font-kreon">Form Message</h2>
+              <form onSubmit={sendMessage} className="space-y-3 md:space-y-4">
                 <div>
-                  <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Name</label>
+                  <label className="block text-gray-700 dark:text-gray-300 mb-1 md:mb-2 font-medium text-sm md:text-base">Name</label>
                   <input
                     type="text"
                     name="name"
                     placeholder="Input Name"
-                    className="w-full p-3 dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+                    className="w-full p-2 md:p-3 text-sm md:text-base dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
                     onChange={handleChange}
                     value={formData.name}
                     required
@@ -162,12 +162,12 @@ const ChatPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Subject</label>
+                  <label className="block text-gray-700 dark:text-gray-300 mb-1 md:mb-2 font-medium text-sm md:text-base">Subject</label>
                   <input
                     type="text"
                     name="subject"
                     placeholder="Input Subject"
-                    className="w-full p-3 dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+                    className="w-full p-2 md:p-3 text-sm md:text-base dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
                     onChange={handleChange}
                     value={formData.subject}
                     required
@@ -175,21 +175,21 @@ const ChatPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Message</label>
+                  <label className="block text-gray-700 dark:text-gray-300 mb-1 md:mb-2 font-medium text-sm md:text-base">Message</label>
                   <textarea
                     name="message"
                     placeholder="Input Message"
-                    className="w-full p-3 dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg h-32 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+                    className="w-full p-2 md:p-3 text-sm md:text-base dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg h-24 md:h-32 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
                     onChange={handleChange}
                     value={formData.message}
                     required
                   />
                 </div>
 
-                <button type="submit" className="w-full bg-black dark:bg-white dark:text-black dark:hover:text-white hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-300 mt-4 shadow-md" disabled={isLoading}>
+                <button type="submit" className="w-full bg-black dark:bg-white dark:text-black dark:hover:text-white hover:bg-blue-700 text-white font-medium px-4 md:px-6 py-2 md:py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-300 mt-3 md:mt-4 shadow-md text-sm md:text-base" disabled={isLoading}>
                   {isLoading ? (
                     <>
-                      <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+                      <svg className="animate-spin h-4 w-4 md:h-5 md:w-5 text-white" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 0116 0H4z"></path>
                       </svg>
@@ -197,7 +197,7 @@ const ChatPage = () => {
                     </>
                   ) : (
                     <>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>
                       Send Message
