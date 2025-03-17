@@ -52,7 +52,7 @@ const ChatPage = () => {
       if (result.ok) {
         Swal.fire({
           title: "Success!",
-          text: "Message sent successfully.Thank You :)",
+          text: "Message sent successfully. Thank You :)",
           icon: "success",
           confirmButtonText: "OK",
         });
@@ -79,67 +79,114 @@ const ChatPage = () => {
   };
 
   return (
-    <div
-      id="chat"
-      className="min-h-screen overflow-hidden lg:pt-20 xl:pt-20 md:pt-20 flex flex-col bg-gradient-to-b from-blue-300 via-purple-100 to-pink-100 dark:bg-gradient-to-b dark:from-indigo-900 dark:via-cyan-800 dark:to-purple-900 dark:text-white"
-    >
-      <div className="flex flex-col flex-grow items-center justify-center p-6">
+    <div id="chat" className="min-h-screen overflow-hidden lg:pt-20 xl:pt-20 md:pt-20 flex flex-col bg-white dark:bg-black transition-colors duration-300">
+      {/* Background subtle pattern */}
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+        }}
+      ></div>
+
+      <div className="flex flex-col flex-grow items-center justify-center p-6 relative z-10">
         <Navbar />
-        <div className="flex flex-col items-center justify-center p-6 inset-0 bg-cover bg-center">
-          <div className="bg-white/30 dark:bg-black/30 backdrop-blur-md shadow-lg rounded-xl p-8 max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 dark:shadow-white">
+        <div className="flex flex-col items-center justify-center p-6 max-w-6xl w-full mx-auto">
+          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-xl rounded-2xl p-8 w-full grid grid-cols-1 md:grid-cols-2 gap-8 border border-gray-200 dark:border-gray-700 drop-shadow-md dark:shadow-gray-500">
             {/* Contact Information */}
-            <div data-aos="fade-up" className="bg-white/20 dark:bg-black/20 p-6 rounded-xl text-center flex flex-col items-center border-gray-500 shadow-md dark:shadow-md dark:shadow-white">
-              <h2 className="font-bold text-gray-900 mt-10 dark:text-white font-kreon tracking-wider text-3xl ">Contact Information</h2>
-              <p className="mb-2 text-gray-700 mt-3">
-                📧{" "}
-                <a href="mailto:saifuddaulah24@gmail.com" className="text-blue-600 hover:underline dark:text-white">
-                  saifuldaulah24@gmail.com
-                </a>
-              </p>
-              <p className="mb-2 text-gray-700 dark:text-white mt-3">📞 +62851 6361 4521</p>
-              <p className="mb-2 text-gray-700 mt-3 dark:text-white">📍 Jakarta, Indonesia</p>
-              <p className="font-bold text-gray-900 mt-5 dark:text-white font-kreon tracking-wider text-2xl">Thank You 🙂</p>
+            <div data-aos="fade-up" className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl flex flex-col items-center shadow-lg transform transition-all duration-300 hover:scale-[1.02]">
+              <div className="w-16 h-16 flex items-center justify-center bg-black text-white dark:bg-white dark:text-black rounded-full mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white font-kreon">Contact Information</h2>
+
+              <div className="space-y-5 w-full">
+                <div className="flex items-center space-x-3">
+                  <div className="bg-black dark:bg-white p-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white dark:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <a href="mailto:saifuddaulah24@gmail.com" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-300 transition">
+                    saifuldaulah24@gmail.com
+                  </a>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <div className="bg-black dark:bg-white p-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white dark:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 dark:text-gray-300">+62851 6361 4521</span>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <div className="bg-black dark:bg-white p-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white dark:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 dark:text-gray-300">Jakarta, Indonesia</span>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 w-full text-center">
+                <p className="text-2xl font-bold text-gray-900 dark:text-white font-kreon">Thank You 🙂</p>
+              </div>
             </div>
 
             {/* Form Message */}
-            <div data-aos="fade-up" className="p-3">
-              <h2 className="text-3xl font-bold mb-4 text-center text-gray-900 dark:text-white font-kreon tracking-wider">Form Message</h2>
+            <div data-aos="fade-up" className="p-6">
+              <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white font-kreon">Form Message</h2>
               <form onSubmit={sendMessage} className="space-y-4">
-                <p>Name</p>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Input Name"
-                  className="w-full p-3 border border-gray-900 dark:border-white rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                  onChange={handleChange}
-                  value={formData.name}
-                  required
-                />
-                <p>Subject</p>
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Input Subject"
-                  className="w-full p-3 border border-gray-900 dark:border-white rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                  onChange={handleChange}
-                  value={formData.subject}
-                  required
-                />
-                <p>Message</p>
-                <textarea
-                  name="message"
-                  placeholder="Input Message"
-                  className="w-full p-3 border border-gray-900 dark:border-white rounded-lg h-24 focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                  onChange={handleChange}
-                  value={formData.message}
-                  required
-                />
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Input Name"
+                    className="w-full p-3 dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+                    onChange={handleChange}
+                    value={formData.name}
+                    required
+                  />
+                </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-stone-950 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:text-white transition"
-                  disabled={isLoading}
-                >
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Subject</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Input Subject"
+                    className="w-full p-3 dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+                    onChange={handleChange}
+                    value={formData.subject}
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Message</label>
+                  <textarea
+                    name="message"
+                    placeholder="Input Message"
+                    className="w-full p-3 dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg h-32 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+                    onChange={handleChange}
+                    value={formData.message}
+                    required
+                  />
+                </div>
+
+                <button type="submit" className="w-full bg-black dark:bg-white dark:text-black dark:hover:text-white hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-300 mt-4 shadow-md" disabled={isLoading}>
                   {isLoading ? (
                     <>
                       <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
@@ -149,7 +196,12 @@ const ChatPage = () => {
                       Sending...
                     </>
                   ) : (
-                    "Send Message"
+                    <>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
+                      Send Message
+                    </>
                   )}
                 </button>
               </form>
