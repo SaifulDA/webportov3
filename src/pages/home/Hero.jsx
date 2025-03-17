@@ -4,29 +4,8 @@ import DownloadButton from "../../components/common/Button";
 import profileImage from "/src/assets/images/profile.svg";
 import { Typewriter } from "react-simple-typewriter";
 import LazyImage from "../../components/common/LazyImage";
-//import SplitText from "./SplitText";
-//import { useSprings, animated } from '@react-spring/web';
-//import { useEffect, useRef, useState } from 'react';
-
 
 const Hero = () => {
-  
-  // const handleAnimationComplete = () => {
-  //   console.log("All letters have animated!");
-  // };
-
-  // <SplitText
-  //   text="Hello, Tailwind!"
-  //   className="text-2xl font-semibold text-center"
-  //   delay={150}
-  //   animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
-  //   animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
-  //   easing="easeOutCubic"
-  //   threshold={0.2}
-  //   rootMargin="-50px"
-  //   onLetterAnimationComplete={handleAnimationComplete}
-  // />;
-
   return (
     <div id="hero" className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 transition-colors duration-300 text-gray-900 dark:text-white dark:bg-black overflow-hidden ">
       {/* Background subtle pattern */}
