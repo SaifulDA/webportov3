@@ -2,9 +2,7 @@
 import React from "react";
 import DownloadButton from "../../components/common/Button";
 import profileImage from "/src/assets/images/profile.svg";
-import { Typewriter } from "react-simple-typewriter";
 import LazyImage from "../../components/common/LazyImage";
-import TrueFocus from "../../components/common/TrueFocus/TrueFocus";
 import DecryptedText from "../../components/common/DecryptedText/DecryptedText";
 import RotatingText from "../../components/common/RotatingText/RotatingText";
 
