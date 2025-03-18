@@ -39,6 +39,8 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "poppins", sans-serif;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
 }
 
 main {
@@ -71,6 +73,7 @@ main {
 /* Custom scrollbar untuk playlist sidebar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -79,10 +82,11 @@ main {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #535353;
-  border-radius: 4px;
+  background: linear-gradient(120deg, #40ffaa, #4079ff);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #72d5ff;
+  background: linear-gradient(120deg, #4079ff, #40ffaa);
 }
+
