@@ -92,7 +92,7 @@ const ChatPage = () => {
       <div className="flex flex-col flex-grow items-center justify-center px-4 py-6 md:p-6 relative z-10">
         <Navbar />
         <div className="flex flex-col items-center justify-center max-w-6xl w-full mx-auto mt-4 md:mt-0">
-          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-xl rounded-2xl w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 border border-gray-200 dark:border-gray-700 drop-shadow-md dark:shadow-gray-500">
+          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg rounded-2xl w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 border border-gray-200 dark:border-gray-700 drop-shadow-md dark:shadow-gray-500">
            
             {/* Contact Information */}
             <div data-aos="fade-up" className="bg-gray-50 dark:bg-gray-800 p-5 md:p-8 rounded-xl flex flex-col items-center">
