@@ -62,9 +62,9 @@ const Skills = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
 
   return (
-    <section id="skills" className="py-12 px-6 md:px-16 bg-white dark:bg-black transition-colors duration-300">
+    <section id="skills" className="py-12 px-6 md:px-16 mx-auto bg-white dark:bg-black transition-colors duration-300">
       {/* Garis Atas */}
-      <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
+      <hr className="border-t-2 border-stone-950 max-w-5xl mx-auto mb-4 dark:border-white" />
 
       {/* Teks SKILLS */}
       <div className="text-center">
@@ -74,7 +74,7 @@ const Skills = () => {
       </div>
 
       {/* Garis Bawah */}
-      <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
+      <hr className="border-t-2 border-stone-950 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
 
       {/* Grid Skill Cards */}
       <div data-aos="fade-up" className="flex flex-wrap justify-center gap-8">
