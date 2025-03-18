@@ -30,7 +30,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white dark:bg-black transition-colors duration-300 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-white dark:bg-black transition-colors duration-300 border-t border-gray-200 dark:border-gray-800 pb-10">
       <div className="max-w-6xl mx-auto px-6 py-10">
         {/* Top section with logo and social links */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
