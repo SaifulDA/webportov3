@@ -44,7 +44,7 @@ const Hero = () => {
             speed={100}
             maxIterations={20}
             characters="ABCD1234!?"
-            parentClassName="all-letters text-3xl"
+            parentClassName="all-letters text-2xl"
             encryptedClassName="encrypted"
             className="revealed text-4xl font-kreon mb-2 border-b-2 border-gray-800 dark:border-white inline-block"
           >
