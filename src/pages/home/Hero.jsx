@@ -40,7 +40,7 @@ const Hero = () => {
           <DecryptedText
             text="Saifuddaulah Alfarabi"
             speed={100}
-            maxIterations={20}
+            maxIterations={10}
             characters="ABCD1234!?"
             parentClassName="all-letters text-2xl"
             encryptedClassName="encrypted"
@@ -52,7 +52,7 @@ const Hero = () => {
           {/* Rotating Text */}
           <div className="text-2xl my-6 font-kreon h-10">
             <RotatingText
-              texts={["IT Development", "Web Developer", "UI/UX Designer", "Cloud Engineer!"]}
+              texts={["IT Development", "Web Developer", "UI/UX Designer", "Cloud Engineer"]}
               mainClassName="px-2 sm:px-2 md:px-3 dark:text-white text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center"
               staggerFrom={"last"}
               initial={{ y: "100%" }}
