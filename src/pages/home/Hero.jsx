@@ -38,7 +38,7 @@ const Hero = () => {
       <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-4xl gap-10 z-10">
         {/* Teks Hero */}
         <div data-aos="fade-up" className="text-center max-w-lg justify-center items-center">
-          <TrueFocus sentence="Hello I'm" manualMode={false} blurAmount={5} borderColor="Blue" animationDuration={1} pauseBetweenAnimations={1} className="text-xl italic mb-3 font-italianno"></TrueFocus>
+          <p className="text-xl italic mb-3 font-italianno tracking-wider">Hello I&apos;m</p>
           <DecryptedText
             text="Saifuddaulah Alfarabi"
             speed={100}
