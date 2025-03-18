@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import ScrollFloat from "../../components/common/ScrollFloat/ScrollFloat";
 
 const About = () => {
   return (
@@ -9,7 +10,9 @@ const About = () => {
         <hr className="border-t-2 border-gray-800 dark:border-white mb-4" />
 
         {/* Judul */}
-        <h2 data-aos="fade-up" className="font-kreon text-3xl tracking-wider font-bold text-center mb-4">ABOUT ME</h2>
+        <ScrollFloat animationDuration={1} ease="back.inOut(2)" scrollStart="center bottom+=30%" scrollEnd="bottom bottom-=40%" stagger={0.03} className="font-kreon text-3xl tracking-wider font-bold text-center mb-4">
+          ABOUT ME
+        </ScrollFloat>
 
         {/* Garis Bawah */}
         <hr className="border-t-2 border-gray-800 dark:border-white mb-8" />

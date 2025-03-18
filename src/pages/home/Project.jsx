@@ -5,6 +5,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
+import ScrollFloat from "../../components/common/ScrollFloat/ScrollFloat";
 import ProjectCard from "../../components/layout/CardProject";
 import NavigationButton from "../../components/common/ButtonNavigation";
 import webV2 from "../../assets/images/webv2.png"; // Ganti dengan path gambar proyek
@@ -69,11 +70,22 @@ const ProjectsSection = () => {
       <div className="mx-auto px-4">
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
         <div className="text-center">
-          <h2 data-aos="fade-up" className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">Project</h2>
+          <ScrollFloat
+            animationDuration={1}
+            ease="back.inOut(2)"
+            scrollStart="center bottom+=30%"
+            scrollEnd="bottom bottom-=40%"
+            stagger={0.03}
+            className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white"
+          >
+            Project
+          </ScrollFloat>
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
         <div className="mb-8 max-w-5xl mx-auto">
-          <h3 data-aos="fade-up" className="text-2xl font-medium text-gray-900 dark:text-white font-italianno tracking-wider">All Project</h3>
+          <p data-aos="fade-up" className="text-2xl font-medium text-gray-900 dark:text-white font-italianno tracking-wider">
+            All Project
+          </p>
         </div>
 
         <div data-aos="fade-up" className="max-w-5xl mx-auto">

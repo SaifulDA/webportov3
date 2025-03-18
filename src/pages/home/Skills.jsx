@@ -5,6 +5,7 @@ import webDeveloper from "/src/assets/images/wd.png";
 import uiUx from "/src/assets/images/design.png";
 import CloseButton from "../../components/common/xButton";
 import LazyImage from "../../components/common/LazyImage";
+import ScrollFloat from "../../components/common/ScrollFloat/ScrollFloat";
 
 // React Icons imports
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPhp, FaAws, FaGoogle, FaDocker, FaCloudUploadAlt, FaFigma, FaPencilRuler, FaSitemap, FaUsers } from "react-icons/fa";
@@ -67,9 +68,9 @@ const Skills = () => {
 
       {/* Teks SKILLS */}
       <div className="text-center">
-        <h2 data-aos="fade-up" className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">
+        <ScrollFloat animationDuration={1} ease="back.inOut(2)" scrollStart="center bottom+=30%" scrollEnd="bottom bottom-=40%" stagger={0.03} className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">
           SKILLS
-        </h2>
+        </ScrollFloat>
       </div>
 
       {/* Garis Bawah */}
