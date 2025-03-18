@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { useTheme } from "../../components/common/ThemeContext";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import GradientText from "../../components/common/GradientText/GradientText";
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -36,7 +37,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="mb-6 md:mb-0">
             <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Saifuddaulah <span className="text-blue-600 dark:text-blue-400">Alfarabi</span>
+              Saifuddaulah
+              <GradientText colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]} animationSpeed={3} showBorder={false} className="custom-class">
+                Alfarabi
+              </GradientText>
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mt-2 max-w-sm">IT Development based in Jakarta, Indonesia</p>
           </div>
