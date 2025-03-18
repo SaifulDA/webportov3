@@ -4,6 +4,10 @@ import DownloadButton from "../../components/common/Button";
 import profileImage from "/src/assets/images/profile.svg";
 import { Typewriter } from "react-simple-typewriter";
 import LazyImage from "../../components/common/LazyImage";
+import TrueFocus from "../../components/common/TrueFocus/TrueFocus";
+import DecryptedText from "../../components/common/DecryptedText/DecryptedText";
+import RotatingText from "../../components/common/RotatingText/RotatingText";
+
 
 const Hero = () => {
   return (
@@ -34,12 +38,33 @@ const Hero = () => {
       <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-4xl gap-10 z-10">
         {/* Teks Hero */}
         <div data-aos="fade-up" className="text-center max-w-lg justify-center items-center">
-          <p className="text-xl italic mb-3 font-italianno">Hello, I&apos;m</p>
-          <h2 className="text-4xl font-kreon mb-2 border-b-2 border-gray-800 dark:border-white inline-block">Saiful Daulah Alfarabi</h2>
+          <TrueFocus sentence="Hello I'm" manualMode={false} blurAmount={5} borderColor="Blue" animationDuration={1} pauseBetweenAnimations={1} className="text-xl italic mb-3 font-italianno"></TrueFocus>
+          <DecryptedText
+            text="Saifuddaulah Alfarabi"
+            speed={100}
+            maxIterations={20}
+            characters="ABCD1234!?"
+            parentClassName="all-letters text-3xl"
+            encryptedClassName="encrypted"
+            className="revealed text-4xl font-kreon mb-2 border-b-2 border-gray-800 dark:border-white inline-block"
+          >
+            {" "}
+          </DecryptedText>
 
-          {/* Efek Mengetik */}
+          {/* Rotating Text */}
           <div className="text-2xl my-6 font-kreon h-10">
-            <Typewriter words={["IT Development", "Web Developer", "UI/UX Designer", "Cloud Engineer"]} loop={true} cursor cursorStyle="|" typeSpeed={80} deleteSpeed={50} delaySpeed={1500} />
+            <RotatingText
+              texts={["IT Development", "Web Developer", "UI/UX Designer", "Cloud Engineer!"]}
+              mainClassName="px-2 sm:px-2 md:px-3 dark:text-white text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+            />
           </div>
 
           {/* Tombol di Tengah */}
