@@ -25,7 +25,7 @@ const CustomizePhoto = () => {
   useEffect(() => {
     // If no photos, redirect back to take photo page
     if (!photos || !photos.length) {
-      navigate("/take-photo");
+      navigate("/photobooth");
     }
   }, [photos, navigate]);
 
@@ -135,13 +135,13 @@ const CustomizePhoto = () => {
   }
 
   // Helper function to adjust color brightness
-  const adjustColor = (color, amount) => {
-    const hex = color.replace("#", "");
-    const r = Math.max(0, Math.min(255, parseInt(hex.substring(0, 2), 16) + amount));
-    const g = Math.max(0, Math.min(255, parseInt(hex.substring(2, 4), 16) + amount));
-    const b = Math.max(0, Math.min(255, parseInt(hex.substring(4, 6), 16) + amount));
-    return `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
-  };
+  // const adjustColor = (color, amount) => {
+  //   const hex = color.replace("#", "");
+  //   const r = Math.max(0, Math.min(255, parseInt(hex.substring(0, 2), 16) + amount));
+  //   const g = Math.max(0, Math.min(255, parseInt(hex.substring(2, 4), 16) + amount));
+  //   const b = Math.max(0, Math.min(255, parseInt(hex.substring(4, 6), 16) + amount));
+  //   return `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+  // };
 
   const drawCanvas = () => {
     const canvas = canvasRef.current;
@@ -150,6 +150,9 @@ const CustomizePhoto = () => {
     const ctx = canvas.getContext("2d");
     canvas.width = frameWidth * scaleFactor;
     canvas.height = frameHeight * scaleFactor;
+
+    // Clear canvas first to fix potential black boxes
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Frame Color
     ctx.fillStyle = frameColor;
@@ -160,10 +163,10 @@ const CustomizePhoto = () => {
     const photoHeight = 120 * scaleFactor;
 
     // Draw decorative patterns (optional)
-    ctx.fillStyle = adjustColor(frameColor, -20); // Slightly darker shade
-    for (let i = 0; i < 10; i++) {
-      ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, 10 * scaleFactor, 10 * scaleFactor);
-    }
+    // ctx.fillStyle = adjustColor(frameColor, -20); // Slightly darker shade
+    // for (let i = 0; i < 10; i++) {
+    //   ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, 10 * scaleFactor, 10 * scaleFactor);
+    // }
 
     // We'll handle drawing photos in a separate function
     // to properly handle the asynchronous image loading
@@ -194,27 +197,33 @@ const CustomizePhoto = () => {
       const x = ((frameWidth - 120) / 2) * scaleFactor;
       const y = (20 + index * (120 + 20)) * scaleFactor;
 
-      // Draw photo shadow
-      ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
-      ctx.shadowBlur = 10 * scaleFactor;
-      ctx.shadowOffsetX = 3 * scaleFactor;
-      ctx.shadowOffsetY = 3 * scaleFactor;
+      // Reset shadow before drawing each photo to avoid issues
+      ctx.shadowColor = "transparent";
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
 
       // Draw photo background with rounded corners
       ctx.fillStyle = "#FFFFFF";
       roundRect(ctx, x, y, photoWidth, photoHeight, 15 * scaleFactor);
       ctx.fill();
 
-      // Reset shadow
-      ctx.shadowColor = "transparent";
-      ctx.shadowBlur = 0;
-      ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = 0;
+      // Apply shadow AFTER drawing the white background
+      ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
+      ctx.shadowBlur = 5 * scaleFactor; // Reduced blur
+      ctx.shadowOffsetX = 2 * scaleFactor; // Reduced offset
+      ctx.shadowOffsetY = 2 * scaleFactor; // Reduced offset
 
       // Create a new image element instead of using the constructor
       const img = document.createElement("img");
       img.crossOrigin = "Anonymous"; // Handle CORS issues
       img.onload = () => {
+        // Reset shadow before drawing the image
+        ctx.shadowColor = "transparent";
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+
         ctx.save();
         ctx.beginPath();
         roundRect(ctx, x, y, photoWidth, photoHeight, 15 * scaleFactor);
@@ -222,12 +231,13 @@ const CustomizePhoto = () => {
         ctx.drawImage(img, x, y, photoWidth, photoHeight);
         ctx.restore();
 
-        // Draw icons at the corners of the photo (outside the photo)
+        // Draw icons at the top-right corner of the photo
         if (selectedIcon && icons[selectedIcon]) {
-          const iconSize = 30 * scaleFactor;
-          // Position icon at the top-right corner outside the photo
-          const iconX = x + photoWidth;
-          const iconY = y - iconSize / 2;
+          const iconSize = 10 * scaleFactor;
+          // Fix icon position to place it in the top-right corner
+          // Adjust x and y to position the icon at the top-right corner
+          const iconX = x + photoWidth - iconSize - 10 * scaleFactor;
+          const iconY = y + 10 * scaleFactor;
           icons[selectedIcon](iconX, iconY, iconSize, iconColor, ctx);
         }
 
@@ -248,7 +258,11 @@ const CustomizePhoto = () => {
   };
 
   useEffect(() => {
-    drawCanvas();
+    // Small delay to ensure the component is mounted
+    const timer = setTimeout(() => {
+      drawCanvas();
+    }, 100);
+    return () => clearTimeout(timer);
   }, [photos, frameColor, textColor, addDate, createdBy, selectedIcon, iconColor]);
 
   const handleDownload = () => {
@@ -339,29 +353,29 @@ const CustomizePhoto = () => {
                   <div key={index} className="relative mt-5">
                     <img src={photo} className="w-[120px] h-[120px] rounded-lg object-cover shadow-md dark:shadow-gray-500" alt={`Photo ${index + 1}`} />
 
-                    {/* Move icon to the top-right corner outside the photo */}
+                    {/* Position icon in the top-right corner of the photo */}
                     {selectedIcon === "heart" && (
-                      <div className="absolute -top-3 -right-3 text-2xl" style={{ color: iconColor }}>
+                      <div className="absolute top-0 right-0 text-2xl" style={{ color: iconColor }}>
                         ❤️
                       </div>
                     )}
                     {selectedIcon === "star" && (
-                      <div className="absolute -top-3 -right-3 text-2xl" style={{ color: iconColor }}>
+                      <div className="absolute top-0 right-0 text-2xl" style={{ color: iconColor }}>
                         ⭐
                       </div>
                     )}
                     {selectedIcon === "smile" && (
-                      <div className="absolute -top-3 -right-3 text-2xl" style={{ color: iconColor }}>
+                      <div className="absolute top-0 right-0 text-2xl" style={{ color: iconColor }}>
                         😊
                       </div>
                     )}
                     {selectedIcon === "crown" && (
-                      <div className="absolute -top-3 -right-3 text-2xl" style={{ color: iconColor }}>
+                      <div className="absolute top-0 right-0 text-2xl" style={{ color: iconColor }}>
                         👑
                       </div>
                     )}
                     {selectedIcon === "flower" && (
-                      <div className="absolute -top-3 -right-3 text-2xl" style={{ color: iconColor }}>
+                      <div className="absolute top-0 right-0 text-2xl" style={{ color: iconColor }}>
                         🌸
                       </div>
                     )}
