@@ -18,15 +18,15 @@ const TakePhoto = () => {
   useEffect(() => {
     async function setupCamera() {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ 
-          video: { 
-            facingMode: "user", 
-            width: { ideal: window.innerWidth < 768 ? 720 : 1280 }, 
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: { ideal: "user" },
+            width: { ideal: window.innerWidth < 768 ? 720 : 1280 },
             height: { ideal: window.innerWidth < 768 ? 1280 : 720 },
-            aspectRatio: window.innerWidth < 768 ? 0.5625 : 1.7778 // 9:16 for mobile, 16:9 for desktop
-          } 
+            aspectRatio: { ideal: window.innerWidth < 768 ? 9 / 16 : 16 / 9 },
+          },
         });
-        
+
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
           videoRef.current.onloadedmetadata = () => {
@@ -38,13 +38,13 @@ const TakePhoto = () => {
         console.error("Camera error:", err);
       }
     }
-    
+
     setupCamera();
-    
+
     return () => {
       // Clean up camera stream when component unmounts
       if (videoRef.current && videoRef.current.srcObject) {
-        videoRef.current.srcObject.getTracks().forEach(track => track.stop());
+        videoRef.current.srcObject.getTracks().forEach((track) => track.stop());
       }
     };
   }, []);
@@ -112,7 +112,7 @@ const TakePhoto = () => {
     { name: "Bright", value: "brightness(150%)" },
     { name: "Contrast", value: "contrast(150%)" },
     { name: "Saturate", value: "saturate(200%)" },
-    { name: "Blur", value: "blur(2px)" }
+    { name: "Blur", value: "blur(2px)" },
   ];
 
   return (
@@ -151,7 +151,7 @@ const TakePhoto = () => {
 
           {/* Camera Section */}
           <div className="w-full md:w-2/4 bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6">
-            <div className="relative aspect-video rounded-xl overflow-hidden mb-6 bg-black">
+            <div className="relative xl:aspect-video lg:aspect-video md:aspect-9/16 rounded-xl overflow-hidden mb-6 bg-black">
               {error && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-900 text-white p-4 text-center">
                   <div>
@@ -160,20 +160,15 @@ const TakePhoto = () => {
                   </div>
                 </div>
               )}
-              
+
               {!cameraLoaded && !error && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
                   <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
                 </div>
               )}
-              
-              <video 
-                ref={videoRef} 
-                autoPlay 
-                className="w-full h-full object-cover" 
-                style={{ filter }}
-              />
-              
+
+              <video ref={videoRef} autoPlay className="w-full h-full object-cover" style={{ filter }} />
+
               {countdown !== null && (
                 <div className="absolute inset-0 flex items-center justify-center bg-opacity-50">
                   <div className="w-24 h-24 flex items-center justify-center">
@@ -181,7 +176,7 @@ const TakePhoto = () => {
                   </div>
                 </div>
               )}
-              
+
               {showTakeAgain && photos.length < 3 && (
                 <div className="absolute inset-0 flex items-center justify-center bg-opacity-40">
                   <div className="bg-white dark:bg-gray-800 px-6 py-3 rounded-lg">
@@ -190,7 +185,7 @@ const TakePhoto = () => {
                 </div>
               )}
             </div>
-            
+
             <canvas ref={canvasRef} className="hidden" />
 
             {/* Filter Buttons */}
@@ -201,9 +196,7 @@ const TakePhoto = () => {
                   <button
                     key={f.value}
                     className={`px-3 py-2 rounded-full text-sm font-medium transition-all ${
-                      filter === f.value 
-                        ? "bg-indigo-600 text-white shadow-md" 
-                        : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 dark:hover:bg-gray-600"
+                      filter === f.value ? "bg-indigo-600 text-white shadow-md" : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 dark:hover:bg-gray-600"
                     }`}
                     onClick={() => setFilter(f.value)}
                   >
@@ -216,8 +209,8 @@ const TakePhoto = () => {
             {/* Action Buttons */}
             <div className="flex justify-center gap-4">
               {photos.length < 3 ? (
-                <button 
-                  onClick={takePhoto} 
+                <button
+                  onClick={takePhoto}
                   className="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-md font-semibold hover:bg-indigo-700 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed w-full"
                   disabled={countdown !== null || !cameraLoaded || error}
                 >
@@ -226,17 +219,11 @@ const TakePhoto = () => {
                 </button>
               ) : (
                 <div className="flex gap-3 w-full">
-                  <button 
-                    onClick={retakePhoto} 
-                    className="flex-1 bg-amber-500 text-white px-6 py-3 rounded-lg shadow-md font-semibold hover:bg-amber-600 transition-colors flex items-center justify-center"
-                  >
+                  <button onClick={retakePhoto} className="flex-1 bg-amber-500 text-white px-6 py-3 rounded-lg shadow-md font-semibold hover:bg-amber-600 transition-colors flex items-center justify-center">
                     <RefreshCw className="mr-2" size={20} />
                     Retake
                   </button>
-                  <button 
-                    onClick={handleDone} 
-                    className="flex-1 bg-emerald-500 text-white px-6 py-3 rounded-lg shadow-md font-semibold hover:bg-emerald-600 transition-colors flex items-center justify-center"
-                  >
+                  <button onClick={handleDone} className="flex-1 bg-emerald-500 text-white px-6 py-3 rounded-lg shadow-md font-semibold hover:bg-emerald-600 transition-colors flex items-center justify-center">
                     <CheckCircle className="mr-2" size={20} />
                     Done
                   </button>
@@ -250,16 +237,14 @@ const TakePhoto = () => {
             <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-900 dark:text-white">
               <Image className="mr-2" size={18} /> Photo Results
             </h2>
-            
+
             <div className="flex flex-row md:flex-col gap-4 overflow-x-auto md:overflow-x-hidden">
               {[0, 1, 2].map((index) => (
                 <div key={index} className="relative flex-shrink-0 md:w-full h-36 md:h-32 bg-gray-100 dark:bg-gray-700 rounded-xl overflow-hidden">
                   {photos[index] ? (
                     <>
                       <img src={photos[index]} className="w-full h-full object-cover" alt={`Photo ${index + 1}`} />
-                      <span className="absolute top-2 right-2 bg-black bg-opacity-50 text-white rounded-full px-2 py-1 text-xs">
-                        {index + 1}/3
-                      </span>
+                      <span className="absolute top-2 right-2 bg-black bg-opacity-50 text-white rounded-full px-2 py-1 text-xs">{index + 1}/3</span>
                     </>
                   ) : (
                     <div className="flex items-center justify-center h-full text-gray-400">
@@ -269,7 +254,7 @@ const TakePhoto = () => {
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                 <span>Photos taken: {photos.length}/3</span>
