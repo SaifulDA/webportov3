@@ -21,9 +21,9 @@ const TakePhoto = () => {
         const stream = await navigator.mediaDevices.getUserMedia({
           video: {
             facingMode: "user",
-            width: { ideal: window.innerWidth < 768 ? 720 : 1280 },
-            height: { ideal: window.innerWidth < 768 ? 1280 : 720 },
-            aspectRatio: window.innerWidth < 768 ? 0.5625 : 1.7778, // 9:16 for mobile, 16:9 for desktop
+            width: { ideal: 720 },
+            height: { ideal: 720 },
+            aspectRatio: 1, // 1:1 aspect ratio
           },
         });
 
@@ -63,10 +63,23 @@ const TakePhoto = () => {
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    canvas.width = videoRef.current.videoWidth;
-    canvas.height = videoRef.current.videoHeight;
+    
+    // Set canvas to a square with dimensions matching the video
+    const size = Math.min(videoRef.current.videoWidth, videoRef.current.videoHeight);
+    canvas.width = size;
+    canvas.height = size;
+    
+    // Calculate offsets to center the square capture area
+    const xOffset = (videoRef.current.videoWidth - size) / 2;
+    const yOffset = (videoRef.current.videoHeight - size) / 2;
+    
     ctx.filter = filter;
-    ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+    // Draw only the center square portion of the video
+    ctx.drawImage(
+      videoRef.current, 
+      xOffset, yOffset, size, size, // Source rectangle
+      0, 0, canvas.width, canvas.height // Destination rectangle
+    );
 
     // Add flash effect
     const flashElement = document.createElement("div");
@@ -119,43 +132,65 @@ const TakePhoto = () => {
     <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-black transition-all">
       <Navbar />
       <div className="flex-1 px-4 py-8 md:py-12 flex flex-col items-center lg:pt-25 xl:pt-25">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center text-black dark:text-white font-kreon tracking-wider">
+        <h1 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center text-black dark:text-white font-kreon tracking-wider">
           <Camera className="inline-block mr-2 mb-1" /> Photo Booth
         </h1>
 
-        <div className="w-full max-w-6xl flex flex-col md:flex-row gap-6">
-          {/* Tutorial */}
-          <div className="w-full md:w-1/4 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
-            <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-900 dark:text-white">
-              <Settings className="mr-2" size={18} /> Tutorial
-            </h2>
-            <ol className="list-decimal list-inside text-gray-700 dark:text-gray-300 space-y-3">
-              <li className="flex items-start">
-                <span className="mr-2">1.</span>
-                <span>Select a filter from the options below the camera.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">2.</span>
-                <span>Click the &quot;Take Photo&quot; button and wait for the countdown.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">3.</span>
-                <span>Take 3 photos to proceed to customization.</span>
-              </li>
-              <li className="flex items-center text-amber-600 dark:text-amber-400 font-medium mt-4">
-                <span className="mr-2">⚠️</span>
-                <span>Use a device with an aspect ratio of 16/9 for maximum results</span>
-              </li>
-              <li className="flex items-center text-amber-600 dark:text-amber-400 font-medium mt-4">
-                <span className="mr-2">⚠️</span>
-                <span>Photos are not stored in any database and remain private.</span>
-              </li>
-            </ol>
+        <div className="w-full max-w-6xl flex flex-col md:flex-row gap-4 md:gap-6">
+          {/* Tutorial - Collapsible on mobile */}
+          <div className="w-full md:w-1/4">
+            <details className="md:hidden bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg mb-4">
+              <summary className="text-xl font-semibold flex items-center text-gray-900 dark:text-white cursor-pointer">
+                <Settings className="mr-2" size={18} /> Tutorial
+              </summary>
+              <ol className="list-decimal list-inside text-gray-700 dark:text-gray-300 space-y-3 mt-4">
+                <li className="flex items-start">
+                  <span className="mr-2">1.</span>
+                  <span>Select a filter from the options below.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">2.</span>
+                  <span>Click &quot;Take Photo&quot; and wait for the countdown.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">3.</span>
+                  <span>Take 3 photos to proceed to customization.</span>
+                </li>
+                <li className="flex items-center text-amber-600 dark:text-amber-400 font-medium mt-2">
+                  <span className="mr-2">⚠️</span>
+                  <span>Photos remain private and are not stored in databases.</span>
+                </li>
+              </ol>
+            </details>
+            
+            <div className="hidden md:block bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg h-full">
+              <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-900 dark:text-white">
+                <Settings className="mr-2" size={18} /> Tutorial
+              </h2>
+              <ol className="list-decimal list-inside text-gray-700 dark:text-gray-300 space-y-3">
+                <li className="flex items-start">
+                  <span className="mr-2">1.</span>
+                  <span>Select a filter from the options below the camera.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">2.</span>
+                  <span>Click the &quot;Take Photo&quot; button and wait for the countdown.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">3.</span>
+                  <span>Take 3 photos to proceed to customization.</span>
+                </li>
+                <li className="flex items-center text-amber-600 dark:text-amber-400 font-medium mt-4">
+                  <span className="mr-2">⚠️</span>
+                  <span>Photos are not stored in any database and remain private.</span>
+                </li>
+              </ol>
+            </div>
           </div>
 
           {/* Camera Section */}
-          <div className="w-full md:w-2/4 bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6">
-            <div className="relative xl:aspect-video lg:aspect-video md:aspect-[9/16] rounded-xl overflow-hidden mb-6 bg-black">
+          <div className="w-full md:w-2/4 bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-4 md:p-6">
+            <div className="relative aspect-square rounded-xl overflow-hidden mb-4 md:mb-6 bg-black">
               {error && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-900 text-white p-4 text-center">
                   <div>
@@ -171,10 +206,10 @@ const TakePhoto = () => {
                 </div>
               )}
 
-              <video ref={videoRef} autoPlay className="w-full h-auto" style={{ filter }} />
+              <video ref={videoRef} autoPlay className="w-full h-full object-cover" style={{ filter }} />
 
               {countdown !== null && (
-                <div className="absolute inset-0 flex items-center justify-center bg-opacity-50">
+                <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-24 h-24 flex items-center justify-center">
                     <span className="text-5xl font-bold text-indigo-600 dark:text-indigo-400">{countdown}</span>
                   </div>
@@ -182,7 +217,7 @@ const TakePhoto = () => {
               )}
 
               {showTakeAgain && photos.length < 3 && (
-                <div className="absolute inset-0 flex items-center justify-center bg-opacity-40">
+                <div className="absolute inset-0 flex items-center justify-center">
                   <div className="bg-white dark:bg-gray-800 px-6 py-3 rounded-lg">
                     <p className="text-lg font-semibold text-indigo-600 dark:text-indigo-400">Ready for next photo!</p>
                   </div>
@@ -192,14 +227,14 @@ const TakePhoto = () => {
 
             <canvas ref={canvasRef} className="hidden" />
 
-            {/* Filter Buttons */}
-            <div className="mb-6">
+            {/* Filter Buttons - Scrollable on mobile */}
+            <div className="mb-4 md:mb-6">
               <h3 className="font-medium text-gray-800 dark:text-gray-200 mb-2">Filters:</h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-nowrap overflow-x-auto md:flex-wrap pb-2 md:pb-0 gap-2 scrollbar-hide">
                 {filters.map((f) => (
                   <button
                     key={f.value}
-                    className={`px-3 py-2 rounded-full text-sm font-medium transition-all ${
+                    className={`px-3 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
                       filter === f.value ? "bg-indigo-600 text-white shadow-md" : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 dark:hover:bg-gray-600"
                     }`}
                     onClick={() => setFilter(f.value)}
@@ -223,12 +258,12 @@ const TakePhoto = () => {
                 </button>
               ) : (
                 <div className="flex gap-3 w-full">
-                  <button onClick={retakePhoto} className="flex-1 bg-amber-500 text-white px-6 py-3 rounded-lg shadow-md font-semibold hover:bg-amber-600 transition-colors flex items-center justify-center">
-                    <RefreshCw className="mr-2" size={20} />
+                  <button onClick={retakePhoto} className="flex-1 bg-amber-500 text-white px-4 py-3 rounded-lg shadow-md font-semibold hover:bg-amber-600 transition-colors flex items-center justify-center">
+                    <RefreshCw className="mr-2" size={18} />
                     Retake
                   </button>
-                  <button onClick={handleDone} className="flex-1 bg-emerald-500 text-white px-6 py-3 rounded-lg shadow-md font-semibold hover:bg-emerald-600 transition-colors flex items-center justify-center">
-                    <CheckCircle className="mr-2" size={20} />
+                  <button onClick={handleDone} className="flex-1 bg-emerald-500 text-white px-4 py-3 rounded-lg shadow-md font-semibold hover:bg-emerald-600 transition-colors flex items-center justify-center">
+                    <CheckCircle className="mr-2" size={18} />
                     Done
                   </button>
                 </div>
@@ -237,14 +272,14 @@ const TakePhoto = () => {
           </div>
 
           {/* Captured Photos */}
-          <div className="w-full md:w-1/4 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
+          <div className="w-full md:w-1/4 bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6 shadow-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-900 dark:text-white">
               <Image className="mr-2" size={18} /> Photo Results
             </h2>
 
-            <div className="flex flex-row md:flex-col gap-4 overflow-x-auto md:overflow-x-hidden">
+            <div className="flex flex-row md:flex-col gap-4 overflow-x-auto md:overflow-x-hidden pb-2 md:pb-0">
               {[0, 1, 2].map((index) => (
-                <div key={index} className="relative flex-shrink-0 md:w-full h-36 md:h-32 bg-gray-100 dark:bg-gray-700 rounded-xl overflow-hidden">
+                <div key={index} className="relative flex-shrink-0 max-w-full h-auto md:aspect-square bg-gray-100 dark:bg-gray-700 rounded-xl overflow-hidden">
                   {photos[index] ? (
                     <>
                       <img src={photos[index]} className="w-full h-full object-cover" alt={`Photo ${index + 1}`} />
