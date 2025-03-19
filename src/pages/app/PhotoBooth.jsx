@@ -145,7 +145,7 @@ const TakePhoto = () => {
           </div>
 
           {/* Camera Section */}
-          <div className="w-full md:w-2/4 bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6">
+          <div className="w-full md:w-4/5 bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6">
             <div className="relative aspect-video rounded-xl overflow-hidden mb-6 bg-black">
               {error && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-900 text-white p-4 text-center">
@@ -241,7 +241,7 @@ const TakePhoto = () => {
           </div>
 
           {/* Captured Photos */}
-          <div className="w-full md:w-1/4 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
+          <div className="w-full md:w-4/5 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-900 dark:text-white">
               <Image className="mr-2" size={18} /> Photo Results
             </h2>
