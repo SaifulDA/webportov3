@@ -62,13 +62,12 @@ main {
 }
 
 #chatbase-bubble-button {
-  background-color: black  !important;
+  background-color: black !important;
 }
 
 .dark #chatbase-bubble-button {
   background-color: white !important;
 }
-
 
 /* Custom scrollbar untuk playlist sidebar */
 ::-webkit-scrollbar {
@@ -89,4 +88,3 @@ main {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(120deg, #4079ff, #40ffaa);
 }
-
