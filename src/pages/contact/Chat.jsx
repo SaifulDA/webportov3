@@ -93,7 +93,6 @@ const ChatPage = () => {
         <Navbar />
         <div className="flex flex-col items-center justify-center max-w-6xl w-full mx-auto mt-4 md:mt-0">
           <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg rounded-2xl w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 border border-gray-200 dark:border-gray-700 drop-shadow-md dark:shadow-gray-500">
-           
             {/* Contact Information */}
             <div data-aos="fade-up" className="bg-gray-50 dark:bg-gray-800 p-5 md:p-8 rounded-xl flex flex-col items-center">
               <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-black text-white dark:bg-white dark:text-black rounded-full mb-4 md:mb-6">
@@ -126,7 +125,9 @@ const ChatPage = () => {
                       />
                     </svg>
                   </div>
-                  <span className="text-sm md:text-base text-gray-700 dark:text-gray-300">+62851 6361 4521</span>
+                  <a href="https://wa.me/6285163614521" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base text-gray-700 dark:text-gray-300 hover:text-green-500 transition">
+                    +62851 6361 4521
+                  </a>
                 </div>
 
                 <div className="flex items-center space-x-3">
@@ -187,7 +188,11 @@ const ChatPage = () => {
                   />
                 </div>
 
-                <button type="submit" className="w-full bg-black dark:bg-white dark:text-black dark:hover:text-white hover:bg-blue-700 text-white font-medium px-4 md:px-6 py-2 md:py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-300 mt-3 md:mt-4 shadow-md text-sm md:text-base" disabled={isLoading}>
+                <button
+                  type="submit"
+                  className="w-full bg-black dark:bg-white dark:text-black dark:hover:text-white hover:bg-blue-700 text-white font-medium px-4 md:px-6 py-2 md:py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-300 mt-3 md:mt-4 shadow-md text-sm md:text-base"
+                  disabled={isLoading}
+                >
                   {isLoading ? (
                     <>
                       <svg className="animate-spin h-4 w-4 md:h-5 md:w-5 text-white" viewBox="0 0 24 24">
