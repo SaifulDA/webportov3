@@ -20,10 +20,10 @@ const TakePhoto = () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           video: {
-            facingMode: "user", 
-            width: { ideal: window.innerWidth < 768 ? 720 : 1280 }, 
+            facingMode: "user",
+            width: { ideal: window.innerWidth < 768 ? 720 : 1280 },
             height: { ideal: window.innerWidth < 768 ? 1280 : 720 },
-            aspectRatio: window.innerWidth < 768 ? 0.5625 : 1.7778 // 9:16 for mobile, 16:9 for desktop
+            aspectRatio: window.innerWidth < 768 ? 0.5625 : 1.7778, // 9:16 for mobile, 16:9 for desktop
           },
         });
 
@@ -141,6 +141,10 @@ const TakePhoto = () => {
               <li className="flex items-start">
                 <span className="mr-2">3.</span>
                 <span>Take 3 photos to proceed to customization.</span>
+              </li>
+              <li className="flex items-center text-amber-600 dark:text-amber-400 font-medium mt-4">
+                <span className="mr-2">⚠️</span>
+                <span>Use a device with an aspect ratio of 16/9 for maximum results</span>
               </li>
               <li className="flex items-center text-amber-600 dark:text-amber-400 font-medium mt-4">
                 <span className="mr-2">⚠️</span>
