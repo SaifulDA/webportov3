@@ -151,7 +151,7 @@ const TakePhoto = () => {
 
           {/* Camera Section */}
           <div className="w-full md:w-2/4 bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6">
-            <div className="relative xl:aspect-video lg:aspect-video md:aspect-9/16 rounded-xl overflow-hidden mb-6 bg-black">
+            <div className="relative xl:aspect-video lg:aspect-video md:aspect-[9/16] rounded-xl overflow-hidden mb-6 bg-black">
               {error && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-900 text-white p-4 text-center">
                   <div>
