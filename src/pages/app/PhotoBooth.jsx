@@ -20,10 +20,10 @@ const TakePhoto = () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           video: {
-            facingMode: { ideal: "user" },
-            width: { ideal: window.innerWidth < 768 ? 720 : 1280 },
+            facingMode: "user", 
+            width: { ideal: window.innerWidth < 768 ? 720 : 1280 }, 
             height: { ideal: window.innerWidth < 768 ? 1280 : 720 },
-            aspectRatio: { ideal: window.innerWidth < 768 ? 9 / 16 : 16 / 9 },
+            aspectRatio: window.innerWidth < 768 ? 0.5625 : 1.7778 // 9:16 for mobile, 16:9 for desktop
           },
         });
 
@@ -167,7 +167,7 @@ const TakePhoto = () => {
                 </div>
               )}
 
-              <video ref={videoRef} autoPlay className="w-full h-full object-cover" style={{ filter }} />
+              <video ref={videoRef} autoPlay className="w-full h-auto" style={{ filter }} />
 
               {countdown !== null && (
                 <div className="absolute inset-0 flex items-center justify-center bg-opacity-50">
