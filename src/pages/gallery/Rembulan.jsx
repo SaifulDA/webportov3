@@ -4,13 +4,55 @@ import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
 import "../../styles/mybook.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import reactEbookPage1 from "../../assets/images/cc.png";
-import reactEbookPage2 from "../../assets/images/dt.jpg";
-import reactEbookPage3 from "../../assets/images/wisuda.jpg";
-import reactEbookPage4 from "../../assets/images/wd.png";
-import reactEbookPage5 from "../../assets/images/webv2.png";
-import reactEbookPage6 from "../../assets/images/cc.png";
-const pages = [reactEbookPage1, reactEbookPage2, reactEbookPage3, reactEbookPage4, reactEbookPage5, reactEbookPage6];
+import reactEbookPage1 from "../../assets/images/rembulan/1.png";
+import reactEbookPage2 from "../../assets/images/rembulan/2.png";
+import reactEbookPage3 from "../../assets/images/rembulan/3.png";
+import reactEbookPage4 from "../../assets/images/rembulan/4.png";
+import reactEbookPage5 from "../../assets/images/rembulan/5.png";
+import reactEbookPage6 from "../../assets/images/rembulan/6.png";
+import reactEbookPage7 from "../../assets/images/rembulan/7.png";
+import reactEbookPage8 from "../../assets/images/rembulan/8.png";
+import reactEbookPage9 from "../../assets/images/rembulan/9.png";
+import reactEbookPage10 from "../../assets/images/rembulan/10.png";
+import reactEbookPage11 from "../../assets/images/rembulan/11.png";
+import reactEbookPage12 from "../../assets/images/rembulan/12.png";
+import reactEbookPage13 from "../../assets/images/rembulan/13.png";
+import reactEbookPage14 from "../../assets/images/rembulan/14.png";
+import reactEbookPage15 from "../../assets/images/rembulan/15.png";
+import reactEbookPage16 from "../../assets/images/rembulan/16.png";
+import reactEbookPage17 from "../../assets/images/rembulan/17.png";
+import reactEbookPage18 from "../../assets/images/rembulan/18.png";
+import reactEbookPage19 from "../../assets/images/rembulan/19.png";
+import reactEbookPage20 from "../../assets/images/rembulan/20.png";
+import reactEbookPage21 from "../../assets/images/rembulan/21.png";
+import reactEbookPage22 from "../../assets/images/rembulan/22.png";
+import reactEbookPage23 from "../../assets/images/rembulan/23.png";
+
+const pages = [
+  reactEbookPage1,
+  reactEbookPage2,
+  reactEbookPage3,
+  reactEbookPage4,
+  reactEbookPage5,
+  reactEbookPage6,
+  reactEbookPage7,
+  reactEbookPage8,
+  reactEbookPage9,
+  reactEbookPage10,
+  reactEbookPage11,
+  reactEbookPage12,
+  reactEbookPage13,
+  reactEbookPage14,
+  reactEbookPage15,
+  reactEbookPage16,
+  reactEbookPage17,
+  reactEbookPage18,
+  reactEbookPage19,
+  reactEbookPage20,
+  reactEbookPage21,
+  reactEbookPage22,
+  reactEbookPage23,
+];
 
 const EbookViewer = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -114,7 +156,7 @@ const EbookViewer = () => {
               onClick={prevPage}
               disabled={currentPage === 0 || flipping}
               className={`p-3 rounded-full transition-all ${
-                currentPage === 0 || flipping ? "opacity-50 cursor-not-allowed bg-gray-400" : "bg-black dark:bg-white text-white dark:text-black dark:hover:text-white text-white hover:bg-blue-600 hover:scale-105 shadow-md"
+                currentPage === 0 || flipping ? "opacity-50 cursor-not-allowed bg-gray-400" : "bg-black dark:bg-white dark:text-black dark:hover:text-white text-white hover:bg-blue-600 hover:scale-105 shadow-md"
               }`}
             >
               <ChevronLeft size={28} />
