@@ -16,11 +16,10 @@ import CoomingSoon from "./pages/ComSon";
 import HomAp from "./pages/app/HomAp";
 import PhotoBooth from "./pages/app/PhotoBooth";
 import CustomizePhoto from "./pages/app/CustomizePhoto";
-import Rembulan from "./pages/gallery/Rembulan";
 import SpotifyList from "./pages/app/SpotifyList";
+import BooksRoutes from "./routes/BooksRoutes";
 
 const App = () => {
-  // eslint-disable-next-line no-undef
   useEffect(() => {
     AOS.init({
       duration: 500, // Durasi animasi dalam m
@@ -53,7 +52,11 @@ const App = () => {
         <Route path="/photobooth" element={<PhotoBooth />} />
         <Route path="/customize" element={<CustomizePhoto />} />
         <Route path="/spotifylist" element={<SpotifyList />} />
-        <Route path="/rembulan" element={<Rembulan />} />
+        {/* Tambahkan routes dari BooksRoutes */}
+        {/* Render BooksRoutes dengan .map() */}
+        {BooksRoutes.map((route, index) => (
+          <Route key={index} {...route.props} />
+        ))}
       </Routes>
     </Router>
   );
