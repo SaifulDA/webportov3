@@ -9,6 +9,7 @@ import sunRise from "../../assets/images/sunrise.jpg";
 import gunung from "../../assets/images/gunung.jpg";
 import sertiReact from "../../assets/images/serti_react.jpg";
 import wisuda from "../../assets/images/wisuda.jpg";
+import fRembulan from "../../assets/images/rembulan/high.png"
 import comingSoon from "../ComSon";
 import LazyImage from "../../components/common/LazyImage";
 
@@ -52,7 +53,7 @@ const galleryItems = [
 ];
 
 const ebookItems = [
-  { img: sunRise, title: "Rembulan", author: "Saiful Daulah", link: "comingSoon" },
+  { img: fRembulan, title: "Rembulan", author: "Saiful Daulah", link: "rembulan" },
   { img: sunRise, title: "Rain: Ketika Semua Berubah", author: "Saiful Daulah", link: "comingSoon" },
   { img: sunRise, title: "Melihat Membaca Menulis", author: "Saiful Daulah", link: "comingSoon" },
 ];
@@ -61,7 +62,7 @@ const Gallery = () => {
   return (
     <div id="gallery" className="bg-gray-100 text-black dark:bg-gray-900 dark:text-white min-h-screen flex flex-col">
       <Navbar />
-
+bula
       {/* Video Section */}
       <div className="w-full h-screen sm:h-auto mx-auto px-4 overflow-hidden">
         <div className="relative w-full h-full sm:pb-[56.25%]">
