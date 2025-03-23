@@ -110,8 +110,11 @@ const Footer = () => {
             <Link to="/Chat" onClick={() => goToSection("chat")} aria-label="View Chat" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Chat
             </Link>
-            <Link to="/comingsoon" onClick={() => goToSection("comingsoon")} aria-label="View Gallery" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <Link to="/gallery" onClick={() => goToSection("gallery")} aria-label="View Gallery" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Gallery
+            </Link>
+            <Link to="/comingsoon" onClick={() => goToSection("blog")} aria-label="View Blog" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Blog
             </Link>
           </nav>
 
