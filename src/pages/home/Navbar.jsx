@@ -82,7 +82,7 @@ const Navbar = () => {
             </Link>
 
             {/* Icon Galeri */}
-            <Link to="/comingsoon" onClick={() => goToSection("gallery")} aria-label="View Photos" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
+            <Link to="/gallery" onClick={() => goToSection("gallery")} aria-label="View Photos" className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
               <Image className="w-6 h-6 text-gray-700 dark:text-white" />
             </Link>
 
@@ -113,7 +113,7 @@ const Navbar = () => {
         </Link>
 
         {/* Gallery */}
-        <Link to="/comingsoon" onClick={() => goToSection("gallery")} className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <Link to="/gallery" onClick={() => goToSection("gallery")} className="flex flex-col items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
           <Image className="w-6 h-6" />
           <span className="text-xs">Gallery</span>
         </Link>
