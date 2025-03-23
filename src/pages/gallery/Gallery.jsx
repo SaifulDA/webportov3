@@ -9,9 +9,11 @@ import sunRise from "../../assets/images/sunrise.jpg";
 import gunung from "../../assets/images/gunung.jpg";
 import sertiReact from "../../assets/images/serti_react.jpg";
 import wisuda from "../../assets/images/wisuda.jpg";
-import fRembulan from "../../assets/images/rembulan/high.png"
-import comingSoon from "../ComSon";
+import fRembulan from "../../assets/images/rembulan/high.png";
+import comson from "../../assets/images/comson.jpg";
 import LazyImage from "../../components/common/LazyImage";
+import Video1 from "../../assets/video/Gallery3.mp4";
+import ScrollFloat from "../../components/common/ScrollFloat/ScrollFloat";
 
 const galleryItems = [
   {
@@ -54,30 +56,30 @@ const galleryItems = [
 
 const ebookItems = [
   { img: fRembulan, title: "Rembulan", author: "Saiful Daulah", link: "rembulan" },
-  { img: sunRise, title: "Rain: Ketika Semua Berubah", author: "Saiful Daulah", link: "comingSoon" },
-  { img: sunRise, title: "Melihat Membaca Menulis", author: "Saiful Daulah", link: "comingSoon" },
+  { img: comson, title: "Rain: Ketika Semua Berubah", author: "Saiful Daulah", link: "comingSoon" },
+  { img: comson, title: "Melihat Membaca Menulis", author: "Saiful Daulah", link: "comingSoon" },
 ];
 
 const Gallery = () => {
   return (
     <div id="gallery" className="bg-gray-100 text-black dark:bg-gray-900 dark:text-white min-h-screen flex flex-col">
       <Navbar />
-bula
       {/* Video Section */}
       <div className="w-full h-screen sm:h-auto mx-auto px-4 overflow-hidden">
         <div className="relative w-full h-full sm:pb-[56.25%]">
           <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
-            <source src="https://nikizefanya.com/wp-content/uploads/2024/08/NIKI_BUZZ_MV_CUTDOWN_WIDE_7.mp4" type="video/mp4" />
+            <source src={Video1} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
-
       {/* Gallery Section */}
       <div className="max-w-6xl mx-auto mt-16 px-6 dark:text-white">
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
         <div className="text-center">
-          <h2 data-aos="fade-up" className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">Gallery</h2>
+          <ScrollFloat animationDuration={1} ease="back.inOut(2)" scrollStart="center bottom+=30%" scrollEnd="bottom bottom-=40%" stagger={0.03} className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">
+            Gallery
+          </ScrollFloat>
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
 
@@ -102,7 +104,9 @@ bula
         {/* E-Book Section */}
         <hr className="border-t-2 mt-5 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
         <div className="text-center">
-          <h2 data-aos="fade-up" className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">E-Books</h2>
+          <ScrollFloat animationDuration={1} ease="back.inOut(2)" scrollStart="center bottom+=30%" scrollEnd="bottom bottom-=40%" stagger={0.03} className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">
+            E-Books
+          </ScrollFloat>
         </div>
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
 
