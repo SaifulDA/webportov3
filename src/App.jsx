@@ -16,8 +16,8 @@ import CoomingSoon from "./pages/ComSon";
 import HomAp from "./pages/app/HomAp";
 import PhotoBooth from "./pages/app/PhotoBooth";
 import CustomizePhoto from "./pages/app/CustomizePhoto";
-import SpotifyList from "./pages/app/SpotifyList";
 import BooksRoutes from "./routes/BooksRoutes";
+import WeatherTime from "./pages/app/WeatherTime";
 
 const App = () => {
   useEffect(() => {
@@ -51,7 +51,7 @@ const App = () => {
         <Route path="/app" element={<HomAp />} />
         <Route path="/photobooth" element={<PhotoBooth />} />
         <Route path="/customize" element={<CustomizePhoto />} />
-        <Route path="/spotifylist" element={<SpotifyList />} />
+        <Route path="/timezone" element={<WeatherTime />} />
         {/* Tambahkan routes dari BooksRoutes */}
         {/* Render BooksRoutes dengan .map() */}
         {BooksRoutes.map((route, index) => (
