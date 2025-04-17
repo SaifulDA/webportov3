@@ -340,7 +340,7 @@ const InternationalWeatherApp = () => {
           <Navbar />
           <div className="w-full max-w-md mx-auto">
             <div className="flex justify-between items-center mb-8 lg:pt-20 xl:pt-20">
-              <h1 className="text-3xl font-bold text-center bg-clip-text text-transparent bg-black dark:bg-white flex items-center">
+              <h1 className="text-3xl font-bold font-kreon tracking-wider text-center bg-clip-text text-transparent bg-black dark:bg-white flex items-center">
                 <Globe className="mr-2" size={24} />
                 {t("title")}
               </h1>
