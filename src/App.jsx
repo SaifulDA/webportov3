@@ -48,6 +48,8 @@ const App = () => {
         <Route path="/chat" element={<Chat />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/comingsoon" element={<CoomingSoon />} />
+
+        {/* Halaman APPLIKASI */}
         <Route path="/app" element={<HomAp />} />
         <Route path="/photobooth" element={<PhotoBooth />} />
         <Route path="/customize" element={<CustomizePhoto />} />
