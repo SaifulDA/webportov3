@@ -22,24 +22,32 @@ const hap = () => {
         </div>
 
         {/* Kontainer Icon */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-16 px-6 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 md:gap-x-16 px-6 pb-10">
           {/* PhotoBooth */}
-          <Link to="/photobooth" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-400 transition transform hover:scale-110">
+          <Link to="/photobooth" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700 transition transform hover:scale-110">
             <i className="bi bi-camera2 text-4xl md:text-6xl"></i>
             <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">PhotoBooth</span>
           </Link>
 
           {/* My List Spotify */}
-          <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-400 transition transform hover:scale-110">
+          <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700 transition transform hover:scale-110">
             <i className="bi bi-music-note-list text-4xl md:text-6xl"></i>
             <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Spotify List</span>
           </Link>
 
           {/* My Blog */}
-          <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-400 transition transform hover:scale-110">
+          <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700 transition transform hover:scale-110">
             <i className="bi bi-journal-text text-4xl md:text-6xl"></i>
             <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Blog</span>
           </Link>
+
+            {/* Weather App */}
+            <Link to="/timezone" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700 transition transform hover:scale-110">
+            <i className="bi bi-cloud-sun text-4xl md:text-6xl"></i>
+            <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Weather App</span>
+          </Link>
+
+
         </div>
       </section>
       {/* Footer */}
