@@ -130,7 +130,7 @@ const TakePhoto = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-black transition-all">
+    <div id="photobooth" className="min-h-screen flex flex-col bg-gray-100 dark:bg-black transition-all">
       <Navbar />
       <div className="flex-1 px-4 py-8 md:py-12 flex flex-col items-center lg:pt-25 xl:pt-25">
         <h1 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center text-black dark:text-white font-kreon tracking-wider">
