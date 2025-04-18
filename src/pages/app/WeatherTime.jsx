@@ -334,7 +334,7 @@ const InternationalWeatherApp = () => {
   const [showSettings, setShowSettings] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div id="weathertime" className="min-h-screen flex flex-col">
       <div className="flex-grow flex flex-col items-center justify-center p-6 bg-white dark:bg-black">
         <div>
           <Navbar />
