@@ -29,25 +29,23 @@ const hap = () => {
             <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">PhotoBooth</span>
           </Link>
 
+          {/* Weather App */}
+          <Link to="/weathertime" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
+            <i className="bi bi-cloud-sun text-4xl md:text-6xl"></i>
+            <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Weather App</span>
+          </Link>
+
           {/* My List Spotify */}
           <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
             <i className="bi bi-music-note-list text-4xl md:text-6xl"></i>
-            <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Spotify List</span>
+            <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Spotify List (X) </span>
           </Link>
 
           {/* My Blog */}
           <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
             <i className="bi bi-journal-text text-4xl md:text-6xl"></i>
-            <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Blog</span>
+            <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Blog (X)</span>
           </Link>
-
-            {/* Weather App */}
-            <Link to="/weathertime" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
-            <i className="bi bi-cloud-sun text-4xl md:text-6xl"></i>
-            <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Weather App</span>
-          </Link>
-
-
         </div>
       </section>
       {/* Footer */}
