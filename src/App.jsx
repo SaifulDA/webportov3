@@ -53,7 +53,7 @@ const App = () => {
         <Route path="/app" element={<HomAp />} />
         <Route path="/photobooth" element={<PhotoBooth />} />
         <Route path="/customize" element={<CustomizePhoto />} />
-        <Route path="/timezone" element={<WeatherTime />} />
+        <Route path="/weathertime" element={<WeatherTime />} />
         {/* Tambahkan routes dari BooksRoutes */}
         {/* Render BooksRoutes dengan .map() */}
         {BooksRoutes.map((route, index) => (
