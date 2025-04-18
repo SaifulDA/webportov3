@@ -102,8 +102,8 @@ const Gallery = () => {
         </div>
 
         {/* E-Book Section */}
-        <hr className="border-t-2 mt-5 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
-        <div id="ebooks" className="text-center">
+        <hr id="ebooks" className="border-t-2 mt-5 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
+        <div className="text-center">
           <ScrollFloat animationDuration={1} ease="back.inOut(2)" scrollStart="center bottom+=30%" scrollEnd="bottom bottom-=40%" stagger={0.03} className="font-kreon text-3xl tracking-wider font-bold text-gray-900 dark:text-white">
             E-Books
           </ScrollFloat>
