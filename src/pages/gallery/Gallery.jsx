@@ -12,7 +12,7 @@ import wisuda from "../../assets/images/wisuda.jpg";
 import fRembulan from "../../assets/images/rembulan/high.png";
 import comson from "../../assets/images/comson.jpg";
 import LazyImage from "../../components/common/LazyImage";
-import Video1 from "../../assets/video/Gallery3.mp4";
+import Video1 from "../../assets/video/videofix.mp4";
 import ScrollFloat from "../../components/common/ScrollFloat/ScrollFloat";
 
 const galleryItems = [
