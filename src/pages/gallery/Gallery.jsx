@@ -62,7 +62,7 @@ const ebookItems = [
 
 const Gallery = () => {
   return (
-    <div id="gallery" className="bg-gray-100 text-black dark:bg-gray-900 dark:text-white min-h-screen flex flex-col">
+    <div id="gallery" className="bg-white text-black dark:bg-black dark:text-white min-h-screen flex flex-col">
       <Navbar />
       {/* Video Section */}
       <div className="w-full h-screen sm:h-auto mx-auto px-4 overflow-hidden">
@@ -86,7 +86,7 @@ const Gallery = () => {
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
           {galleryItems.map((item, index) => (
-            <div key={index} data-aos="fade-up" className="relative group overflow-hidden rounded-lg shadow-lg dark:bg-gray-800 dark:shadow-white/20">
+            <div key={index} data-aos="fade-up" className="relative group overflow-hidden rounded-lg shadow-lg border dark:border-white dark:bg-black dark:shadow-white/20">
               <LazyImage src={item.img} alt={item.title} className="w-full h-100 object-contain transition-transform duration-300 group-hover:scale-110" />
               <div className="absolute inset-0 flex items-center justify-center bg-black/50 dark:bg-white/50 bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-white p-3 bg-black bg-opacity-70 rounded-full">
@@ -112,7 +112,7 @@ const Gallery = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
           {ebookItems.map((item, index) => (
-            <div key={index} data-aos="fade-up" className="relative group overflow-hidden rounded-lg shadow-lg p-6 bg-white dark:bg-gray-800 dark:shadow-white/20 text-center">
+            <div key={index} data-aos="fade-up" className="relative group overflow-hidden rounded-lg shadow-lg p-6 bg-white dark:bg-black border dark:border-white dark:shadow-white/20 text-center">
               <LazyImage src={item.img} alt={item.title} className="w-full h-64 object-cover rounded-lg mb-4" />
               <h3 className="text-md font-semibold mb-2">{item.title}</h3>
               <p className="text-sm text-gray-500">{item.author}</p>
