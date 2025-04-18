@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Analytics } from "@vercel/analytics/next";
+//import { Analytics } from "@vercel/analytics/next";
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AOS from "aos";
@@ -30,7 +30,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Analytics />
+      
         {/* Layout untuk halaman utama */}
         <Route path="/" element={<Layout />}>
           <Route
