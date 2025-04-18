@@ -24,25 +24,25 @@ const hap = () => {
         {/* Kontainer Icon */}
         <div className="grid grid-cols-4 md:grid-cols-4 gap-y-10 md:gap-x-16 px-8 pb-10">
           {/* PhotoBooth */}
-          <Link to="/photobooth" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700 transition transform hover:scale-110">
+          <Link to="/photobooth" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
             <i className="bi bi-camera2 text-4xl md:text-6xl"></i>
             <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">PhotoBooth</span>
           </Link>
 
           {/* My List Spotify */}
-          <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700 transition transform hover:scale-110">
+          <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
             <i className="bi bi-music-note-list text-4xl md:text-6xl"></i>
             <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Spotify List</span>
           </Link>
 
           {/* My Blog */}
-          <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700 transition transform hover:scale-110">
+          <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
             <i className="bi bi-journal-text text-4xl md:text-6xl"></i>
             <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Blog</span>
           </Link>
 
             {/* Weather App */}
-            <Link to="/timezone" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700 transition transform hover:scale-110">
+            <Link to="/weathertime" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
             <i className="bi bi-cloud-sun text-4xl md:text-6xl"></i>
             <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Weather App</span>
           </Link>
