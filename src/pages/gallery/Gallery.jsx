@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
 import { Instagram } from "lucide-react";
@@ -13,6 +13,7 @@ import fRembulan from "../../assets/images/rembulan/high.png";
 import comson from "../../assets/images/comson.jpg";
 import LazyImage from "../../components/common/LazyImage";
 import Video1 from "../../assets/video/videofix.mp4";
+import Video2 from "../../assets/video/videofix2.mp4"; // Added import for mobile video
 import ScrollFloat from "../../components/common/ScrollFloat/ScrollFloat";
 
 const galleryItems = [
@@ -61,6 +62,24 @@ const ebookItems = [
 ];
 
 const Gallery = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect if device is mobile based on screen width
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 640); // 640px is the sm breakpoint in Tailwind
+    };
+
+    // Check on initial load
+    checkIfMobile();
+
+    // Set up event listener for window resize
+    window.addEventListener("resize", checkIfMobile);
+
+    // Clean up
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
   return (
     <div id="gallery" className="bg-white text-black dark:bg-black dark:text-white min-h-screen flex flex-col">
       <Navbar />
@@ -68,7 +87,7 @@ const Gallery = () => {
       <div className="w-full h-screen sm:h-auto mx-auto px-4 overflow-hidden">
         <div className="relative w-full h-full sm:pb-[56.25%]">
           <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
-            <source src={Video1} type="video/mp4" />
+            <source src={isMobile ? Video2 : Video1} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
