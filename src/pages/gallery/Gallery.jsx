@@ -62,36 +62,26 @@ const ebookItems = [
 ];
 
 const Gallery = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Detect if device is mobile based on screen width
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 640); // 640px is the sm breakpoint in Tailwind
-    };
-
-    // Check on initial load
-    checkIfMobile();
-
-    // Set up event listener for window resize
-    window.addEventListener("resize", checkIfMobile);
-
-    // Clean up
-    return () => window.removeEventListener("resize", checkIfMobile);
-  }, []);
-
   return (
     <div id="gallery" className="bg-white text-black dark:bg-black dark:text-white min-h-screen flex flex-col">
       <Navbar />
       {/* Video Section */}
       <div className="w-full h-screen sm:h-auto mx-auto px-4 overflow-hidden">
         <div className="relative w-full h-full sm:pb-[56.25%]">
-          <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
-            <source src={isMobile ? Video2 : Video1} type="video/mp4" />
+          {/* Desktop Video - only visible on sm screens and up */}
+          <video autoPlay loop muted className="desktop-video absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg hidden sm:block">
+            <source src={Video1} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          {/* Mobile Video - only visible on screens smaller than sm */}
+          <video autoPlay loop muted className="mobile-video absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg block sm:hidden">
+            <source src={Video2} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
+
       {/* Gallery Section */}
       <div className="max-w-6xl mx-auto mt-16 px-6 dark:text-white">
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mb-4 dark:border-white" />
