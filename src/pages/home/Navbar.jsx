@@ -210,7 +210,7 @@ const Navbar = () => {
             {/* Search Form */}
             <div ref={searchRef} className="relative">
               <form onSubmit={handleSearch}>
-                <div className="flex items-center bg-white/20 dark:bg-gray-800/40 rounded-full overflow-hidden border border-gray-600 shadow-lg dark:shadow-sm dark:shadow-white dark:border-gray-700">
+                <div className="flex items-center bg-white/20 dark:bg-gray-800/40 rounded-full overflow-hidden border border-gray-600 shadow-lg dark:border-white dark:border-gray-700">
                   <input
                     type="text"
                     placeholder="Search Title by ID ..."
