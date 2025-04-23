@@ -64,19 +64,19 @@ const EbookViewer = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(100); // Add zoom level state
-  
+
   // Check if the screen size is mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     // Initial check
     checkMobile();
-    
+
     // Add event listener for window resize
     window.addEventListener("resize", checkMobile);
-    
+
     // Clean up
     return () => {
       window.removeEventListener("resize", checkMobile);
@@ -92,12 +92,12 @@ const EbookViewer = () => {
   useEffect(() => {
     // Start transition
     setIsTransitioning(true);
-    
+
     // End transition after animation completes
     const timer = setTimeout(() => {
       setIsTransitioning(false);
     }, 300);
-    
+
     return () => clearTimeout(timer);
   }, [isFullscreen]);
 
@@ -105,7 +105,7 @@ const EbookViewer = () => {
     if (!flipping) {
       setDirection("forward");
       setFlipping(true);
-      
+
       setTimeout(() => {
         if (isMobile) {
           if (currentPage < pages.length - 1) {
@@ -125,7 +125,7 @@ const EbookViewer = () => {
     if (currentPage > 0 && !flipping) {
       setDirection("backward");
       setFlipping(true);
-      
+
       setTimeout(() => {
         if (isMobile) {
           setCurrentPage(currentPage - 1);
@@ -201,10 +201,7 @@ const EbookViewer = () => {
 
   // Render mobile view (single page)
   const renderMobileView = () => (
-    <div 
-      id="ebook-container-mobile" 
-      className={`relative w-full transition-all duration-300 ease-in-out ${isFullscreen ? "max-w-md" : "max-w-xs"}`}
-    >
+    <div id="ebook-container-mobile" className={`relative w-full transition-all duration-300 ease-in-out ${isFullscreen ? "max-w-md" : "max-w-xs"}`}>
       {/* Improved header - fixed position at top */}
       <div className={`${isFullscreen ? "fixed" : "sticky"} top-0  left-0 right-0 z-40 bg-white dark:bg-gray-900 shadow-md p-3 flex justify-between items-center transition-all duration-300`}>
         <h1 className="font-kreon tracking-wider text-2xl font-bold">Rembulan</h1>
@@ -218,7 +215,7 @@ const EbookViewer = () => {
         {/* Single page container */}
         <div className={`relative flex justify-center items-center w-full aspect-[3/4] mb-6 transition-transform duration-300 ease-in-out ${isFullscreen ? "scale-110" : "scale-100"}`}>
           {/* Book with single page */}
-          <div 
+          <div
             className={`w-full h-full flex relative book-shadow rounded-lg overflow-hidden bg-white dark:bg-gray-800 
               ${flipping && direction === "forward" ? "animate-page-flip-mobile-forward" : ""} 
               ${flipping && direction === "backward" ? "animate-page-flip-mobile-backward" : ""}`}
@@ -229,12 +226,7 @@ const EbookViewer = () => {
             }}
           >
             <div className="absolute inset-0 p-4 flex justify-center items-center">
-              <img 
-                src={pages[currentPage]} 
-                alt={`Page ${currentPage + 1}`} 
-                className="w-full h-full object-contain" 
-                style={{ transform: `scale(${zoomLevel / 100})` }}
-              />
+              <img src={pages[currentPage]} alt={`Page ${currentPage + 1}`} className="w-full h-full object-contain" style={{ transform: `scale(${zoomLevel / 100})` }} />
             </div>
 
             {/* Page corner fold effect */}
@@ -242,9 +234,7 @@ const EbookViewer = () => {
           </div>
 
           {/* Page turning overlay */}
-          {flipping && (
-            <div className={`absolute inset-0 w-full h-full pointer-events-none z-10 ${direction === "forward" ? "animate-page-shadow-right" : "animate-page-shadow-left"}`}></div>
-          )}
+          {flipping && <div className={`absolute inset-0 w-full h-full pointer-events-none z-10 ${direction === "forward" ? "animate-page-shadow-right" : "animate-page-shadow-left"}`}></div>}
         </div>
       </div>
 
@@ -253,11 +243,7 @@ const EbookViewer = () => {
         <button
           onClick={prevPage}
           disabled={currentPage === 0 || flipping}
-          className={`p-3 rounded-full transition-all ${
-            currentPage === 0 || flipping 
-              ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" 
-              : "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 hover:scale-105 shadow-lg"
-          }`}
+          className={`p-3 rounded-full transition-all ${currentPage === 0 || flipping ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" : "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 hover:scale-105 shadow-lg"}`}
           aria-label="Previous page"
         >
           <ChevronLeft size={24} />
@@ -266,28 +252,18 @@ const EbookViewer = () => {
         <button
           onClick={zoomOut}
           disabled={zoomLevel <= 60}
-          className={`p-3 rounded-full transition-all ${
-            zoomLevel <= 60
-              ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" 
-              : "bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800 hover:scale-105 shadow-lg"
-          }`}
+          className={`p-3 rounded-full transition-all ${zoomLevel <= 60 ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" : "bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800 hover:scale-105 shadow-lg"}`}
           aria-label="Zoom out"
         >
           <ZoomOut size={24} />
         </button>
 
-        <div className="bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded-md text-sm font-medium">
-          {zoomLevel}%
-        </div>
+        <div className="bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded-md text-sm font-medium">{zoomLevel}%</div>
 
         <button
           onClick={zoomIn}
           disabled={zoomLevel >= 200}
-          className={`p-3 rounded-full transition-all ${
-            zoomLevel >= 200
-              ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" 
-              : "bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800 hover:scale-105 shadow-lg"
-          }`}
+          className={`p-3 rounded-full transition-all ${zoomLevel >= 200 ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" : "bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800 hover:scale-105 shadow-lg"}`}
           aria-label="Zoom in"
         >
           <ZoomIn size={24} />
@@ -305,9 +281,7 @@ const EbookViewer = () => {
           onClick={nextPage}
           disabled={currentPage >= pages.length - 1 || flipping}
           className={`p-3 rounded-full transition-all ${
-            currentPage >= pages.length - 1 || flipping 
-              ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" 
-              : "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 hover:scale-105 shadow-lg"
+            currentPage >= pages.length - 1 || flipping ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" : "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 hover:scale-105 shadow-lg"
           }`}
           aria-label="Next page"
         >
@@ -319,12 +293,9 @@ const EbookViewer = () => {
 
   // Render desktop view (double page)
   const renderDesktopView = () => (
-    <div 
-      id="ebook-container-desktop" 
-      className={`relative w-full transition-all duration-300 ease-in-out ${isFullscreen ? "max-w-6xl" : "max-w-4xl"}`}
-    >
+    <div id="ebook-container-desktop" className={`relative w-full transition-all duration-300 ease-in-out pt-10 ${isFullscreen ? "max-w-6xl" : "max-w-4xl"}`}>
       {/* Improved header with contrasting background */}
-      <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 mb-6 flex justify-between items-center">
+      <div className="bg-white dark:bg-black border border-white shadow-md rounded-lg p-4 mb-6 flex justify-between items-center">
         <h1 className="font-kreon tracking-wider text-4xl font-bold">Rembulan</h1>
         <div className="flex items-center space-x-4">
           {/* Zoom controls in header */}
@@ -332,41 +303,28 @@ const EbookViewer = () => {
             <button
               onClick={zoomOut}
               disabled={zoomLevel <= 60}
-              className={`p-2 rounded-full transition-all ${
-                zoomLevel <= 60
-                  ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" 
-                  : "bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800 hover:scale-105"
-              }`}
+              className={`p-2 rounded-full transition-all ${zoomLevel <= 60 ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" : "bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800 hover:scale-105"}`}
               aria-label="Zoom out"
             >
               <ZoomOut size={20} />
             </button>
-            
-            <span className="text-md font-mono bg-white dark:bg-gray-800 px-2 py-1 rounded-md">
-              {zoomLevel}%
-            </span>
-            
+
+            <span className="text-md font-mono bg-white dark:bg-gray-800 px-2 py-1 rounded-md">{zoomLevel}%</span>
+
             <button
               onClick={zoomIn}
               disabled={zoomLevel >= 200}
-              className={`p-2 rounded-full transition-all ${
-                zoomLevel >= 200
-                  ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" 
-                  : "bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800 hover:scale-105"
-              }`}
+              className={`p-2 rounded-full transition-all ${zoomLevel >= 200 ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" : "bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800 hover:scale-105"}`}
               aria-label="Zoom in"
             >
               <ZoomIn size={20} />
             </button>
-            
-            <button
-              onClick={resetZoom}
-              className="text-sm bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-500"
-            >
+
+            <button onClick={resetZoom} className="text-sm bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-500">
               Reset
             </button>
           </div>
-          
+
           <span className="text-lg font-semibold bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-full">
             Page {currentPage + 1} - {Math.min(currentPage + 2, pages.length)} of {pages.length}
           </span>
@@ -375,33 +333,33 @@ const EbookViewer = () => {
 
       {/* Book container with perspective - modified to handle overflow better */}
       <div className="relative mb-10 overflow-visible">
-        <div 
+        <div
           className={`relative flex justify-center items-center w-full aspect-[2/1.3] transition-all duration-300 ease-in-out ${isFullscreen ? "scale-105" : "scale-100"}`}
-          style={{ 
-            perspective: "2000px"
+          style={{
+            perspective: "2000px",
           }}
         >
           {/* Scrollable container for when zoomed in */}
-          <div 
+          <div
             className="relative w-full h-full overflow-auto"
-            style={{ 
-              maxHeight: zoomLevel > 100 ? "60vh" : "none"
+            style={{
+              maxHeight: zoomLevel > 100 ? "60vh" : "none",
             }}
           >
             {/* Main book container with 3D effect */}
-            <div 
+            <div
               className="w-full h-full flex relative shadow-2xl rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800"
-              style={{ 
+              style={{
                 boxShadow: "0 20px 30px rgba(0,0,0,0.3), 0 5px 10px rgba(0,0,0,0.1)",
                 transform: `rotateX(5deg)`,
                 transformStyle: "preserve-3d",
                 transition: "transform 0.3s ease",
-                minHeight: zoomLevel > 100 ? "100%" : "auto"
+                minHeight: zoomLevel > 100 ? "100%" : "auto",
               }}
             >
               {/* Book spine/binding */}
               <div className="absolute inset-y-0 left-1/2 transform -translate-x-1/2 w-4 h-full bg-gradient-to-r from-gray-600 via-gray-500 to-gray-600 z-10 shadow-inner"></div>
-              
+
               {/* Left page */}
               <div
                 className={`w-1/2 h-full bg-white dark:bg-gray-200 relative origin-right transform transition-all duration-800 ease-in-out ${flipping && direction === "backward" ? "animate-page-flip-right" : ""}`}
@@ -409,27 +367,27 @@ const EbookViewer = () => {
                   boxShadow: "inset -10px 0 20px rgba(0,0,0,0.1)",
                   transformStyle: "preserve-3d",
                   backfaceVisibility: "hidden",
-                  borderRight: "1px solid rgba(0,0,0,0.1)"
+                  borderRight: "1px solid rgba(0,0,0,0.1)",
                 }}
               >
                 <div className="absolute inset-0 p-6 flex justify-center items-center">
-                  <img 
-                    src={pages[currentPage]} 
-                    alt={`Page ${currentPage + 1}`} 
+                  <img
+                    src={pages[currentPage]}
+                    alt={`Page ${currentPage + 1}`}
                     className="w-full h-full object-contain"
-                    style={{ 
+                    style={{
                       transform: `rotateY(0deg) scale(${zoomLevel / 100})`,
                       transformOrigin: "center center",
-                      transition: "transform 0.3s ease"
+                      transition: "transform 0.3s ease",
                     }}
                   />
                 </div>
 
                 {/* Page fold effect */}
-                <div 
+                <div
                   className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none"
                   style={{
-                    background: "linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.05) 50%)"
+                    background: "linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.05) 50%)",
                   }}
                 ></div>
               </div>
@@ -441,57 +399,47 @@ const EbookViewer = () => {
                   boxShadow: "inset 10px 0 20px rgba(0,0,0,0.1)",
                   transformStyle: "preserve-3d",
                   backfaceVisibility: "hidden",
-                  borderLeft: "1px solid rgba(0,0,0,0.1)"
+                  borderLeft: "1px solid rgba(0,0,0,0.1)",
                 }}
               >
                 {currentPage + 1 < pages.length && (
                   <div className="absolute inset-0 p-6 flex justify-center items-center">
-                    <img 
-                      src={pages[currentPage + 1]} 
-                      alt={`Page ${currentPage + 2}`} 
+                    <img
+                      src={pages[currentPage + 1]}
+                      alt={`Page ${currentPage + 2}`}
                       className="w-full h-full object-contain"
-                      style={{ 
+                      style={{
                         transform: `rotateY(0deg) scale(${zoomLevel / 100})`,
                         transformOrigin: "center center",
-                        transition: "transform 0.3s ease"
+                        transition: "transform 0.3s ease",
                       }}
                     />
                   </div>
                 )}
 
                 {/* Page fold effect */}
-                <div 
+                <div
                   className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none"
                   style={{
-                    background: "linear-gradient(-135deg, transparent 50%, rgba(0,0,0,0.05) 50%)"
+                    background: "linear-gradient(-135deg, transparent 50%, rgba(0,0,0,0.05) 50%)",
                   }}
                 ></div>
               </div>
 
               {/* Page turning shadow overlay */}
-              {flipping && (
-                <div 
-                  className={`absolute inset-0 w-full h-full pointer-events-none z-20 ${
-                    direction === "forward" 
-                      ? "bg-gradient-to-l from-transparent to-black/10" 
-                      : "bg-gradient-to-r from-transparent to-black/10"
-                  }`}
-                ></div>
-              )}
+              {flipping && <div className={`absolute inset-0 w-full h-full pointer-events-none z-20 ${direction === "forward" ? "bg-gradient-to-l from-transparent to-black/10" : "bg-gradient-to-r from-transparent to-black/10"}`}></div>}
             </div>
           </div>
         </div>
       </div>
 
       {/* Enhanced navigation with visual feedback - Fixed position independent of zoom */}
-      <div className="flex justify-center items-center space-x-10 bg-white dark:bg-gray-800 p-5 rounded-full shadow-lg sticky bottom-4 z-40">
+      <div className="flex justify-center items-center space-x-10 bg-white dark:bg-black border border-white p-5 rounded-full shadow-md  sticky bottom-4 z-40">
         <button
           onClick={prevPage}
           disabled={currentPage === 0 || flipping}
           className={`p-4 rounded-full transition-all duration-200 transform ${
-            currentPage === 0 || flipping 
-              ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" 
-              : "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 hover:scale-110 shadow-lg"
+            currentPage === 0 || flipping ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" : "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 hover:scale-110 shadow-lg"
           }`}
           aria-label="Previous page"
         >
@@ -510,9 +458,7 @@ const EbookViewer = () => {
           onClick={nextPage}
           disabled={currentPage >= pages.length - 2 || flipping}
           className={`p-4 rounded-full transition-all duration-200 transform ${
-            currentPage >= pages.length - 2 || flipping 
-              ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" 
-              : "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 hover:scale-110 shadow-lg"
+            currentPage >= pages.length - 2 || flipping ? "opacity-50 cursor-not-allowed bg-gray-400 text-gray-200" : "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 hover:scale-110 shadow-lg"
           }`}
           aria-label="Next page"
         >
@@ -523,26 +469,20 @@ const EbookViewer = () => {
   );
 
   // Main render function
-  const renderBookContent = () => (
-    isMobile ? renderMobileView() : renderDesktopView()
-  );
+  const renderBookContent = () => (isMobile ? renderMobileView() : renderDesktopView());
 
   if (isFullscreen) {
     return (
-      <div 
-        className={`fixed inset-0 z-50 bg-gray-100 dark:bg-gray-900 text-black dark:text-white flex items-center justify-center transition-opacity duration-300 ease-in-out ${isTransitioning ? "opacity-90" : "opacity-100"}`}
-      >
+      <div className={`fixed inset-0 z-50 bg-gray-100 dark:bg-black text-black dark:text-white flex items-center justify-center transition-opacity duration-300 ease-in-out ${isTransitioning ? "opacity-90" : "opacity-100"}`}>
         {renderBookContent()}
       </div>
     );
   }
 
   return (
-    <div className={`bg-gray-100 text-black dark:bg-gray-900 dark:text-white min-h-screen flex flex-col transition-opacity duration-300 ease-in-out ${!loaded ? "opacity-0" : isTransitioning ? "opacity-90" : "opacity-100"}`}>
+    <div className={`bg-gray-100 text-black dark:bg-black dark:text-white min-h-screen flex flex-col transition-opacity duration-300 ease-in-out ${!loaded ? "opacity-0" : isTransitioning ? "opacity-90" : "opacity-100"}`}>
       <Navbar />
-      <div className="flex-grow flex flex-col items-center justify-center p-6 mt-10">
-        {renderBookContent()}
-      </div>
+      <div className="flex-grow flex flex-col items-center justify-center p-6 mt-10">{renderBookContent()}</div>
       <Footer />
     </div>
   );
