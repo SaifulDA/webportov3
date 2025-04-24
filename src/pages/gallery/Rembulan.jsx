@@ -203,7 +203,7 @@ const EbookViewer = () => {
   const renderMobileView = () => (
     <div id="ebook-container-mobile" className={`relative w-full transition-all duration-300 ease-in-out ${isFullscreen ? "max-w-md" : "max-w-xs"}`}>
       {/* Improved header - fixed position at top */}
-      <div className={`${isFullscreen ? "fixed" : "sticky"} top-0  left-0 right-0 z-40 bg-white dark:bg-gray-900 shadow-md p-3 flex justify-between items-center transition-all duration-300`}>
+      <div className={`${isFullscreen ? "fixed" : "sticky"} top-0 rounded-xl left-0 right-0 z-40 bg-white border dark:border-white dark:bg-black shadow-md p-3 flex justify-between items-center transition-all duration-300`}>
         <h1 className="font-kreon tracking-wider text-2xl font-bold">Rembulan</h1>
         <span className="text-sm font-semibold bg-gray-200 dark:bg-gray-800 px-3 py-1 rounded-full">
           Page {currentPage + 1} of {pages.length}
@@ -216,7 +216,7 @@ const EbookViewer = () => {
         <div className={`relative flex justify-center items-center w-full aspect-[3/4] mb-6 transition-transform duration-300 ease-in-out ${isFullscreen ? "scale-110" : "scale-100"}`}>
           {/* Book with single page */}
           <div
-            className={`w-full h-full flex relative book-shadow rounded-lg overflow-hidden bg-white dark:bg-gray-800 
+            className={`w-full h-full flex relative book-shadow rounded-lg overflow-hidden bg-white dark:bg-black 
               ${flipping && direction === "forward" ? "animate-page-flip-mobile-forward" : ""} 
               ${flipping && direction === "backward" ? "animate-page-flip-mobile-backward" : ""}`}
             style={{
