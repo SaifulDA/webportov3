@@ -6,7 +6,6 @@ import LazyImage from "../../components/common/LazyImage";
 import DecryptedText from "../../components/common/DecryptedText/DecryptedText";
 import RotatingText from "../../components/common/RotatingText/RotatingText";
 
-
 const Hero = () => {
   return (
     <div id="hero" className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 transition-colors duration-300 text-gray-900 dark:text-white dark:bg-black overflow-hidden ">
