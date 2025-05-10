@@ -35,11 +35,11 @@ const hap = () => {
             <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Weather App</span>
           </Link>
 
-          {/* Quiz App */}
-          <Link to="/quiz" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
+          {/* Quiz App    <Link to="/quiz" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
             <i className="bi bi-question-circle text-4xl md:text-6xl"></i>
             <span className="mt-2 text-lg md:text-lg font-kreon tracking-wide">Quiz</span>
           </Link>
+*/}
 
           {/* My List Spotify */}
           <Link to="/comingsoon" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
