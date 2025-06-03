@@ -22,7 +22,7 @@ const hap = () => {
         </div>
 
         {/* Kontainer Icon */}
-        <div className="grid grid-cols-5 md:grid-cols-5 gap-y-10 md:gap-x-16 px-8 pb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-10 gap-x-6 px-8 pb-10">
           {/* PhotoBooth */}
           <Link to="/photobooth" data-aos="fade-up" className="flex flex-col items-center text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 transition transform hover:scale-110">
             <i className="bi bi-camera2 text-4xl md:text-6xl"></i>
