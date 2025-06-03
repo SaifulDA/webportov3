@@ -43,7 +43,7 @@ const Hero = () => {
             characters="ABCD1234!?"
             parentClassName="all-letters text-2xl"
             encryptedClassName="encrypted"
-            className="revealed text-4xl font-kreon mb-2 border-b-2 border-gray-800 dark:border-white inline-block"
+            className="revealed text-2xl sm:text-3xl md:text-4xl font-kreon mb-2 border-b-2 border-gray-800 dark:border-white inline-block"
           >
             {" "}
           </DecryptedText>
