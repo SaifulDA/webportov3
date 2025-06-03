@@ -18,7 +18,7 @@ const About = () => {
         <hr className="border-t-2 border-gray-800 dark:border-white mb-8" />
 
         {/* Isi About Me */}
-        <div className="grid md:grid-cols-2 gap-8 text-lg leading-relaxed text-center">
+        <div className="grid md:grid-cols-2 gap-8 text-lg leading-relaxed text-justify">
           <p data-aos="fade-up">
             I am a passionate IT developer specializing in web development, cloud computing, and mobile development. With a strong foundation in building scalable and efficient web applications, I aim to deliver seamless digital
             experiences. My expertise in cloud computing allows me to design and manage secure, high-performing cloud solutions. Additionally, I develop mobile applications that offer innovative and user-friendly features tailored to
