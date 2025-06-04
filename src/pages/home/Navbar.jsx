@@ -321,20 +321,25 @@ const Navbar = () => {
       {showSearch && (
         <div className="md:hidden fixed top-0 left-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md py-3 px-4 border-b border-gray-200 dark:border-gray-700">
           <div ref={searchRef} className="relative">
-            <form onSubmit={handleSearch} className="flex items-stretch w-full">
-              <input
-                type="text"
-                placeholder="Search..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={handleSearchFocus}
-                autoFocus
-                className="flex-1 px-4 bg-white/30 dark:bg-gray-800/30 rounded-l-full text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700"
-              />
-              <button type="submit" className="px-4 bg-blue-500 dark:bg-blue-600 text-white rounded-r-full border border-blue-500 dark:border-blue-600 dark:hover:bg-blue-700 hover:bg-blue-600">
-                <Search className="w-4 h-4" />
-              </button>
-              <button type="button" onClick={toggleSearch} className="ml-2 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-400">
+            <form onSubmit={handleSearch} className="flex items-center w-full gap-2">
+              {/* Wrapper untuk input dan tombol search */}
+              <div className="flex flex-1 rounded-full border border-gray-300 dark:border-gray-600 focus-within:ring-2 focus-within:ring-blue-500 overflow-hidden transition-all">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onFocus={handleSearchFocus}
+                  autoFocus
+                  className="flex-1 px-4 py-2 bg-transparent text-gray-800 dark:text-white outline-none"
+                />
+                <button type="submit" className="px-4 bg-blue-500 text-white dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors">
+                  <Search className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Tombol X */}
+              <button type="button" onClick={toggleSearch} className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors">
                 <X className="w-4 h-4" />
               </button>
             </form>
