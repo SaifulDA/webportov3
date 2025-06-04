@@ -19,7 +19,7 @@ import PhotoBooth from "./pages/app/PhotoBooth";
 import CustomizePhoto from "./pages/app/CustomizePhoto";
 import BooksRoutes from "./routes/BooksRoutes";
 import WeatherTime from "./pages/app/WeatherTime";
-import Quiz from "./pages/app/Quiz";
+
 
 const App = () => {
   useEffect(() => {
@@ -57,7 +57,7 @@ const App = () => {
         <Route path="/photobooth" element={<PhotoBooth />} />
         <Route path="/customize" element={<CustomizePhoto />} />
         <Route path="/weathertime" element={<WeatherTime />} />
-        <Route path="/quiz" element={<Quiz />} />
+      
         {/* Tambahkan routes dari BooksRoutes */}
         {/* Render BooksRoutes dengan .map() */}
         {BooksRoutes.map((route, index) => (
