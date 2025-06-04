@@ -39,7 +39,7 @@ const NotFound = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 text-gray-800 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-white from-slate-50 via-blue-50 to-indigo-100 dark:bg-black dark:text-white transition-colors duration-300">
       {/* Navbar */}
       <Navbar />
 
@@ -97,7 +97,7 @@ const NotFound = () => {
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} className="flex-1">
               <Link
                 to="/"
-                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-700 dark:to-gray-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group hover:from-gray-800 hover:to-gray-600 dark:hover:from-gray-600 dark:hover:to-gray-500"
+                className="w-full inline-flex items-center justify-center bg-black dark:text-black dark:bg-white  text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group hover:from-gray-800 hover:to-gray-600 dark:hover:from-gray-600 dark:hover:to-gray-500"
               >
                 <svg className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -109,7 +109,7 @@ const NotFound = () => {
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} className="flex-1">
               <button
                 onClick={() => window.history.back()}
-                className="w-full inline-flex items-center justify-center bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-8 py-4 rounded-2xl text-lg font-semibold shadow-xl hover:shadow-2xl border-2 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-gray-700"
+                className="w-full inline-flex items-center justify-center bg-white dark:bg-white dark:text-black text-gray-700 px-8 py-4 rounded-2xl text-lg font-semibold shadow-xl hover:shadow-2xl border-2 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-gray-100"
               >
                 <svg className="w-5 h-5 mr-2 group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -120,10 +120,10 @@ const NotFound = () => {
           </motion.div>
 
           {/* Fun Fact */}
-          <motion.div variants={itemVariants} className="mt-12 p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg max-w-md">
+          <motion.div variants={itemVariants} className="mt-12 p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg max-w-md dark:bg-white dark:shadow-white dark:shadow-md">
             <div className="flex items-center justify-center mb-2">
-              <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                <span className="text-yellow-800 text-lg">💡</span>
+              <div className="w-8 h-8 bg-gray-100 outline outline-blue-500 outline-dashed rounded-full flex items-center justify-center ">
+                <span className="text-yellow-100 text-lg">💡</span>
               </div>
             </div>
             <p className="text-sm text-gray-600 font-medium">
