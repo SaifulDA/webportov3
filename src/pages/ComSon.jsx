@@ -174,7 +174,7 @@ const ComingSoon = () => {
 
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} className="flex-1">
               <Link
-                to="/contact"
+                to="/chat"
                 className="w-full inline-flex items-center justify-center bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg font-semibold shadow-xl hover:shadow-2xl border-2 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-gray-700"
               >
                 Contact Us
