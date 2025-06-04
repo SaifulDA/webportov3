@@ -333,8 +333,8 @@ const Navbar = () => {
                   autoFocus
                   className="flex-1 px-4 py-2 bg-transparent text-gray-800 dark:text-white outline-none"
                 />
-                <button type="submit" className="px-4 bg-blue-500 text-white dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors">
-                  <Search className="w-4 h-4" />
+                <button type="submit" className="flex items-center justify-center px-5 bg-blue-500 text-white dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors">
+                  <Search className="w-5 h-5" />
                 </button>
               </div>
 
