@@ -18,7 +18,6 @@ const allGalleryItems = [
     category: "Portrait",
     link: "https://www.instagram.com/p/DGkrlrvPXZF/",
     aspectRatio: "4:3",
-    likes: 247,
   },
   {
     id: 2,
@@ -29,7 +28,6 @@ const allGalleryItems = [
     category: "Nature",
     link: "https://www.instagram.com/p/DGAqH-bvPEl/",
     aspectRatio: "3:4",
-    likes: 189,
   },
   {
     id: 3,
@@ -40,7 +38,6 @@ const allGalleryItems = [
     category: "Landscape",
     link: "https://www.instagram.com/p/DEy36lFPZCP/",
     aspectRatio: "2:1",
-    likes: 342,
   },
   {
     id: 4,
@@ -51,7 +48,6 @@ const allGalleryItems = [
     category: "Mountain",
     link: "https://www.instagram.com/p/DEuXuSATptz/",
     aspectRatio: "1:1",
-    likes: 156,
   },
   {
     id: 5,
@@ -62,7 +58,6 @@ const allGalleryItems = [
     category: "Achievement",
     link: "https://www.instagram.com/p/DDa4Z_xBquM/",
     aspectRatio: "4:3",
-    likes: 298,
   },
   {
     id: 6,
@@ -73,7 +68,6 @@ const allGalleryItems = [
     category: "Milestone",
     link: "https://www.instagram.com/p/DDLixnBh-hB/",
     aspectRatio: "3:4",
-    likes: 421,
   },
   {
     id: 7,
@@ -86,7 +80,6 @@ const allGalleryItems = [
     duration: "2:15",
     link: "#", // Link Instagram bisa ditambahkan jika ada
     aspectRatio: "16:9",
-    likes: 187,
   },
   {
     id: 8,
@@ -99,7 +92,6 @@ const allGalleryItems = [
     duration: "1:32",
     link: "#", // Link Instagram bisa ditambahkan jika ada
     aspectRatio: "9:16",
-    likes: 124,
   },
 ];
 
@@ -394,11 +386,6 @@ const AllGallery = () => {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-1.5">
                         <Heart size={16} className={`${likedItems.has(item.id) ? "fill-red-500 text-red-500" : "text-gray-300 dark:text-gray-400 group-hover:text-red-400"} transition-colors duration-200`} />
-                        <span className="text-gray-300 dark:text-gray-400 text-xs sm:text-sm">{item.likes}</span>
-                      </div>
-                      <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <Share2 size={16} className="text-gray-300 hover:text-white" />
-                        <Download size={16} className="text-gray-300 hover:text-white" />
                       </div>
                     </div>
                   </div>
@@ -432,9 +419,13 @@ const AllGallery = () => {
           >
             <button
               onClick={closeModal}
-              className="absolute top-3 right-3 sm:top-5 sm:right-5 z-10 text-gray-800 dark:text-white hover:text-black dark:hover:text-gray-200 
-                                    bg-white/70 dark:bg-black/40 hover:bg-white dark:hover:bg-black/60 
-                                    backdrop-blur-sm rounded-full p-2 sm:p-2.5 transition-all duration-300 group shadow-md hover:shadow-lg"
+              className="absolute top-3 right-3 sm:top-5 sm:right-5 z-10
+             text-gray-800 dark:text-white hover:text-black dark:hover:text-gray-200
+             bg-white/70 dark:bg-black/40 hover:bg-white dark:hover:bg-black/60
+             dark:border dark:border-white
+             backdrop-blur-sm rounded-full p-2 sm:p-2.5
+             transition-all duration-300 group
+             shadow-md hover:shadow-lg dark:shadow-white dark:shadow-sm"
               aria-label="Close modal"
             >
               <X size={22} className="group-hover:rotate-90 transition-transform duration-300" />
