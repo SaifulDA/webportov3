@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
-import { Instagram } from "lucide-react";
+import { Instagram, ArrowRight } from "lucide-react";
 import fotoProfile from "../../assets/images/Foto_Profile.jpg";
 import bungaPutih from "../../assets/images/bunga.jpg";
 import sunRise from "../../assets/images/sunrise.jpg";
@@ -13,7 +14,7 @@ import fRembulan from "../../assets/images/rembulan/high.png";
 import comson from "../../assets/images/comson.jpg";
 import LazyImage from "../../components/common/LazyImage";
 import Video1 from "../../assets/video/videofix.mp4";
-import Video2 from "../../assets/video/videofix2.mp4"; // Added import for mobile video
+import Video2 from "../../assets/video/videofix2.mp4";
 import ScrollFloat from "../../components/common/ScrollFloat/ScrollFloat";
 
 const galleryItems = [
@@ -93,7 +94,7 @@ const Gallery = () => {
         <hr className="border-t-2 border-stone-950 w-3/4 max-w-5xl mx-auto mt-4 mb-12 dark:border-white" />
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
           {galleryItems.map((item, index) => (
             <div key={index} data-aos="fade-up" className="relative group overflow-hidden rounded-lg shadow-lg border dark:border-white dark:bg-black dark:shadow-white/20">
               <LazyImage src={item.img} alt={item.title} className="w-full h-100 object-contain transition-transform duration-300 group-hover:scale-110" />
@@ -108,6 +109,17 @@ const Gallery = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Show All Button */}
+        <div className="text-center mb-16">
+          <Link
+            to="/all-gallery"
+            className="inline-flex items-center gap-2 outline-1 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            Show All Gallery
+            <ArrowRight size={20} />
+          </Link>
         </div>
 
         {/* E-Book Section */}
