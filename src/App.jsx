@@ -13,6 +13,7 @@ import Project from "./pages/home/Project";
 import NotFound from "./pages/NotFound"; // Import halaman 404
 import Chat from "./pages/contact/Chat";
 import Gallery from "./pages/gallery/Gallery";
+import AllGallery from "./pages/gallery/AllGallery";
 import CoomingSoon from "./pages/ComSon";
 import HomAp from "./pages/app/HomAp";
 import PhotoBooth from "./pages/app/PhotoBooth";
@@ -50,6 +51,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/all-gallery" element={<AllGallery />} />
         <Route path="/comingsoon" element={<CoomingSoon />} />
 
         {/* Halaman APPLIKASI */}
