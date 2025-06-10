@@ -1,101 +1,73 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
-import { Instagram, Play, ArrowLeft, X, Heart, Share2, Download, Menu, Home, User, Mail, Briefcase } from "lucide-react";
-import { motion, useMotionValue, useAnimation, useTransform } from "framer-motion";
+import { Instagram, Play, X, Heart } from "lucide-react";
+import { motion, useMotionValue, useAnimation } from "framer-motion";
 // Import Navbar and Footer
 import Navbar from "../home/Navbar"; // Pastikan path ini benar
 import Footer from "../home/Footer"; // Pastikan path ini benar
 
+// import images and videos from assets if needed
+import Image1 from "../../assets/images/allgallery/1.jpg";
+import Image2 from "../../assets/images/allgallery/2.jpg";
+import Image3 from "../../assets/images/allgallery/3.jpg";
+import Image4 from "../../assets/images/allgallery/4.jpg";
+import Image5 from "../../assets/images/allgallery/5.jpg";
 // Your actual gallery data (assuming it's the same as provided)
 const allGalleryItems = [
   {
     id: 1,
     type: "image",
-    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+    src: Image1,
     author: "Saiful Daulah",
     title: "Foto Profile",
     category: "Portrait",
     link: "https://www.instagram.com/p/DGkrlrvPXZF/",
-    aspectRatio: "4:3",
+    aspectRatio: "1:1",
   },
   {
     id: 2,
     type: "image",
-    src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=800&fit=crop",
+    src: Image2,
     author: "Saiful Daulah",
     title: "Scientist 🌻",
     category: "Nature",
     link: "https://www.instagram.com/p/DGAqH-bvPEl/",
-    aspectRatio: "3:4",
+    aspectRatio: "1:1",
   },
   {
     id: 3,
     type: "image",
-    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop",
+    src: Image3,
     author: "Saiful Daulah",
-    title: "~Sunrise~",
-    category: "Landscape",
-    link: "https://www.instagram.com/p/DEy36lFPZCP/",
-    aspectRatio: "2:1",
+    title: "Scientist 🌻",
+    category: "Nature",
+    link: "https://www.instagram.com/p/DGAqH-bvPEl/",
+    aspectRatio: "1:1",
   },
   {
     id: 4,
     type: "image",
-    src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=800&fit=crop",
+    src: Image4,
     author: "Saiful Daulah",
-    title: "❤❤❤",
-    category: "Mountain",
-    link: "https://www.instagram.com/p/DEuXuSATptz/",
+    title: "Scientist 🌻",
+    category: "Nature",
+    link: "https://www.instagram.com/p/DGAqH-bvPEl/",
     aspectRatio: "1:1",
   },
   {
     id: 5,
     type: "image",
-    src: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=800&h=600&fit=crop",
+    src: Image5,
     author: "Saiful Daulah",
-    title: "Saya baru saja menyelesaikan kursus Belajar Membuat Aplikasi Web dengan React dari @dicoding 🚀",
-    category: "Achievement",
-    link: "https://www.instagram.com/p/DDa4Z_xBquM/",
-    aspectRatio: "4:3",
-  },
-  {
-    id: 6,
-    type: "image",
-    src: "https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=600&h=800&fit=crop",
-    author: "Saiful Daulah",
-    title: "Finally, after planning I got out of my comfort zone since 2018 and I had to do this by 2024",
-    category: "Milestone",
-    link: "https://www.instagram.com/p/DDLixnBh-hB/",
-    aspectRatio: "3:4",
-  },
-  {
-    id: 7,
-    type: "video",
-    src: "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
-    thumbnail: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&h=450&fit=crop",
-    author: "Saiful Daulah",
-    title: "Creative Process",
-    category: "Video",
-    duration: "2:15",
-    link: "#", // Link Instagram bisa ditambahkan jika ada
-    aspectRatio: "16:9",
-  },
-  {
-    id: 8,
-    type: "video",
-    src: "https://sample-videos.com/zip/10/mp4/SampleVideo_640x360_1mb.mp4",
-    thumbnail: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=450&h=800&fit=crop",
-    author: "Saiful Daulah",
-    title: "Behind Scenes",
-    category: "Video",
-    duration: "1:32",
-    link: "#", // Link Instagram bisa ditambahkan jika ada
-    aspectRatio: "9:16",
+    title: "Scientist 🌻",
+    category: "Nature",
+    link: "https://www.instagram.com/p/DGAqH-bvPEl/",
+    aspectRatio: "1:1",
   },
 ];
 
-// Modern Rolling Gallery Component without dark shadows
+// Modern Rolling Gallery Component with enforced 1:1 aspect ratio
 const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) => {
   const [isScreenSizeSm, setIsScreenSizeSm] = useState(window.innerWidth <= 640);
 
@@ -105,19 +77,20 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const cylinderWidth = isScreenSizeSm ? 1200 : 2000;
+  const cylinderWidth = isScreenSizeSm ? 900 : 1500;
   const faceCount = images.length;
-  // Adjusted faceWidth calculation slightly if needed, or ensure image scales within it.
-  // The main fix will be to make the image `w-full` of its container.
-  const faceWidth = faceCount > 0 ? (cylinderWidth / faceCount) * 1.15 : 200; // Slightly adjusted overlap/spacing, ensure faceCount > 0
+  const faceWidth = faceCount > 0 ? (cylinderWidth / faceCount) * 1.05 : 200;
   const radius = faceCount > 0 ? cylinderWidth / (2 * Math.PI) : 0;
+
+  // Calculate square size based on face width with some padding
+  const imageSize = Math.min(faceWidth * 0.8, isScreenSizeSm ? 160 : 200);
 
   const dragFactor = 0.08;
   const rotation = useMotionValue(0);
   const controls = useAnimation();
 
   const startInfiniteSpin = (startAngle) => {
-    if (faceCount === 0) return; // Don't spin if no images
+    if (faceCount === 0) return;
     controls.start({
       rotateY: [startAngle, startAngle - 360],
       transition: { duration: 30, ease: "linear", repeat: Infinity },
@@ -131,8 +104,7 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
     } else {
       controls.stop();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoplay, controls, faceCount]); // Added faceCount as dependency
+  }, [autoplay, controls, faceCount]);
 
   const handleUpdate = (latest) => {
     if (typeof latest.rotateY === "number") {
@@ -165,7 +137,6 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
   };
 
   if (faceCount === 0) {
-    // Optionally render nothing or a placeholder if no images
     return null;
   }
 
@@ -188,7 +159,7 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
           onUpdate={handleUpdate}
           style={{
             rotateY: rotation,
-            width: cylinderWidth, // This is the width of the draggable cylinder container
+            width: cylinderWidth,
             transformStyle: "preserve-3d",
           }}
           className="flex min-h-[400px] cursor-grab active:cursor-grabbing items-center justify-center"
@@ -198,21 +169,20 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
               key={i}
               className="group absolute flex h-fit items-center justify-center p-2 sm:p-3"
               style={{
-                width: `${faceWidth}px`, // Each "face" of the cylinder has this width
+                width: `${faceWidth}px`,
                 transform: `rotateY(${(360 / faceCount) * i}deg) translateZ(${radius}px)`,
                 backfaceVisibility: "hidden",
               }}
             >
-              {/* This container will respect faceWidth because its parent has explicit width */}
-              <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl dark:shadow-black/50 transition-all duration-300">
-                <img
-                  src={url}
-                  alt={`gallery preview ${i + 1}`}
-                  // PERBAIKAN: Menggunakan w-full agar gambar mengisi faceWidth.
-                  // Tinggi tetap eksplisit untuk konsistensi visual dalam silinder.
-                  // object-cover akan menjaga aspek rasio gambar.
-                  className="pointer-events-none w-full h-[180px] sm:h-[200px] md:h-[220px] object-cover transition-all duration-500 ease-out group-hover:scale-105"
-                />
+              {/* Fixed square container with 1:1 aspect ratio */}
+              <div
+                className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl dark:shadow-black/50 transition-all duration-300"
+                style={{
+                  width: `${imageSize}px`,
+                  height: `${imageSize}px`,
+                }}
+              >
+                <img src={url} alt={`gallery preview ${i + 1}`} className="pointer-events-none w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-2 h-2 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 animate-pulse" />
               </div>
@@ -227,15 +197,11 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
 const AllGallery = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [likedItems, setLikedItems] = useState(new Set());
-  // State untuk Navbar bisa dikelola di Navbar itu sendiri jika perlu,
-  // atau diangkat ke komponen App jika Navbar dipakai di banyak halaman.
-  // Untuk contoh ini, kita asumsikan Navbar sudah menangani visibilitasnya.
-  // const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
   const rollingImages = allGalleryItems
     .filter((item) => item.type === "image")
     .map((item) => item.src)
-    .slice(0, 12); // Ambil maksimal 12 gambar untuk roller
+    .slice(0, 12);
 
   const openModal = (item) => {
     setSelectedItem(item);
@@ -275,27 +241,13 @@ const AllGallery = () => {
   };
 
   const getAspectClass = (aspectRatio) => {
-    switch (aspectRatio) {
-      case "2:1":
-        return "aspect-[2/1]";
-      case "1:2":
-        return "aspect-[1/2]";
-      case "3:4":
-        return "aspect-[3/4]";
-      case "4:3":
-        return "aspect-[4/3]";
-      case "16:9":
-        return "aspect-video";
-      case "9:16":
-        return "aspect-[9/16]";
-      default:
-        return "aspect-square";
-    }
+    // Force all images to be square (1:1) regardless of their specified aspect ratio
+    return "aspect-square";
   };
 
   return (
     <>
-      <Navbar /> {/* isVisible prop dihilangkan jika Navbar menangani sendiri */}
+      <Navbar />
       <div className="bg-gradient-to-br from-white via-gray-100 to-sky-100 dark:from-gray-900 dark:via-black dark:to-slate-900 text-gray-900 dark:text-white min-h-screen">
         {/* Modern Clean Hero Section */}
         <div className="relative h-screen overflow-hidden">
@@ -319,7 +271,7 @@ const AllGallery = () => {
              mb-4 tracking-tighter leading-tight sm:leading-snug
              [-webkit-text-fill-color:transparent]
              [-webkit-text-stroke-width:1px]
-             text-white
+             text-black dark:text-white
              [-webkit-text-stroke-color:currentColor]"
                 >
                   Gallery
@@ -345,7 +297,7 @@ const AllGallery = () => {
               className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 
                         bg-gradient-to-r from-gray-800 to-gray-500 
                         dark:from-gray-100 dark:to-gray-400 
-                        bg-clip-text text-transparent"
+                        bg-clip-text text-transparent font-kreon tracking-widest"
             >
               Featured Collection
             </h2>
@@ -444,8 +396,8 @@ const AllGallery = () => {
                   autoPlay
                   className="max-w-full max-h-full object-contain rounded-lg sm:rounded-xl shadow-2xl dark:shadow-black/70"
                   style={{ maxWidth: "calc(100vw - 2rem)", maxHeight: "calc(100vh - 7rem)" }}
-                  src={selectedItem.src} // Pastikan src ada untuk video
-                  key={selectedItem.src} // Tambahkan key jika src bisa berubah untuk re-render
+                  src={selectedItem.src}
+                  key={selectedItem.src}
                 >
                   <source src={selectedItem.src} type="video/mp4" />
                   Your browser does not support the video tag.
