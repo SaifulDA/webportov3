@@ -114,7 +114,7 @@ const Gallery = () => {
         {/* Show All Button */}
         <div className="text-center mb-16">
           <Link
-            to="/comingSoon"
+            to="/all-gallery"
             className="inline-flex items-center gap-2 outline-1 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Show All Gallery
