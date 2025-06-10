@@ -20,9 +20,9 @@ const allGalleryItems = [
     type: "image",
     src: Image1,
     author: "Saiful Daulah",
-    title: "Foto Profile",
-    category: "Portrait",
-    link: "https://www.instagram.com/p/DGkrlrvPXZF/",
+    title: "Pet 🐶",
+    category: "Pet",
+    link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
   {
@@ -30,9 +30,9 @@ const allGalleryItems = [
     type: "image",
     src: Image2,
     author: "Saiful Daulah",
-    title: "Scientist 🌻",
-    category: "Nature",
-    link: "https://www.instagram.com/p/DGAqH-bvPEl/",
+    title: "Pet 🐶",
+    category: "Pet",
+    link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
   {
@@ -40,9 +40,9 @@ const allGalleryItems = [
     type: "image",
     src: Image3,
     author: "Saiful Daulah",
-    title: "Scientist 🌻",
-    category: "Nature",
-    link: "https://www.instagram.com/p/DGAqH-bvPEl/",
+    title: "Pet 🐶",
+    category: "Pet",
+    link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
   {
@@ -50,9 +50,9 @@ const allGalleryItems = [
     type: "image",
     src: Image4,
     author: "Saiful Daulah",
-    title: "Scientist 🌻",
-    category: "Nature",
-    link: "https://www.instagram.com/p/DGAqH-bvPEl/",
+    title: "Pet 🐶",
+    category: "Pet",
+    link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
   {
@@ -60,9 +60,9 @@ const allGalleryItems = [
     type: "image",
     src: Image5,
     author: "Saiful Daulah",
-    title: "Scientist 🌻",
-    category: "Nature",
-    link: "https://www.instagram.com/p/DGAqH-bvPEl/",
+    title: "Pet 🐶",
+    category: "Pet",
+    link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
 ];
@@ -104,17 +104,17 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
     } else {
       controls.stop();
     }
-  }, [autoplay, controls, faceCount]);
+  }, [autoplay, faceCount, controls, rotation]);
 
-  const handleUpdate = (latest) => {
-    if (typeof latest.rotateY === "number") {
-      rotation.set(latest.rotateY);
-    }
-  };
+    const handleUpdate = (latest) => {
+      if (typeof latest.rotateY === "number") {
+        rotation.set(latest.rotateY);
+      }
+    };
 
-  const handleDrag = (_, info) => {
-    if (faceCount === 0) return;
-    controls.stop();
+    const handleDrag = (_, info) => {
+      if (faceCount === 0) return;
+      controls.stop();
     rotation.set(rotation.get() + info.offset.x * dragFactor);
   };
 
@@ -412,10 +412,7 @@ const AllGallery = () => {
               )}
 
               <div className="absolute bottom-3 sm:bottom-5 left-3 right-3 sm:left-5 sm:right-5 text-center">
-                <div
-                  className="bg-white/85 dark:bg-gray-900/85 backdrop-blur-md rounded-lg sm:rounded-xl p-3.5 sm:p-5 max-w-lg mx-auto 
-                                                border border-gray-200/30 dark:border-white/15 shadow-lg dark:shadow-black/50"
-                >
+                <div className="bg-white/85 dark:bg-gray-900/85 backdrop-blur-md rounded-lg sm:rounded-xl p-3.5 sm:p-5 max-w-lg mx-auto border border-gray-200/30 dark:border-white/15 shadow-lg dark:shadow-black/50">
                   <h3 id="modal-title" className="text-gray-900 dark:text-white text-lg sm:text-xl font-semibold mb-1">
                     {selectedItem.title}
                   </h3>
@@ -427,8 +424,7 @@ const AllGallery = () => {
                       href={selectedItem.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-600 to-purple-600 hover:from-sky-700 hover:to-purple-700 
-                                                    text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full transition-all duration-300 font-medium shadow-md hover:shadow-lg text-sm sm:text-base"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-600 to-purple-600 hover:from-sky-700 hover:to-purple-700 text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full transition-all duration-300 font-medium shadow-md hover:shadow-lg text-sm sm:text-base"
                     >
                       <Instagram size={18} />
                       View on Instagram
