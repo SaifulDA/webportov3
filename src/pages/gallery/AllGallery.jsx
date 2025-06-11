@@ -106,15 +106,15 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
     }
   }, [autoplay, faceCount, controls, rotation]);
 
-    const handleUpdate = (latest) => {
-      if (typeof latest.rotateY === "number") {
-        rotation.set(latest.rotateY);
-      }
-    };
+  const handleUpdate = (latest) => {
+    if (typeof latest.rotateY === "number") {
+      rotation.set(latest.rotateY);
+    }
+  };
 
-    const handleDrag = (_, info) => {
-      if (faceCount === 0) return;
-      controls.stop();
+  const handleDrag = (_, info) => {
+    if (faceCount === 0) return;
+    controls.stop();
     rotation.set(rotation.get() + info.offset.x * dragFactor);
   };
 
@@ -304,7 +304,8 @@ const AllGallery = () => {
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Explore our curated selection of stunning photography and creative videos, each telling a unique story.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-8 auto-rows-[minmax(0,auto)]">
+          {/* Fixed Grid Layout: Mobile (3 cols), Tablet (4 cols), Desktop (5 cols) */}
+          <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
             {allGalleryItems.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -312,12 +313,10 @@ const AllGallery = () => {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: index * 0.07, ease: "easeOut" }}
-                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-black/60 transition-all duration-300 cursor-pointer 
-                                        ${getGridClass(item.aspectRatio)} 
-                                        hover:ring-4 hover:ring-sky-500/50 dark:hover:ring-sky-400/50 hover:scale-[1.03]`}
+                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-black/60 transition-all duration-300 cursor-pointer hover:ring-4 hover:ring-sky-500/50 dark:hover:ring-sky-400/50 hover:scale-[1.03]"
                 onClick={() => openModal(item)}
               >
-                <div className={`relative w-full ${getAspectClass(item.aspectRatio)} overflow-hidden`}>
+                <div className="relative w-full aspect-square overflow-hidden">
                   {item.type === "video" ? (
                     <div className="relative w-full h-full">
                       <img src={item.thumbnail} alt={item.title || "Video thumbnail"} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy" />
@@ -333,7 +332,7 @@ const AllGallery = () => {
                   )}
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
-                    <h3 className="text-white text-md sm:text-lg font-semibold mb-0.5 truncate">{item.title}</h3>
+                    <h3 className="text-white text-sm sm:text-base lg:text-lg font-semibold mb-0.5 truncate">{item.title}</h3>
                     <p className="text-sky-200 dark:text-sky-300 text-xs sm:text-sm mb-1.5">{item.category}</p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-1.5">
@@ -350,7 +349,7 @@ const AllGallery = () => {
                     className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-full p-1.5 sm:p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-700 scale-90 group-hover:scale-100"
                     aria-label="Like item"
                   >
-                    <Heart size={18} className={`${likedItems.has(item.id) ? "fill-red-500 text-red-500" : "text-gray-600 dark:text-gray-400"} transition-colors duration-200`} />
+                    <Heart size={16} className={`${likedItems.has(item.id) ? "fill-red-500 text-red-500" : "text-gray-600 dark:text-gray-400"} transition-colors duration-200`} />
                   </button>
                 </div>
               </motion.div>
