@@ -104,6 +104,7 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
     } else {
       controls.stop();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoplay, faceCount, controls, rotation]);
 
   const handleUpdate = (latest) => {
