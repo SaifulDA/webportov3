@@ -4,55 +4,56 @@ import { Link } from "react-router-dom";
 import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
 import { Instagram, ArrowRight } from "lucide-react";
-import fotoProfile from "../../assets/images/Foto_Profile.jpg";
-import bungaPutih from "../../assets/images/bunga.jpg";
-import sunRise from "../../assets/images/sunrise.jpg";
-import gunung from "../../assets/images/gunung.jpg";
-import sertiReact from "../../assets/images/serti_react.jpg";
-import wisuda from "../../assets/images/wisuda.jpg";
 import fRembulan from "../../assets/images/rembulan/high.png";
 import comson from "../../assets/images/comson.jpg";
 import LazyImage from "../../components/common/LazyImage";
 import Video1 from "../../assets/video/videofix.mp4";
 import Video2 from "../../assets/video/videofix2.mp4";
 import ScrollFloat from "../../components/common/ScrollFloat/ScrollFloat";
+// foto gallery
+import a1 from "../../assets/images/gallery/a1.jpg";
+import a2 from "../../assets/images/gallery/a2.jpg";
+import a3 from "../../assets/images/gallery/a3.jpg";
+import a4 from "../../assets/images/gallery/a4.jpg";
+import a5 from "../../assets/images/gallery/a5.jpg";
+import a6 from "../../assets/images/gallery/a6.jpg";
 
 const galleryItems = [
   {
-    img: fotoProfile,
+    img: a1,
     author: "Saiful Daulah",
-    title: "Foto Profile",
+    title: 'Alhamdulillah, berhasil menyelesaikan kelas "Belajar Penggunaan Generative AI" dari Dicoding Indonesia✅',
+    link: "https://www.instagram.com/p/DKwVfLvhd0m/",
+  },
+  {
+    img: a2,
+    author: "Saiful Daulah",
+    title: "🎉 Sertifikat Tercapai! 🚀 Bangga telah menyelesaikan kelas AI Praktis untuk Produktivitas dari @dicoding , bagian dari AI Opportunity Fund: Asia Pacific yang didukung oleh Google.org & ADB.",
+    link: "https://www.instagram.com/p/DKZD-JnhdE0/",
+  },
+  {
+    img: a3,
+    author: "Saiful Daulah",
+    title: "Branding.",
+    link: "https://www.instagram.com/p/DKRU2JGzC8U/",
+  },
+  {
+    img: a4,
+    author: "Saiful Daulah",
+    title: "Dream .",
+    link: "https://www.instagram.com/p/DJTIpiPpltr/",
+  },
+  {
+    img: a5,
+    author: "Saiful Daulah",
+    title: "Remembering my childhood",
+    link: "https://www.instagram.com/p/DJQSZuqz4Rq/",
+  },
+  {
+    img: a6,
+    author: "Saiful Daulah",
+    title: "1 2 3 ....",
     link: "https://www.instagram.com/p/DGkrlrvPXZF/",
-  },
-  {
-    img: bungaPutih,
-    author: "Saiful Daulah",
-    title: "Scientist 🌻",
-    link: "https://www.instagram.com/p/DGAqH-bvPEl/",
-  },
-  {
-    img: sunRise,
-    author: "Saiful Daulah",
-    title: "~Sunrise~",
-    link: "https://www.instagram.com/p/DEy36lFPZCP/",
-  },
-  {
-    img: gunung,
-    author: "Saiful Daulah",
-    title: "❤❤❤",
-    link: "https://www.instagram.com/p/DEuXuSATptz/",
-  },
-  {
-    img: sertiReact,
-    author: "Saiful Daulah",
-    title: "Saya baru saja menyelesaikan kursus Belajar Membuat Aplikasi Web dengan React dari @dicoding 🚀",
-    link: "https://www.instagram.com/p/DDa4Z_xBquM/",
-  },
-  {
-    img: wisuda,
-    author: "Saiful Daulah",
-    title: "Finally, after planning I got out of my comfort zone since 2018 and I had to do this by 2024",
-    link: "https://www.instagram.com/p/DDLixnBh-hB/",
   },
 ];
 
@@ -113,10 +114,7 @@ const Gallery = () => {
 
         {/* Show All Button */}
         <div className="text-center mb-16">
-          <Link
-            to="/all-gallery"
-            className="inline-flex items-center gap-2 outline-1 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-          >
+          <Link to="/all-gallery" className="inline-flex items-center gap-2 outline-1 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
             Show All Gallery
             <ArrowRight size={20} />
           </Link>
