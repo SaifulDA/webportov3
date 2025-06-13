@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
-import { Instagram, Play, X, Heart } from "lucide-react";
+import { Instagram, Play, X, Heart, Filter } from "lucide-react";
 import { motion, useMotionValue, useAnimation } from "framer-motion";
 // Import Navbar and Footer
 import Navbar from "../home/Navbar"; // Pastikan path ini benar
@@ -13,32 +13,23 @@ import Image2 from "../../assets/images/allgallery/2.jpg";
 import Image3 from "../../assets/images/allgallery/3.jpg";
 import Image4 from "../../assets/images/allgallery/4.jpg";
 import Image5 from "../../assets/images/allgallery/5.jpg";
+import Image6 from "../../assets/images/allgallery/6.jpg";
 // Your actual gallery data (assuming it's the same as provided)
 const allGalleryItems = [
   {
-    id: 1,
+    id: 6,
     type: "image",
-    src: Image1,
+    src: Image6,
     author: "Saiful Daulah",
-    title: "Pet 🐶",
-    category: "Pet",
+    title: "Sunset Doll 🌅",
+    category: "Photography",
     link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
   {
-    id: 2,
+    id: 5,
     type: "image",
-    src: Image2,
-    author: "Saiful Daulah",
-    title: "Pet 🐶",
-    category: "Pet",
-    link: "https://www.instagram.com/s.d.a.2.4/",
-    aspectRatio: "1:1",
-  },
-  {
-    id: 3,
-    type: "image",
-    src: Image3,
+    src: Image5,
     author: "Saiful Daulah",
     title: "Pet 🐶",
     category: "Pet",
@@ -56,9 +47,29 @@ const allGalleryItems = [
     aspectRatio: "1:1",
   },
   {
-    id: 5,
+    id: 3,
     type: "image",
-    src: Image5,
+    src: Image3,
+    author: "Saiful Daulah",
+    title: "Pet 🐶",
+    category: "Pet",
+    link: "https://www.instagram.com/s.d.a.2.4/",
+    aspectRatio: "1:1",
+  },
+  {
+    id: 2,
+    type: "image",
+    src: Image2,
+    author: "Saiful Daulah",
+    title: "Pet 🐶",
+    category: "Pet",
+    link: "https://www.instagram.com/s.d.a.2.4/",
+    aspectRatio: "1:1",
+  },
+  {
+    id: 1,
+    type: "image",
+    src: Image1,
     author: "Saiful Daulah",
     title: "Pet 🐶",
     category: "Pet",
@@ -104,7 +115,7 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
     } else {
       controls.stop();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoplay, faceCount, controls, rotation]);
 
   const handleUpdate = (latest) => {
@@ -198,11 +209,24 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
 const AllGallery = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [likedItems, setLikedItems] = useState(new Set());
+  // Tambahkan state baru ini:
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
+  // Tambahkan logic filter ini:
+  const categories = ["All", ...new Set(allGalleryItems.map((item) => item.category))];
+
+  const filteredItems = selectedCategory === "All" ? allGalleryItems : allGalleryItems.filter((item) => item.category === selectedCategory);
   const rollingImages = allGalleryItems
     .filter((item) => item.type === "image")
     .map((item) => item.src)
     .slice(0, 12);
+
+  // Tambahkan function ini:
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    setIsFilterOpen(false);
+  };
 
   const openModal = (item) => {
     setSelectedItem(item);
@@ -305,9 +329,89 @@ const AllGallery = () => {
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Explore our curated selection of stunning photography and creative videos, each telling a unique story.</p>
           </motion.div>
 
+          {/* Filter Section */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-8 sm:mb-12">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <div className="flex items-center gap-2">
+                <Filter className="text-gray-600 dark:text-gray-400" size={20} />
+                <span className="text-gray-700 dark:text-gray-300 font-medium">Filter by category:</span>
+              </div>
+
+              {/* Filter Dropdown for all screen sizes */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsFilterOpen(!isFilterOpen)}
+                  className="flex items-center justify-between gap-3 px-4 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 shadow-sm hover:shadow-md min-w-[160px]"
+                >
+                  <span className="font-medium">{selectedCategory}</span>
+                  <motion.div animate={{ rotate: isFilterOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="text-gray-500 dark:text-gray-400">
+                    ▼
+                  </motion.div>
+                </button>
+
+                {/* Dropdown Menu */}
+                {isFilterOpen && (
+                  <>
+                    {/* Overlay untuk menutup dropdown ketika klik di luar */}
+                    <div className="fixed inset-0 z-10" onClick={() => setIsFilterOpen(false)} />
+
+                    <motion.div
+                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-600 z-20 overflow-hidden"
+                    >
+                      <div className="py-2">
+                        {categories.map((category, index) => (
+                          <button
+                            key={category}
+                            onClick={() => handleCategoryChange(category)}
+                            className={`w-full text-left px-4 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center justify-between group ${
+                              selectedCategory === category
+                                ? "bg-gradient-to-r from-sky-50 to-purple-50 dark:from-sky-900/20 dark:to-purple-900/20 text-sky-600 dark:text-sky-400 font-medium border-r-2 border-sky-500"
+                                : "text-gray-700 dark:text-gray-300"
+                            }`}
+                          >
+                            <span className="flex items-center gap-2">
+                              {selectedCategory === category && <div className="w-2 h-2 bg-sky-500 rounded-full animate-pulse" />}
+                              {category}
+                            </span>
+
+                            {category !== "All" && (
+                              <span
+                                className={`text-xs px-2 py-1 rounded-full ${selectedCategory === category ? "bg-sky-100 dark:bg-sky-800 text-sky-600 dark:text-sky-300" : "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400"}`}
+                              >
+                                {allGalleryItems.filter((item) => item.category === category).length}
+                              </span>
+                            )}
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Dropdown footer */}
+                      <div className="border-t border-gray-200 dark:border-gray-600 px-4 py-2 bg-gray-50 dark:bg-gray-700/50">
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Total: {allGalleryItems.length} items</p>
+                      </div>
+                    </motion.div>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Results count */}
+            <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+              Showing <span className="font-semibold text-gray-700 dark:text-gray-300">{filteredItems.length}</span> of <span className="font-semibold">{allGalleryItems.length}</span> items
+              {selectedCategory !== "All" && (
+                <span className="ml-2">
+                  in <span className="font-medium text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-900/20 px-2 py-0.5 rounded-full text-xs">{selectedCategory}</span>
+                </span>
+              )}
+            </div>
+          </motion.div>
           {/* Fixed Grid Layout: Mobile (3 cols), Tablet (4 cols), Desktop (5 cols) */}
           <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
-            {allGalleryItems.map((item, index) => (
+            {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -357,6 +461,19 @@ const AllGallery = () => {
             ))}
           </div>
         </div>
+
+        {/* Tambahkan ini setelah gallery grid */}
+        {/* Empty state */}
+        {filteredItems.length === 0 && (
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-16">
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">No items found</h3>
+            <p className="text-gray-500 dark:text-gray-400 mb-4">No items match the selected category &quot;{selectedCategory}&quot;</p>
+            <button onClick={() => setSelectedCategory("All")} className="px-6 py-2 bg-gradient-to-r from-sky-500 to-purple-500 text-white rounded-full hover:from-sky-600 hover:to-purple-600 transition-all duration-300 shadow-lg">
+              Show All Items
+            </button>
+          </motion.div>
+        )}
 
         {selectedItem && (
           <motion.div
