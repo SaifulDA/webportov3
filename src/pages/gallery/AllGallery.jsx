@@ -85,6 +85,8 @@ const RollingGallery = ({ images = [], autoplay = true, pauseOnHover = true }) =
   useEffect(() => {
     const handleResize = () => setIsScreenSizeSm(window.innerWidth <= 640);
     window.addEventListener("resize", handleResize);
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -228,6 +230,11 @@ const AllGallery = () => {
     setIsFilterOpen(false);
   };
 
+  const gallerySection = document.querySelector(".grid");
+  if (gallerySection) {
+    gallerySection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   const openModal = (item) => {
     setSelectedItem(item);
     document.body.style.overflow = "hidden";
@@ -331,20 +338,20 @@ const AllGallery = () => {
 
           {/* Filter Section */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-8 sm:mb-12">
-            <div className="flex items-center justify-between flex-wrap gap-4">
+            <div className="flex items-start sm:items-center justify-between flex-col sm:flex-row gap-3 sm:gap-4">
               <div className="flex items-center gap-2">
-                <Filter className="text-gray-600 dark:text-gray-400" size={20} />
-                <span className="text-gray-700 dark:text-gray-300 font-medium">Filter by category:</span>
+                <Filter className="text-gray-600 dark:text-gray-400" size={18} />
+                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium">Filter by category:</span>
               </div>
 
-              {/* Filter Dropdown for all screen sizes */}
-              <div className="relative">
+              {/* Filter Dropdown - Mobile First Design */}
+              <div className="relative w-full sm:w-auto">
                 <button
                   onClick={() => setIsFilterOpen(!isFilterOpen)}
-                  className="flex items-center justify-between gap-3 px-4 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 shadow-sm hover:shadow-md min-w-[160px]"
+                  className="flex items-center justify-between w-full sm:w-auto gap-3 px-3 sm:px-4 py-2 sm:py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 shadow-sm hover:shadow-md min-w-[140px] sm:min-w-[160px] text-sm sm:text-base"
                 >
-                  <span className="font-medium">{selectedCategory}</span>
-                  <motion.div animate={{ rotate: isFilterOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="text-gray-500 dark:text-gray-400">
+                  <span className="font-medium truncate">{selectedCategory}</span>
+                  <motion.div animate={{ rotate: isFilterOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="text-gray-500 dark:text-gray-400 flex-shrink-0">
                     ▼
                   </motion.div>
                 </button>
@@ -353,34 +360,36 @@ const AllGallery = () => {
                 {isFilterOpen && (
                   <>
                     {/* Overlay untuk menutup dropdown ketika klik di luar */}
-                    <div className="fixed inset-0 z-10" onClick={() => setIsFilterOpen(false)} />
+                    <div className="fixed inset-0 z-10 bg-black/10 sm:bg-transparent" onClick={() => setIsFilterOpen(false)} />
 
                     <motion.div
                       initial={{ opacity: 0, y: -10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -10, scale: 0.95 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute top-full right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-600 z-20 overflow-hidden"
+                      className="absolute top-full left-0 sm:right-0 sm:left-auto mt-2 w-full sm:w-64 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-600 z-20 overflow-hidden max-h-80 sm:max-h-96"
                     >
-                      <div className="py-2">
+                      <div className="py-1 sm:py-2 max-h-72 sm:max-h-80 overflow-y-auto">
                         {categories.map((category, index) => (
                           <button
                             key={category}
                             onClick={() => handleCategoryChange(category)}
-                            className={`w-full text-left px-4 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center justify-between group ${
+                            className={`w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center justify-between group ${
                               selectedCategory === category
                                 ? "bg-gradient-to-r from-sky-50 to-purple-50 dark:from-sky-900/20 dark:to-purple-900/20 text-sky-600 dark:text-sky-400 font-medium border-r-2 border-sky-500"
                                 : "text-gray-700 dark:text-gray-300"
                             }`}
                           >
-                            <span className="flex items-center gap-2">
-                              {selectedCategory === category && <div className="w-2 h-2 bg-sky-500 rounded-full animate-pulse" />}
-                              {category}
+                            <span className="flex items-center gap-2 flex-1 min-w-0">
+                              {selectedCategory === category && <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-500 rounded-full animate-pulse flex-shrink-0" />}
+                              <span className="truncate">{category}</span>
                             </span>
 
                             {category !== "All" && (
                               <span
-                                className={`text-xs px-2 py-1 rounded-full ${selectedCategory === category ? "bg-sky-100 dark:bg-sky-800 text-sky-600 dark:text-sky-300" : "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400"}`}
+                                className={`text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full flex-shrink-0 ml-2 ${
+                                  selectedCategory === category ? "bg-sky-100 dark:bg-sky-800 text-sky-600 dark:text-sky-300" : "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400"
+                                }`}
                               >
                                 {allGalleryItems.filter((item) => item.category === category).length}
                               </span>
@@ -390,7 +399,7 @@ const AllGallery = () => {
                       </div>
 
                       {/* Dropdown footer */}
-                      <div className="border-t border-gray-200 dark:border-gray-600 px-4 py-2 bg-gray-50 dark:bg-gray-700/50">
+                      <div className="border-t border-gray-200 dark:border-gray-600 px-3 sm:px-4 py-2 bg-gray-50 dark:bg-gray-700/50">
                         <p className="text-xs text-gray-500 dark:text-gray-400">Total: {allGalleryItems.length} items</p>
                       </div>
                     </motion.div>
@@ -400,15 +409,16 @@ const AllGallery = () => {
             </div>
 
             {/* Results count */}
-            <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+            <div className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
               Showing <span className="font-semibold text-gray-700 dark:text-gray-300">{filteredItems.length}</span> of <span className="font-semibold">{allGalleryItems.length}</span> items
               {selectedCategory !== "All" && (
-                <span className="ml-2">
+                <span className="block sm:inline sm:ml-2 mt-1 sm:mt-0">
                   in <span className="font-medium text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-900/20 px-2 py-0.5 rounded-full text-xs">{selectedCategory}</span>
                 </span>
               )}
             </div>
           </motion.div>
+
           {/* Fixed Grid Layout: Mobile (3 cols), Tablet (4 cols), Desktop (5 cols) */}
           <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
             {filteredItems.map((item, index) => (
