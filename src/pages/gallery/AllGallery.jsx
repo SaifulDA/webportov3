@@ -14,8 +14,19 @@ import Image3 from "../../assets/images/allgallery/3.jpg";
 import Image4 from "../../assets/images/allgallery/4.jpg";
 import Image5 from "../../assets/images/allgallery/5.jpg";
 import Image6 from "../../assets/images/allgallery/6.jpg";
+import Image7 from "../../assets/images/allgallery/7.jpg";
 // Your actual gallery data (assuming it's the same as provided)
 const allGalleryItems = [
+  {
+    id: 7,
+    type: "image",
+    src: Image7,
+    author: "Saiful Daulah",
+    title: "Praying Mampis 🐦",
+    category: "Pet",
+    link: "https://www.instagram.com/p/CTHcdMphKL1/",
+    aspectRatio: "1:1",
+  },
   {
     id: 6,
     type: "image",
@@ -230,11 +241,6 @@ const AllGallery = () => {
     setIsFilterOpen(false);
   };
 
-  const gallerySection = document.querySelector(".grid");
-  if (gallerySection) {
-    gallerySection.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
   const openModal = (item) => {
     setSelectedItem(item);
     document.body.style.overflow = "hidden";
@@ -347,8 +353,14 @@ const AllGallery = () => {
               {/* Filter Dropdown - Mobile First Design */}
               <div className="relative w-full sm:w-auto">
                 <button
-                  onClick={() => setIsFilterOpen(!isFilterOpen)}
-                  className="flex items-center justify-between w-full sm:w-auto gap-3 px-3 sm:px-4 py-2 sm:py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 shadow-sm hover:shadow-md min-w-[140px] sm:min-w-[160px] text-sm sm:text-base"
+                  type="button"
+                  // Hapus tabIndex dan onFocus, kita akan tangani di onClick
+                  onClick={(e) => {
+                    e.preventDefault(); // Mencegah aksi default browser (termasuk scroll on focus)
+                    e.stopPropagation(); // Menghentikan event agar tidak "bubble up"
+                    setIsFilterOpen((prev) => !prev);
+                  }}
+                  className="flex items-center justify-between w-full sm:w-auto gap-3 px-3 sm:px-4 py-2 sm:py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 shadow-sm hover:shadow-md min-w-[140px] sm:min-w-[160px] text-sm sm:text-base outline-none"
                 >
                   <span className="font-medium truncate">{selectedCategory}</span>
                   <motion.div animate={{ rotate: isFilterOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="text-gray-500 dark:text-gray-400 flex-shrink-0">
@@ -360,7 +372,14 @@ const AllGallery = () => {
                 {isFilterOpen && (
                   <>
                     {/* Overlay untuk menutup dropdown ketika klik di luar */}
-                    <div className="fixed inset-0 z-10 bg-black/10 sm:bg-transparent" onClick={() => setIsFilterOpen(false)} />
+                    <div
+                      className="fixed inset-0 z-10 bg-black/10 sm:bg-transparent"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsFilterOpen(false);
+                      }}
+                    />
 
                     <motion.div
                       initial={{ opacity: 0, y: -10, scale: 0.95 }}
@@ -368,13 +387,20 @@ const AllGallery = () => {
                       exit={{ opacity: 0, y: -10, scale: 0.95 }}
                       transition={{ duration: 0.15 }}
                       className="absolute top-full left-0 sm:right-0 sm:left-auto mt-2 w-full sm:w-64 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-600 z-20 overflow-hidden max-h-80 sm:max-h-96"
+                      // Hapus style inline ini, karena tidak lagi diperlukan dan bisa menyebabkan masalah layout
                     >
                       <div className="py-1 sm:py-2 max-h-72 sm:max-h-80 overflow-y-auto">
                         {categories.map((category, index) => (
                           <button
                             key={category}
-                            onClick={() => handleCategoryChange(category)}
-                            className={`w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center justify-between group ${
+                            type="button"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              handleCategoryChange(category);
+                            }}
+                            // Hapus onMouseDown karena onClick sudah cukup
+                            className={`w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center justify-between group focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 ${
                               selectedCategory === category
                                 ? "bg-gradient-to-r from-sky-50 to-purple-50 dark:from-sky-900/20 dark:to-purple-900/20 text-sky-600 dark:text-sky-400 font-medium border-r-2 border-sky-500"
                                 : "text-gray-700 dark:text-gray-300"
