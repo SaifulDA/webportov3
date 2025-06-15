@@ -15,15 +15,26 @@ import Image4 from "../../assets/images/allgallery/4.jpg";
 import Image5 from "../../assets/images/allgallery/5.jpg";
 import Image6 from "../../assets/images/allgallery/6.jpg";
 import Image7 from "../../assets/images/allgallery/7.jpg";
+import Image8 from "../../assets/images/allgallery/8.jpg";
 // Your actual gallery data (assuming it's the same as provided)
 const allGalleryItems = [
+    {
+    id: 8,
+    type: "image",
+    src: Image8,
+    author: "Saiful Daulah",
+    title: "Girlfriend Flower 🌸",
+    category: "Flowers",
+    link: "https://www.instagram.com/p/CTSTQ5oPKM8/",
+    aspectRatio: "1:1",
+  },
   {
     id: 7,
     type: "image",
     src: Image7,
     author: "Saiful Daulah",
     title: "Praying Mampis 🐦",
-    category: "Pet",
+    category: "Pets",
     link: "https://www.instagram.com/p/CTHcdMphKL1/",
     aspectRatio: "1:1",
   },
@@ -43,7 +54,7 @@ const allGalleryItems = [
     src: Image5,
     author: "Saiful Daulah",
     title: "Pet 🐶",
-    category: "Pet",
+    category: "Pets",
     link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
@@ -53,7 +64,7 @@ const allGalleryItems = [
     src: Image4,
     author: "Saiful Daulah",
     title: "Pet 🐶",
-    category: "Pet",
+    category: "Pets",
     link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
@@ -63,7 +74,7 @@ const allGalleryItems = [
     src: Image3,
     author: "Saiful Daulah",
     title: "Pet 🐶",
-    category: "Pet",
+    category: "Pets",
     link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
@@ -73,7 +84,7 @@ const allGalleryItems = [
     src: Image2,
     author: "Saiful Daulah",
     title: "Pet 🐶",
-    category: "Pet",
+    category: "Pets",
     link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
@@ -83,7 +94,7 @@ const allGalleryItems = [
     src: Image1,
     author: "Saiful Daulah",
     title: "Pet 🐶",
-    category: "Pet",
+    category: "Pets",
     link: "https://www.instagram.com/s.d.a.2.4/",
     aspectRatio: "1:1",
   },
